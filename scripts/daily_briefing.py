@@ -52,13 +52,6 @@ def fetch_subtitle(tmpdir: str) -> tuple[str, str]:
         cmd.append(CHANNEL_URL)
 
         result = subprocess.run(cmd, capture_output=True, text=True, timeout=120)
-        print(f"[{end_idx}] returncode={result.returncode}")
-        print(f"[{end_idx}] stdout={result.stdout[:300]}")
-        print(f"[{end_idx}] stderr={result.stderr[:500]}")
-        # 列出 tmpdir 所有檔案（除錯用）
-        all_files = list(Path(tmpdir).rglob("*"))
-        print(f"[{end_idx}] tmpdir 檔案: {[str(f) for f in all_files]}")
-
         t = result.stdout.strip().splitlines()[0] if result.stdout.strip() else ""
         if t:
             title = t

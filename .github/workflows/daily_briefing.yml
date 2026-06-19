@@ -23,10 +23,15 @@ jobs:
         with:
           python-version: "3.11"
 
+      - name: Install Deno
+        uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+
       - name: Install dependencies
         run: |
           pip install --upgrade pip
-          pip install yt-dlp google-genai
+          pip install "yt-dlp[default]" google-genai
 
       - name: Configure git
         run: |
