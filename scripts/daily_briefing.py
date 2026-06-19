@@ -15,7 +15,6 @@ from pathlib import Path
 from google import genai
 from google.genai import types
 from youtube_transcript_api import YouTubeTranscriptApi
-from youtube_transcript_api.formatters import TextFormatter
 
 # ── 常數 ──────────────────────────────────────────────────────────────────────
 CHANNEL_URL = "https://www.youtube.com/@yutinghaofinance/streams"
@@ -56,11 +55,11 @@ def fetch_subtitle(tmpdir: str) -> tuple[str, str]:
     if not entries:
         raise RuntimeError("yt-dlp 無法取得影片清單")
 
+    ytt = YouTubeTranscriptApi()
     for video_id, title in entries:
         print(f"嘗試 {title} ({video_id})")
         try:
-            transcript_list = YouTubeTranscriptApi.list_transcripts(video_id)
-            # 優先抓中文字幕，其次英文
+            transcript_list = ytt.list(video_id)
             for lang in ("zh-TW", "zh-Hant", "zh-Hans", "zh", "en"):
                 try:
                     transcript = transcript_list.find_transcript([lang])
