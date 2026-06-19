@@ -178,15 +178,30 @@ def call_gemini(transcript: str) -> dict:
 
     client = genai.Client(api_key=api_key)
     prompt = PROMPT_TEMPLATE.format(transcript=transcript[:30000])
-    response = client.models.generate_content(model=GEMINI_MODEL, contents=prompt)
+    # 強制 JSON 輸出模式，避免格式瑕疵
+    response = client.models.generate_content(
+        model=GEMINI_MODEL,
+        contents=prompt,
+        config=types.GenerateContentConfig(
+            response_mime_type="application/json",
+            temperature=0.7,
+        ),
+    )
     raw = response.text.strip()
 
-    # 清除可能的 markdown code fence
+    # 清除可能的 markdown code fence（保險）
     raw = re.sub(r"^```json\s*", "", raw)
     raw = re.sub(r"^```\s*", "", raw)
     raw = re.sub(r"\s*```$", "", raw)
 
-    return json.loads(raw)
+    try:
+        return json.loads(raw)
+    except json.JSONDecodeError:
+        # 後備：擷取最外層 {...} 再試
+        m = re.search(r"\{.*\}", raw, re.DOTALL)
+        if m:
+            return json.loads(m.group(0))
+        raise
 
 
 # ── 4. 生成 HTML ──────────────────────────────────────────────────────────────
