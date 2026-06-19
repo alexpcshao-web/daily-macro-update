@@ -54,8 +54,11 @@ def fetch_subtitle(tmpdir: str) -> tuple[str, str]:
     entries = _get_video_ids(cookies_file)
     if not entries:
         raise RuntimeError("yt-dlp 無法取得影片清單")
+    ytt_kwargs = {}
+    if cookies_file and os.path.exists(cookies_file):
+        ytt_kwargs["cookies"] = cookies_file
+    ytt = YouTubeTranscriptApi(**ytt_kwargs)
 
-    ytt = YouTubeTranscriptApi()
     for video_id, title in entries:
         print(f"嘗試 {title} ({video_id})")
         try:
