@@ -28,36 +28,45 @@ TW_TZ = timezone(timedelta(hours=8))
 # ── 1. 抓字幕 ─────────────────────────────────────────────────────────────────
 def fetch_subtitle(tmpdir: str) -> tuple[str, str]:
     """用 yt-dlp 抓最新一集字幕，回傳 (raw_vtt, video_title)"""
-    cmd = [
-        "yt-dlp",
-        "--playlist-end", "1",
-        "--write-auto-sub",
-        "--write-sub",
-        "--sub-lang", "zh-Hant,zh-Hans,zh,en",
-        "--sub-format", "vtt/best",
-        "--skip-download",
-        "--format", "bestaudio/best",
-        "--ignore-no-formats-error",
-        "--output", f"{tmpdir}/%(title)s.%(ext)s",
-        "--print", "title",
-        "--no-warnings",
-    ]
-    # 在 CI 環境使用 cookies 繞過 bot 偵測
     cookies_file = os.environ.get("YOUTUBE_COOKIES_FILE")
-    if cookies_file and os.path.exists(cookies_file):
-        cmd += ["--cookies", cookies_file]
-    cmd.append(CHANNEL_URL)
-    result = subprocess.run(cmd, capture_output=True, text=True, timeout=120)
-    if result.returncode != 0:
-        raise RuntimeError(f"yt-dlp failed:\n{result.stderr}")
 
-    title = result.stdout.strip().splitlines()[0] if result.stdout.strip() else "未知標題"
+    # 嘗試抓最新 3 集，找到有字幕的為止
+    title = "未知標題"
+    sub_files = []
+    for end_idx in range(1, 4):
+        cmd = [
+            "yt-dlp",
+            f"--playlist-start", str(end_idx),
+            "--playlist-end", str(end_idx),
+            "--write-auto-sub",
+            "--write-sub",
+            "--sub-lang", "zh-Hant,zh-Hans,zh,en",
+            "--skip-download",
+            "--ignore-no-formats-error",
+            "--output", f"{tmpdir}/%(autonumber)s_%(title)s.%(ext)s",
+            "--print", "title",
+            "--no-warnings",
+        ]
+        if cookies_file and os.path.exists(cookies_file):
+            cmd += ["--cookies", cookies_file]
+        cmd.append(CHANNEL_URL)
 
-    vtt_files = glob.glob(f"{tmpdir}/*.vtt")
-    if not vtt_files:
-        raise FileNotFoundError(f"沒有找到字幕檔，yt-dlp output:\n{result.stdout}\n{result.stderr}")
+        result = subprocess.run(cmd, capture_output=True, text=True, timeout=120)
+        t = result.stdout.strip().splitlines()[0] if result.stdout.strip() else ""
+        if t:
+            title = t
+        # 搜尋所有字幕格式
+        sub_files = (glob.glob(f"{tmpdir}/*.vtt") +
+                     glob.glob(f"{tmpdir}/*.srt") +
+                     glob.glob(f"{tmpdir}/*.ttml"))
+        if sub_files:
+            break
+        print(f"第 {end_idx} 集無字幕，嘗試下一集...")
 
-    return Path(vtt_files[0]).read_text(encoding="utf-8"), title
+    if not sub_files:
+        raise FileNotFoundError(f"最新 3 集均無字幕\nstdout: {result.stdout}\nstderr: {result.stderr}")
+
+    return Path(sub_files[0]).read_text(encoding="utf-8"), title
 
 
 # ── 2. 清理 VTT ───────────────────────────────────────────────────────────────
