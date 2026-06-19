@@ -603,23 +603,74 @@ def build_html(data: dict, video_title: str) -> str:
 
 
 # ── 5. Git commit & push ──────────────────────────────────────────────────────
-def git_push(date_str: str):
+def git_push(paths: list[str], msg: str):
     os.chdir(REPO_ROOT)
-    subprocess.run(["git", "add", "daily_briefing.html"], check=True)
-    msg = f"📊 每日簡報 {date_str}"
+    subprocess.run(["git", "add", *paths], check=True)
+    # 沒有變更時 commit 會失敗，先檢查
+    diff = subprocess.run(["git", "diff", "--cached", "--quiet"]).returncode
+    if diff == 0:
+        print("（無變更，略過 commit）")
+        return
     subprocess.run(["git", "commit", "-m", msg], check=True)
     subprocess.run(["git", "push"], check=True)
 
 
-# ── Main ──────────────────────────────────────────────────────────────────────
-def main():
+# ── 資料檔路徑 ─────────────────────────────────────────────────────────────────
+DATA_DIR = REPO_ROOT / "data"
+TRANSCRIPT_FILE = DATA_DIR / "latest_transcript.txt"
+META_FILE = DATA_DIR / "latest_meta.json"
+
+
+# ── 模式 1：抓字幕（本機住宅 IP 執行，不需 Gemini key）────────────────────────
+def run_fetch():
     print("📡 抓取字幕中...")
     with tempfile.TemporaryDirectory() as tmpdir:
         raw_vtt, video_title = fetch_subtitle(tmpdir)
-
-    print(f"✅ 字幕取得：{video_title}")
     transcript = clean_vtt(raw_vtt)
-    print(f"📝 清理後字幕 {len(transcript)} 字")
+    print(f"📝 清理後字幕 {len(transcript)} 字：{video_title}")
+
+    DATA_DIR.mkdir(exist_ok=True)
+    TRANSCRIPT_FILE.write_text(transcript, encoding="utf-8")
+    date_str = datetime.now(TW_TZ).strftime("%Y-%m-%d")
+    META_FILE.write_text(json.dumps(
+        {"title": video_title, "date": date_str}, ensure_ascii=False, indent=2
+    ), encoding="utf-8")
+
+    print("📤 推送字幕，交由 GitHub Actions 分析...")
+    git_push([str(TRANSCRIPT_FILE), str(META_FILE)], f"📝 更新字幕 {date_str}")
+    print("🎉 字幕已推送！")
+
+
+# ── 模式 2：Gemini 分析 + 產 HTML（GitHub Actions 執行，key 為 Secret）────────
+def run_analyze():
+    if not TRANSCRIPT_FILE.exists():
+        raise FileNotFoundError(f"找不到字幕檔 {TRANSCRIPT_FILE}")
+    transcript = TRANSCRIPT_FILE.read_text(encoding="utf-8")
+    meta = json.loads(META_FILE.read_text(encoding="utf-8")) if META_FILE.exists() else {}
+    video_title = meta.get("title", "未知標題")
+    print(f"📄 讀取字幕 {len(transcript)} 字：{video_title}")
+
+    print("🤖 呼叫 Gemini 分析...")
+    data = call_gemini(transcript)
+
+    print("🎨 生成 HTML...")
+    html = build_html(data, video_title)
+    OUTPUT_HTML.write_text(html, encoding="utf-8")
+    print(f"✅ 已輸出 {OUTPUT_HTML}")
+
+    date_str = data.get("date", meta.get("date", datetime.now(TW_TZ).strftime("%Y-%m-%d")))
+    print("📤 Git push...")
+    git_push([str(OUTPUT_HTML)], f"📊 每日簡報 {date_str}")
+    print("🎉 完成！")
+
+
+# ── 模式 3：本機一條龍（需本機有 GEMINI_API_KEY）──────────────────────────────
+def run_all():
+    print("📡 抓取字幕中...")
+    with tempfile.TemporaryDirectory() as tmpdir:
+        raw_vtt, video_title = fetch_subtitle(tmpdir)
+    transcript = clean_vtt(raw_vtt)
+    print(f"📝 清理後字幕 {len(transcript)} 字：{video_title}")
 
     print("🤖 呼叫 Gemini 分析...")
     data = call_gemini(transcript)
@@ -630,10 +681,16 @@ def main():
     print(f"✅ 已輸出 {OUTPUT_HTML}")
 
     date_str = data.get("date", datetime.now(TW_TZ).strftime("%Y-%m-%d"))
-    print("📤 Git push...")
-    git_push(date_str)
+    git_push([str(OUTPUT_HTML)], f"📊 每日簡報 {date_str}")
     print("🎉 完成！")
 
 
+# ── Main ──────────────────────────────────────────────────────────────────────
 if __name__ == "__main__":
-    main()
+    import argparse
+    parser = argparse.ArgumentParser(description="每日財經簡報生成器")
+    parser.add_argument("mode", nargs="?", default="all",
+                        choices=["fetch", "analyze", "all"],
+                        help="fetch=本機抓字幕 / analyze=雲端跑Gemini / all=本機一條龍")
+    args = parser.parse_args()
+    {"fetch": run_fetch, "analyze": run_analyze, "all": run_all}[args.mode]()

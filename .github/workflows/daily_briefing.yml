@@ -1,15 +1,18 @@
-name: 每日財經簡報
+name: 每日財經簡報（雲端分析）
 
+# 本機 launchd 抓字幕並 push data/latest_transcript.txt 後，
+# 此 workflow 自動偵測到變更，於雲端跑 Gemini 分析並產出 HTML。
 on:
-  schedule:
-    - cron: "10 1 * * 1-5"   # UTC 01:10 = 台北時間 09:10 平日
-  workflow_dispatch:           # 支援手動觸發
+  push:
+    paths:
+      - "data/latest_transcript.txt"
+  workflow_dispatch:   # 也可手動觸發（用 repo 內現有字幕重跑分析）
 
 permissions:
   contents: write
 
 jobs:
-  generate:
+  analyze:
     runs-on: ubuntu-latest
 
     steps:
@@ -23,26 +26,17 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Install Deno
-        uses: denoland/setup-deno@v2
-        with:
-          deno-version: v2.x
-
       - name: Install dependencies
         run: |
           pip install --upgrade pip
-          pip install "yt-dlp[default]" google-genai youtube-transcript-api requests
+          pip install google-genai
 
       - name: Configure git
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-      - name: Write YouTube cookies
-        run: echo "${{ secrets.YOUTUBE_COOKIES }}" > /tmp/yt_cookies.txt
-
-      - name: Run daily briefing
+      - name: Run Gemini analysis
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          YOUTUBE_COOKIES_FILE: /tmp/yt_cookies.txt
-        run: python scripts/daily_briefing.py
+        run: python scripts/daily_briefing.py analyze
