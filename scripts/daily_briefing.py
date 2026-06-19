@@ -14,7 +14,8 @@ import glob
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
-import google.generativeai as genai
+from google import genai
+from google.genai import types
 
 # ── 常數 ──────────────────────────────────────────────────────────────────────
 CHANNEL_URL = "https://www.youtube.com/@yutinghaofinance/streams"
@@ -36,8 +37,12 @@ def fetch_subtitle(tmpdir: str) -> tuple[str, str]:
         "--output", f"{tmpdir}/%(title)s.%(ext)s",
         "--print", "title",
         "--no-warnings",
-        CHANNEL_URL,
     ]
+    # 在 CI 環境使用 cookies 繞過 bot 偵測
+    cookies_file = os.environ.get("YOUTUBE_COOKIES_FILE")
+    if cookies_file and os.path.exists(cookies_file):
+        cmd += ["--cookies", cookies_file]
+    cmd.append(CHANNEL_URL)
     result = subprocess.run(cmd, capture_output=True, text=True, timeout=120)
     if result.returncode != 0:
         raise RuntimeError(f"yt-dlp failed:\n{result.stderr}")
@@ -157,11 +162,9 @@ def call_gemini(transcript: str) -> dict:
     if not api_key:
         raise EnvironmentError("GEMINI_API_KEY 環境變數未設定")
 
-    genai.configure(api_key=api_key)
-    model = genai.GenerativeModel(GEMINI_MODEL)
-
+    client = genai.Client(api_key=api_key)
     prompt = PROMPT_TEMPLATE.format(transcript=transcript[:30000])
-    response = model.generate_content(prompt)
+    response = client.models.generate_content(model=GEMINI_MODEL, contents=prompt)
     raw = response.text.strip()
 
     # 清除可能的 markdown code fence
