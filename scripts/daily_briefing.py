@@ -9,9 +9,11 @@ import re
 import subprocess
 import json
 import tempfile
+import http.cookiejar
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
+import requests
 from google import genai
 from google.genai import types
 from youtube_transcript_api import YouTubeTranscriptApi
@@ -54,10 +56,12 @@ def fetch_subtitle(tmpdir: str) -> tuple[str, str]:
     entries = _get_video_ids(cookies_file)
     if not entries:
         raise RuntimeError("yt-dlp 無法取得影片清單")
-    ytt_kwargs = {}
+    session = requests.Session()
     if cookies_file and os.path.exists(cookies_file):
-        ytt_kwargs["cookies"] = cookies_file
-    ytt = YouTubeTranscriptApi(**ytt_kwargs)
+        jar = http.cookiejar.MozillaCookieJar()
+        jar.load(cookies_file, ignore_discard=True, ignore_expires=True)
+        session.cookies = jar
+    ytt = YouTubeTranscriptApi(http_client=session)
 
     for video_id, title in entries:
         print(f"嘗試 {title} ({video_id})")
