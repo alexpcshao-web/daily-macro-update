@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>每日財經簡報 2026-06-18</title>
+  <style>
+    :root {
+      --bg: #0a1628;
+      --card: #ffffff;
+      --primary: #0f3a64;
+      --accent: #1a6cb1;
+      --accent2: #2d9cdb;
+      --text: #1e293b;
+      --muted: #64748b;
+      --border: #e2e8f0;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 60%, var(--accent2) 100%);
+      color: white;
+      padding: 48px 24px 56px;
+      text-align: center;
+    }
+    .hero-date { font-size: 0.85rem; opacity: 0.7; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 12px; }
+    .hero-title { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800; margin-bottom: 12px; }
+    .hero-summary { font-size: 1.1rem; opacity: 0.9; max-width: 600px; margin: 0 auto 24px; }
+    .hero-meta { display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; }
+    .hero-chip {
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 999px;
+      padding: 6px 16px;
+      font-size: 0.85rem;
+    }
+    .video-source {
+      margin-top: 16px;
+      font-size: 0.8rem;
+      opacity: 0.6;
+    }
+
+    /* Layout */
+    .container { max-width: 1100px; margin: 0 auto; padding: 32px 16px; }
+    .section { margin-bottom: 40px; }
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--accent2);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 20px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--accent);
+    }
+
+    /* Cards */
+    .card {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+    }
+    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+    .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px; }
+
+    /* Badge */
+    .badge {
+      display: inline-block;
+      color: white;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 999px;
+    }
+
+    /* Market Overview */
+    .overview-card .ov-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 6px;
+    }
+    .overview-card p { font-size: 0.92rem; line-height: 1.6; color: var(--text); }
+
+    /* Causal Chain */
+    .chain-card {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 16px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+    }
+    .chain-header { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap; }
+    .chain-num { font-weight: 800; color: var(--accent); font-size: 1.1rem; }
+    .chain-time { font-size: 0.8rem; color: var(--muted); margin-left: auto; }
+    .chain-flow {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr auto 1fr;
+      align-items: center;
+      gap: 8px;
+    }
+    @media (max-width: 600px) {
+      .chain-flow { grid-template-columns: 1fr; }
+      .chain-arrow { text-align: center; transform: rotate(90deg); }
+    }
+    .chain-node {
+      border-radius: 8px;
+      padding: 12px;
+      font-size: 0.88rem;
+    }
+    .chain-node.trigger { background: #fef3c7; border-left: 3px solid #f59e0b; }
+    .chain-node.mechanism { background: #dbeafe; border-left: 3px solid #3b82f6; }
+    .chain-node.result { background: #dcfce7; border-left: 3px solid #22c55e; }
+    .node-label { font-size: 0.7rem; font-weight: 700; opacity: 0.6; text-transform: uppercase; margin-bottom: 4px; }
+    .chain-arrow { text-align: center; font-size: 1.4rem; color: var(--muted); }
+
+    /* Indicators */
+    .indicator-card {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 16px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+    }
+    .indicator-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+    .indicator-name { font-weight: 700; font-size: 0.95rem; }
+    .indicator-reading { font-size: 1.1rem; font-weight: 600; color: var(--accent); margin-bottom: 6px; }
+    .indicator-interp { font-size: 0.82rem; color: var(--muted); line-height: 1.5; }
+
+    /* Sectors */
+    .sector-card {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 16px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+      border-top: 3px solid var(--accent);
+    }
+    .sector-name { font-weight: 700; font-size: 1rem; margin-bottom: 6px; color: var(--primary); }
+    .sector-view { font-size: 0.9rem; font-weight: 600; margin-bottom: 6px; }
+    .sector-reason { font-size: 0.82rem; color: var(--muted); margin-bottom: 8px; line-height: 1.5; }
+    .sector-tf { font-size: 0.78rem; color: var(--accent2); }
+
+    /* Trade Signals */
+    .signals-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+    .signal-box { background: var(--card); border-radius: 12px; padding: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.25); }
+    .signal-box h4 { font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
+    .signal-box.buy h4 { color: #22c55e; }
+    .signal-box.sell h4 { color: #ef4444; }
+    .signal-box.watch h4 { color: #f59e0b; }
+    .signal-box ul { list-style: none; }
+    .signal-box li { font-size: 0.85rem; padding: 6px 0; border-bottom: 1px solid var(--border); line-height: 1.5; }
+    .signal-box li:last-child { border-bottom: none; }
+
+    /* Contrarian */
+    .contrarian-card { background: linear-gradient(135deg, #1e1b4b, #312e81); color: white; border-radius: 12px; padding: 24px; }
+    .contrarian-card h4 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; opacity: 0.7; margin-bottom: 12px; }
+    .contrarian-card p { line-height: 1.7; font-size: 0.95rem; }
+    .risk-box { margin-top: 16px; background: rgba(239,68,68,0.15); border: 1px solid rgba(239,68,68,0.3); border-radius: 8px; padding: 12px; }
+    .risk-box .risk-label { font-size: 0.75rem; font-weight: 700; color: #fca5a5; margin-bottom: 6px; }
+
+    /* Catalysts */
+    .catalyst-card {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 16px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+    }
+    .catalyst-header { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+    .catalyst-date { font-size: 0.8rem; color: var(--muted); margin-left: auto; }
+    .catalyst-event { font-weight: 600; font-size: 0.9rem; margin-bottom: 6px; }
+    .catalyst-impact { font-size: 0.82rem; color: var(--muted); line-height: 1.5; }
+
+    /* Quote */
+    .quote-card {
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: white;
+      border-radius: 16px;
+      padding: 32px;
+      text-align: center;
+    }
+    .quote-mark { font-size: 3rem; opacity: 0.3; line-height: 1; margin-bottom: -8px; }
+    .quote-text { font-size: 1.3rem; font-weight: 600; line-height: 1.6; }
+    .quote-author { margin-top: 16px; font-size: 0.85rem; opacity: 0.7; }
+
+    /* Footer */
+    footer { text-align: center; padding: 24px; color: rgba(255,255,255,0.3); font-size: 0.8rem; }
+  </style>
+</head>
+<body>
+
+<!-- Hero -->
+<div class="hero">
+  <div class="hero-date">2026-06-18</div>
+  <div class="hero-title">聯準會鷹爪初露，AI通膨與估值分化</div>
+  <div class="hero-summary">聯準會轉鷹但升息不急，中東戰事影響通膨，AI推動經濟但科技通膨與高估值引發市場分化。</div>
+  <div class="hero-meta">
+    <span class="hero-chip">📊 周期：升息預期重估與通膨結構轉變</span>
+    <span class="hero-chip">🔗 因果鏈：7 條</span>
+  </div>
+  <div class="video-source">來源：2026/6/18(四)華許首秀放鷹 升息要來了?AI科技通膨壓得住?【早晨財經速解讀】</div>
+</div>
+
+<div class="container">
+
+  <!-- 市場環境概覽 -->
+  <div class="section">
+    <div class="section-title">市場環境概覽</div>
+    <div class="grid-3">
+      <div class="card overview-card">
+        <div class="ov-label">💧 流動性環境</div>
+        <p>聯準會維持利率不變但轉鷹，新主席華許強調價格穩定並減少前瞻指引。點陣圖顯示升息預期升高，市場預期2026年底利率將達4.03%，導致2年期美債殖利率飆升。</p>
+      </div>
+      <div class="card overview-card">
+        <div class="ov-label">🏭 實體經濟</div>
+        <p>美國經濟成長預期放緩但仍高位，失業率穩定。通膨具黏性，但中東停戰有望緩解油價。AI投資雖推動GDP，但實體製造業成長疲弱，民間消費動能不足。中國原油進口量創8年新低。</p>
+      </div>
+      <div class="card overview-card">
+        <div class="ov-label">🧠 情緒與估值</div>
+        <p>聯準會鷹派言論引發股市賣壓後回升。AI概念股估值過高，半導體股超額報酬創歷史新高，如Intel、美光P/S比遠超網路泡沫時期。市場高度分化，AI相關投資集中，新興市場ETF受AI主導。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 因果邏輯鏈 -->
+  <div class="section">
+    <div class="section-title">因果邏輯鏈</div>
+    
+        <div class="chain-card">
+          <div class="chain-header">
+            <span class="chain-num">#1</span>
+            <span class="badge" style="background:#22c55e">高信心</span>
+            <span class="chain-time">短期 · 1-4週</span>
+          </div>
+          <div class="chain-flow">
+            <div class="chain-node trigger">
+              <div class="node-label">觸發因素</div>
+              <div class="node-content">聯準會釋出鷹派訊號 (點陣圖轉鷹)</div>
+            </div>
+            <div class="chain-arrow">→</div>
+            <div class="chain-node mechanism">
+              <div class="node-label">傳導機制</div>
+              <div class="node-content">市場重新評估貨幣政策前景，預期高利率維持更久</div>
+            </div>
+            <div class="chain-arrow">→</div>
+            <div class="chain-node result">
+              <div class="node-label">預期結果</div>
+              <div class="node-content">美國股市短期面臨賣壓，2年期美債殖利率飆升</div>
+            </div>
+          </div>
+        </div>
+        <div class="chain-card">
+          <div class="chain-header">
+            <span class="chain-num">#2</span>
+            <span class="badge" style="background:#f59e0b">中信心</span>
+            <span class="chain-time">中期 · 1-3個月</span>
+          </div>
+          <div class="chain-flow">
+            <div class="chain-node trigger">
+              <div class="node-label">觸發因素</div>
+              <div class="node-content">華許擔任聯準會主席後，強調價格穩定使命並減少前瞻指引</div>
+            </div>
+            <div class="chain-arrow">→</div>
+            <div class="chain-node mechanism">
+              <div class="node-label">傳導機制</div>
+              <div class="node-content">市場需更多依賴經濟數據而非聯準會發言來判斷未來政策</div>
+            </div>
+            <div class="chain-arrow">→</div>
+            <div class="chain-node result">
+              <div class="node-label">預期結果</div>
+              <div class="node-content">降低聯準會對市場的過度引導，可能增加市場對數據的敏感度</div>
+            </div>
+          </div>
+        </div>
+        <div class="chain-card">
+          <div class="chain-header">
+            <span class="chain-num">#3</span>
+            <span class="badge" style="background:#22c55e">高信心</span>
+            <span class="chain-time">短期 · 1-4週</span>
+          </div>
+          <div class="chain-flow">
+            <div class="chain-node trigger">
+              <div class="node-label">觸發因素</div>
+              <div class="node-content">中東停戰協議簽署預期，卡達重啟液化天然氣生產</div>
+            </div>
+            <div class="chain-arrow">→</div>
+            <div class="chain-node mechanism">
+              <div class="node-label">傳導機制</div>
+              <div class="node-content">全球原油及天然氣供給增加，地緣政治風險降溫</div>
+            </div>
+            <div class="chain-arrow">→</div>
+            <div class="chain-node result">
+              <div class="node-label">預期結果</div>
+              <div class="node-content">油價快速回跌，緩解外溢性通膨壓力</div>
+            </div>
+          </div>
+        </div>
+        <div class="chain-card">
+          <div class="chain-header">
+            <span class="chain-num">#4</span>
+            <span class="badge" style="background:#22c55e">高信心</span>
+            <span class="chain-time">中期 · 1-3個月</span>
+          </div>
+          <div class="chain-flow">
+            <div class="chain-node trigger">
+              <div class="node-label">觸發因素</div>
+              <div class="node-content">AI基礎建設需求強勁</div>
+            </div>
+            <div class="chain-arrow">→</div>
+            <div class="chain-node mechanism">
+              <div class="node-label">傳導機制</div>
+              <div class="node-content">推升電子零組件、電腦軟體及配件等生產者物價指數</div>
+            </div>
+            <div class="chain-arrow">→</div>
+            <div class="chain-node result">
+              <div class="node-label">預期結果</div>
+              <div class="node-content">造成高強度「科技通膨」，而非傳統意義的消費通膨</div>
+            </div>
+          </div>
+        </div>
+        <div class="chain-card">
+          <div class="chain-header">
+            <span class="chain-num">#5</span>
+            <span class="badge" style="background:#f59e0b">中信心</span>
+            <span class="chain-time">長期 · 3月+</span>
+          </div>
+          <div class="chain-flow">
+            <div class="chain-node trigger">
+              <div class="node-label">觸發因素</div>
+              <div class="node-content">企業開始計算AI模型成本效益，尋求低成本選項</div>
+            </div>
+            <div class="chain-arrow">→</div>
+            <div class="chain-node mechanism">
+              <div class="node-label">傳導機制</div>
+              <div class="node-content">AI代幣成本下滑，推動科技產品價格戰</div>
+            </div>
+            <div class="chain-arrow">→</div>
+            <div class="chain-node result">
+              <div class="node-label">預期結果</div>
+              <div class="node-content">形成長期「科技通縮」趨勢</div>
+            </div>
+          </div>
+        </div>
+        <div class="chain-card">
+          <div class="chain-header">
+            <span class="chain-num">#6</span>
+            <span class="badge" style="background:#22c55e">高信心</span>
+            <span class="chain-time">長期 · 3月+</span>
+          </div>
+          <div class="chain-flow">
+            <div class="chain-node trigger">
+              <div class="node-label">觸發因素</div>
+              <div class="node-content">美國AI投資額龐大，主要集中在基礎建設</div>
+            </div>
+            <div class="chain-arrow">→</div>
+            <div class="chain-node mechanism">
+              <div class="node-label">傳導機制</div>
+              <div class="node-content">製造業就業成長有限，且引發電價上漲及地方民眾反對資料中心建設</div>
+            </div>
+            <div class="chain-arrow">→</div>
+            <div class="chain-node result">
+              <div class="node-label">預期結果</div>
+              <div class="node-content">對美國GDP成長貢獻有限，並產生社會與環境成本</div>
+            </div>
+          </div>
+        </div>
+        <div class="chain-card">
+          <div class="chain-header">
+            <span class="chain-num">#7</span>
+            <span class="badge" style="background:#22c55e">高信心</span>
+            <span class="chain-time">中期 · 1-3個月</span>
+          </div>
+          <div class="chain-flow">
+            <div class="chain-node trigger">
+              <div class="node-label">觸發因素</div>
+              <div class="node-content">半導體股與AI概念股估值透支過多</div>
+            </div>
+            <div class="chain-arrow">→</div>
+            <div class="chain-node mechanism">
+              <div class="node-label">傳導機制</div>
+              <div class="node-content">市場情緒高度推升，超額報酬創歷史新高</div>
+            </div>
+            <div class="chain-arrow">→</div>
+            <div class="chain-node result">
+              <div class="node-label">預期結果</div>
+              <div class="node-content">股票可能面臨適度均值回檔，或以盤代跌待EPS追上</div>
+            </div>
+          </div>
+        </div>
+  </div>
+
+  <!-- 關鍵指標 -->
+  <div class="section">
+    <div class="section-title">關鍵指標解讀</div>
+    <div class="grid-3">
+      
+        <div class="indicator-card">
+          <div class="indicator-header">
+            <span class="indicator-name">聯邦資金利率目標區間</span>
+            <span class="badge" style="background:#f59e0b">中性</span>
+          </div>
+          <div class="indicator-reading">3.5-3.75% (不變)</div>
+          <div class="indicator-interp">聯準會雖轉鷹但當前決議維持中立。</div>
+        </div>
+        <div class="indicator-card">
+          <div class="indicator-header">
+            <span class="indicator-name">2年期美債殖利率</span>
+            <span class="badge" style="background:#ef4444">看空</span>
+          </div>
+          <div class="indicator-reading">接近4.2% (創16個月新高)</div>
+          <div class="indicator-interp">市場預期高利率將維持更久，推升債券殖利率。</div>
+        </div>
+        <div class="indicator-card">
+          <div class="indicator-header">
+            <span class="indicator-name">2026年底利率預期 (Fed Fund Future)</span>
+            <span class="badge" style="background:#ef4444">看空</span>
+          </div>
+          <div class="indicator-reading">4.03% (年初預期3.05%)</div>
+          <div class="indicator-interp">市場大幅修正降息預期為升息，高利率時代拉長。</div>
+        </div>
+        <div class="indicator-card">
+          <div class="indicator-header">
+            <span class="indicator-name">核心PCE通膨率 (2026年底預估)</span>
+            <span class="badge" style="background:#ef4444">看空</span>
+          </div>
+          <div class="indicator-reading">3.6% (較3月預測拉高)</div>
+          <div class="indicator-interp">通膨預期升高，尤其受伊朗戰事影響。</div>
+        </div>
+        <div class="indicator-card">
+          <div class="indicator-header">
+            <span class="indicator-name">布蘭特原油價格</span>
+            <span class="badge" style="background:#22c55e">看多</span>
+          </div>
+          <div class="indicator-reading">80美元/桶以下</div>
+          <div class="indicator-interp">中東局勢淡化及需求放緩，有利於通膨降溫。</div>
+        </div>
+        <div class="indicator-card">
+          <div class="indicator-header">
+            <span class="indicator-name">臺灣生產者物價指數 (PPI)</span>
+            <span class="badge" style="background:#ef4444">看空</span>
+          </div>
+          <div class="indicator-reading">11.37% (暴增)</div>
+          <div class="indicator-interp">AI基礎建設需求推升上游成本，形成科技通膨壓力。</div>
+        </div>
+        <div class="indicator-card">
+          <div class="indicator-header">
+            <span class="indicator-name">臺灣消費者物價指數 (CPI)</span>
+            <span class="badge" style="background:#22c55e">看多</span>
+          </div>
+          <div class="indicator-reading">1.96% (微幅上升)</div>
+          <div class="indicator-interp">民間消費通膨壓力相對受控，未完全轉嫁PPI。</div>
+        </div>
+        <div class="indicator-card">
+          <div class="indicator-header">
+            <span class="indicator-name">美國工業生產月增幅 (5月)</span>
+            <span class="badge" style="background:#ef4444">看空</span>
+          </div>
+          <div class="indicator-reading">0.1% (低於預期0.3%)</div>
+          <div class="indicator-interp">製造業疲弱，AI投資對實體經濟的廣泛帶動有限。</div>
+        </div>
+        <div class="indicator-card">
+          <div class="indicator-header">
+            <span class="indicator-name">半導體股相對於大盤超額報酬</span>
+            <span class="badge" style="background:#ef4444">看空</span>
+          </div>
+          <div class="indicator-reading">創歷史新高 (類似2000年網路泡沫)</div>
+          <div class="indicator-interp">估值過高，存在回檔風險。</div>
+        </div>
+    </div>
+  </div>
+
+  <!-- 板塊與個股觀點 -->
+  <div class="section">
+    <div class="section-title">板塊與個股觀點</div>
+    <div class="grid-3">
+      
+        <div class="sector-card">
+          <div class="sector-name">AI概念股/半導體股</div>
+          <div class="sector-view">估值過高，短期可能面臨回檔或以盤代跌。</div>
+          <div class="sector-reason">超額報酬創歷史新高，部分個股P/S比遠超網路泡沫。</div>
+          <div class="sector-tf">⏱ 中期</div>
+        </div>
+        <div class="sector-card">
+          <div class="sector-name">能源板塊 (原油、天然氣)</div>
+          <div class="sector-view">價格有望持續下跌。</div>
+          <div class="sector-reason">中東局勢淡化、卡達重啟生產、中國需求疲軟。</div>
+          <div class="sector-tf">⏱ 短期</div>
+        </div>
+        <div class="sector-card">
+          <div class="sector-name">傳統製造業</div>
+          <div class="sector-view">成長動能不足。</div>
+          <div class="sector-reason">美國工業生產數據疲弱，AI投資主要集中在科技基礎設施。</div>
+          <div class="sector-tf">⏱ 中期</div>
+        </div>
+        <div class="sector-card">
+          <div class="sector-name">新興市場ETF (EEM)</div>
+          <div class="sector-view">受AI產業高度影響，風險分散效果降低。</div>
+          <div class="sector-reason">台積電、三星、SK海力士等AI巨頭佔比過高。</div>
+          <div class="sector-tf">⏱ 長期</div>
+        </div>
+    </div>
+  </div>
+
+  <!-- 操作訊號 -->
+  <div class="section">
+    <div class="section-title">操作訊號</div>
+    <div class="signals-grid">
+      <div class="signal-box buy">
+        <h4>✅ 買進條件</h4>
+        <ul><li>中東停戰協議確認，油價持續回落</li><li>AI概念股估值出現顯著回檔或EPS追上股價</li><li>聯準會對科技通膨採取更為寬鬆的解讀</li></ul>
+      </div>
+      <div class="signal-box sell">
+        <h4>🔴 減倉條件</h4>
+        <ul><li>半導體股及AI概念股估值持續擴張，未見修正</li><li>聯準會因科技通膨而採取更激進的升息行動</li><li>中東局勢再度惡化，油價反彈</li></ul>
+      </div>
+      <div class="signal-box watch">
+        <h4">👁 持續觀察</h4>
+        <ul><li>勞動力市場數據 (持續弱化空間)</li><li>零售銷售數據 (實質消費變動)</li><li>聯準會對不同類型通膨的判斷依據</li><li>AI代幣成本下降趨勢</li><li>川普政府民調與政策壓力</li></ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- 反向思考 -->
+  <div class="section">
+    <div class="section-title">反向思考</div>
+    <div class="contrarian-card">
+      <h4>游庭皓的獨特觀點</h4>
+      <p>儘管聯準會轉鷹且通膨數據黏性，但只要不再爆發新戰爭，年底前升息預期有機會收斂。科技通膨與消費通膨應區分，聯準會可能調整指數編撰剔除基礎建設通膨，因為其不影響民間消費。AI長期仍有通縮作用。</p>
+      <div class="risk-box">
+        <div class="risk-label">⚠️ 最大風險情境</div>
+        <div>中東戰事未能有效降溫，導致油價再次飆升，或聯準會將科技基礎建設通膨視為升息理由。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 近期催化劑 -->
+  <div class="section">
+    <div class="section-title">近期催化劑</div>
+    <div class="grid-2">
+      
+        <div class="catalyst-card">
+          <div class="catalyst-header">
+            <span class="badge" style="background:#22c55e">正面</span>
+            <span class="catalyst-date">禮拜五</span>
+          </div>
+          <div class="catalyst-event">中東停戰協議簽署</div>
+          <div class="catalyst-impact">油價快速回跌，緩解通膨壓力</div>
+        </div>
+        <div class="catalyst-card">
+          <div class="catalyst-header">
+            <span class="badge" style="background:#a855f7">雙向</span>
+            <span class="catalyst-date">今年秋季之前完成</span>
+          </div>
+          <div class="catalyst-event">聯準會組建工作組評估貨幣政策操作、通膨成因等</div>
+          <div class="catalyst-impact">可能導致聯準會對通膨定義及貨幣政策框架的調整</div>
+        </div>
+        <div class="catalyst-card">
+          <div class="catalyst-header">
+            <span class="badge" style="background:#22c55e">正面</span>
+            <span class="catalyst-date">持續進行</span>
+          </div>
+          <div class="catalyst-event">AI產業成本效益計算與價格戰</div>
+          <div class="catalyst-impact">AI產品和服務成本下降，推動科技通縮</div>
+        </div>
+    </div>
+  </div>
+
+  <!-- 今日金句 -->
+  <div class="section">
+    <div class="section-title">今日金句</div>
+    <div class="quote-card">
+      <div class="quote-mark">"</div>
+      <div class="quote-text">有時候當行情走到一定程度，一個生產力爆發了，你投資韓國股市，跟投資台股有很大區別嗎？</div>
+      <div class="quote-author">— 游庭皓</div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  每日財經簡報 · 由 Gemini AI 分析 · 2026-06-19 22:22 台北時間
+</footer>
+</body>
+</html>
