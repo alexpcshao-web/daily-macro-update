@@ -20,7 +20,7 @@ from google.genai import types
 CHANNEL_URL = "https://www.youtube.com/@yutinghaofinance/streams"
 REPO_ROOT = Path(__file__).parent.parent
 OUTPUT_HTML = REPO_ROOT / "daily_briefing.html"
-GEMINI_MODEL = "gemini-2.0-flash"
+GEMINI_MODEL = "gemini-2.5-flash"
 TW_TZ = timezone(timedelta(hours=8))
 SUB_LANGS = "zh-TW,zh-Hant,zh-Hans,zh,en"
 
