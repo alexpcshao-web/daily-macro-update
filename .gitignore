@@ -1,1 +1,7 @@
+# 機密：YouTube cookies、API 金鑰、本機環境
 www.youtube.com_cookies.txt
+.env
+.venv/
+__pycache__/
+*.pyc
+logs/

@@ -8,15 +8,13 @@ import os
 import re
 import subprocess
 import json
+import glob
 import tempfile
-import http.cookiejar
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
-import requests
 from google import genai
 from google.genai import types
-from youtube_transcript_api import YouTubeTranscriptApi
 
 # ── 常數 ──────────────────────────────────────────────────────────────────────
 CHANNEL_URL = "https://www.youtube.com/@yutinghaofinance/streams"
@@ -24,69 +22,78 @@ REPO_ROOT = Path(__file__).parent.parent
 OUTPUT_HTML = REPO_ROOT / "daily_briefing.html"
 GEMINI_MODEL = "gemini-2.0-flash"
 TW_TZ = timezone(timedelta(hours=8))
+SUB_LANGS = "zh-TW,zh-Hant,zh-Hans,zh,en"
 
 
 # ── 1. 抓字幕 ─────────────────────────────────────────────────────────────────
-def _get_video_ids(cookies_file: str | None, n: int = 5) -> list[tuple[str, str]]:
-    """用 yt-dlp 取最新 n 集的 (video_id, title)"""
-    cmd = [
-        "yt-dlp",
-        "--playlist-end", str(n),
-        "--skip-download",
-        "--print", "%(id)s\t%(title)s",
-        "--no-warnings",
-        "--ignore-no-formats-error",
-    ]
-    if cookies_file and os.path.exists(cookies_file):
-        cmd += ["--cookies", cookies_file]
-    cmd.append(CHANNEL_URL)
-
-    result = subprocess.run(cmd, capture_output=True, text=True, timeout=120)
-    entries = []
-    for line in result.stdout.strip().splitlines():
-        if "\t" in line:
-            vid, title = line.split("\t", 1)
-            entries.append((vid.strip(), title.strip()))
-    return entries
-
-
 def fetch_subtitle(tmpdir: str) -> tuple[str, str]:
-    """取最新有字幕的一集，回傳 (transcript_text, video_title)"""
+    """用 yt-dlp 下載最新有字幕的一集，回傳 (raw_vtt, video_title)。
+
+    在住宅 IP（本機）上 yt-dlp 可直接下載 YouTube 字幕；雲端 IP 會被封鎖，
+    所以本系統設計為在本機 launchd 排程執行。
+    """
     cookies_file = os.environ.get("YOUTUBE_COOKIES_FILE")
-    entries = _get_video_ids(cookies_file)
-    if not entries:
-        raise RuntimeError("yt-dlp 無法取得影片清單")
-    session = requests.Session()
-    if cookies_file and os.path.exists(cookies_file):
-        jar = http.cookiejar.MozillaCookieJar()
-        jar.load(cookies_file, ignore_discard=True, ignore_expires=True)
-        session.cookies = jar
-    ytt = YouTubeTranscriptApi(http_client=session)
 
-    for video_id, title in entries:
-        print(f"嘗試 {title} ({video_id})")
-        try:
-            transcript_list = ytt.list(video_id)
-            for lang in ("zh-TW", "zh-Hant", "zh-Hans", "zh", "en"):
-                try:
-                    transcript = transcript_list.find_transcript([lang])
-                    entries_data = transcript.fetch()
-                    text = " ".join(e.text for e in entries_data)
-                    print(f"✅ 字幕取得：{lang}")
-                    return text, title
-                except Exception:
-                    continue
-        except Exception as e:
-            print(f"  跳過：{e}")
-            continue
+    # 逐集嘗試最新 5 集，找到第一個有字幕的
+    for idx in range(1, 6):
+        cmd = [
+            "yt-dlp",
+            "--playlist-items", str(idx),
+            "--write-auto-sub",
+            "--write-sub",
+            "--sub-lang", SUB_LANGS,
+            "--skip-download",
+            "--ignore-no-formats-error",
+            "--output", f"{tmpdir}/ep_%(id)s.%(ext)s",
+            "--print", "title",
+            "--no-simulate",  # --print 預設會啟用 simulate，導致不寫字幕檔
+            "--no-warnings",
+        ]
+        if cookies_file and os.path.exists(cookies_file):
+            cmd += ["--cookies", cookies_file]
+        cmd.append(CHANNEL_URL)
 
-    raise FileNotFoundError(f"最新 {len(entries)} 集均無可用字幕")
+        # 確保 deno（JS runtime，yt-dlp 解析 YouTube 必需）在 PATH 中
+        env = os.environ.copy()
+        for p in ("/opt/homebrew/bin", "/usr/local/bin"):
+            if p not in env.get("PATH", ""):
+                env["PATH"] = p + os.pathsep + env.get("PATH", "")
+        result = subprocess.run(cmd, capture_output=True, text=True, timeout=180, env=env)
+        title = result.stdout.strip().splitlines()[0] if result.stdout.strip() else "未知標題"
+
+        sub_files = sorted(glob.glob(f"{tmpdir}/ep_*.vtt"))
+        if sub_files:
+            print(f"✅ 字幕取得：{title}")
+            return Path(sub_files[0]).read_text(encoding="utf-8"), title
+
+        print(f"第 {idx} 集無字幕，嘗試下一集...")
+
+    raise FileNotFoundError("最新 5 集均無可用字幕")
 
 
 # ── 2. 清理 VTT ───────────────────────────────────────────────────────────────
 def clean_vtt(raw: str) -> str:
-    """youtube-transcript-api 已回傳純文字，直接回傳"""
-    return raw
+    """去除時間軸、HTML 標籤、重複行，回傳純文字"""
+    lines = []
+    seen = set()
+    for line in raw.splitlines():
+        line = line.strip()
+        if not line:
+            continue
+        if line.startswith(("WEBVTT", "Kind:", "Language:")):
+            continue
+        # 時間軸行：00:00:00.000 --> 00:00:02.000
+        if re.match(r"^\d{2}:\d{2}:\d{2}", line):
+            continue
+        if line.isdigit():
+            continue
+        # 去除 HTML/<c> 標籤與時間內嵌標記
+        line = re.sub(r"<[^>]+>", "", line).strip()
+        if not line or line in seen:
+            continue
+        seen.add(line)
+        lines.append(line)
+    return "\n".join(lines)
 
 
 # ── 3. Gemini 分析 ─────────────────────────────────────────────────────────────
