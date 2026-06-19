@@ -40,7 +40,7 @@ def fetch_subtitle(tmpdir: str) -> tuple[str, str]:
             "--playlist-end", str(end_idx),
             "--write-auto-sub",
             "--write-sub",
-            "--sub-lang", "zh-Hant,zh-Hans,zh,en",
+            "--sub-lang", "zh-TW,zh-Hant,zh-Hans,zh,en",
             "--skip-download",
             "--ignore-no-formats-error",
             "--output", f"{tmpdir}/%(autonumber)s_%(title)s.%(ext)s",
