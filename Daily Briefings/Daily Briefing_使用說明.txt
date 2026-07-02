@@ -1,13 +1,19 @@
 游庭皓《早晨財經速解讀》每日 Briefing — 使用說明
 ======================================================
 
+【線上（手機）閱讀】★
+  網址：https://alexpcshao-web.github.io/daily-macro-update/
+  手機 Safari 開 → 分享 → 「加入主畫面」，就像一個 App，每天點進去看。
+  跑完 /briefing 會自動 push、GitHub Pages 約 1 分鐘後更新（公開網址）。
+  手動發佈：在 Daily Briefings 資料夾跑 ./publish.sh
+
 【日常怎麼用】
 平日 18:00 會跳一個 macOS 通知提醒你（排程：見最下方）。
 看到通知後：
   1. 開 Claude Code（終端機打 claude，或桌面版 / claude.ai/code）
   2. 輸入  /briefing
-  3. 它會自動：抓最新直播字幕 → 清理 → 我讀完 → 產生當天 HTML → 重建 index
-  4. 完成後用瀏覽器開 index.html 或當天的 *_briefing.html 閱讀
+  3. 它會自動：抓字幕 → 切段 → 我讀完 → 產生 HTML → 重建 index → 推上線
+  4. 用手機開上面網址，或本機開 index.html 閱讀
 
 要補做某一天：  /briefing 20260615   （或 /briefing 補做全部 pending）
 

@@ -68,7 +68,8 @@ else
     --max-budget-usd 1.50 \
     --output-format text
   if [ -f "data/$NEWEST.json" ]; then
-    notify "今日 Briefing 已自動產生" "$NEWEST 完成，可打開 index.html 閱讀"
+    ./publish.sh
+    notify "今日 Briefing 已上線" "$NEWEST 完成 → https://alexpcshao-web.github.io/daily-macro-update/"
   else
     notify "Briefing 自動產生失敗" "$NEWEST 未產生，請手動跑 /briefing 或檢查 token"
   fi
