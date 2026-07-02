@@ -1,0 +1,56 @@
+游庭皓《早晨財經速解讀》每日 Briefing — 使用說明
+======================================================
+
+【日常怎麼用】
+平日 18:00 會跳一個 macOS 通知提醒你（排程：見最下方）。
+看到通知後：
+  1. 開 Claude Code（終端機打 claude，或桌面版 / claude.ai/code）
+  2. 輸入  /briefing
+  3. 它會自動：抓最新直播字幕 → 清理 → 我讀完 → 產生當天 HTML → 重建 index
+  4. 完成後用瀏覽器開 index.html 或當天的 *_briefing.html 閱讀
+
+要補做某一天：  /briefing 20260615   （或 /briefing 補做全部 pending）
+
+【報告格式：章節版（2026/6/24 起）】
+  每篇 briefing 結構：
+    ① 標題 + 當日「四大指數＋台股」收盤【圖像化長條】
+    ② 一句話 Briefing（3 點摘要）
+    ③ 章節導覽列
+    ④ 照 YouTube 影片章節分段，每段三層：
+        📊 市場資訊(fact)  → 他攤開的事實/數據
+        💬 市場觀點       → 別人/市場怎麼看（不一定每段都有，會標來源）
+        🧠 他的解讀       → 立場徽章(同意/反對/部分/中性/核心)＋為什麼
+  重點是看出「他同意還是反對、以及他的理由」。
+  ※ 6/4–6/23 是舊版型（卡片式），仍保留、不影響。
+
+【檔案結構】
+  index.html                ← 總覽（自動產生，依日期新到舊）
+  YYYYMMDD_週_briefing.html  ← 每天一份（自動產生，勿手改）
+  data/YYYYMMDD.json         ← 內容單一真實來源（章節版含 "format":"chapters"）
+  briefing_lib.py            ← 版型/CSS/render（新章節版 + 舊版相容）
+  build.py                   ← 讀 data/*.json → 重新產生所有 HTML + index
+  pipeline.py                ← 抓字幕 + 抓章節 + 按章節切段 + 算出待產生日期
+  run_daily.sh               ← 全自動跑批腳本（目前未排程，見下）
+  transcripts_clean/         ← 清理後純文字 / *_segmented.txt 章節切段（暫存，git 忽略）
+
+【手動指令（不透過 Claude 也能跑機械部分）】
+  python3 pipeline.py        # 抓字幕+清理，印出 pending
+  python3 build.py           # 改了 data/*.json 後重建 HTML+index
+
+【為什麼沒有「全自動產生」】
+試過用 launchd 排程在 18:00 自動產生，卡在兩個 macOS 限制：
+  ① TCC：背景程式預設不能讀 ~/Documents（排程連腳本都打不開）
+  ② 無頭登入：claude -p 讀不到 Keychain 的訂閱憑證
+所以改為「平日 18:00 純提醒通知 + 你手動跑 /briefing」。
+
+若哪天想升級成全自動（檔案留在 Documents），需要你做兩件一次性動作：
+  A. 系統設定 → 隱私權與安全性 → 完全取用磁碟 → 加入 /bin/zsh
+  B. 終端機跑 claude setup-token（瀏覽器授權、用訂閱不另計費），
+     把吐出來的 token 存到 ~/.claude/briefing_token 並 chmod 600
+  做完這兩件後，把 run_daily.sh 重新掛上 launchd（平日 18:00）即可。
+
+【目前的排程（提醒用）】
+  LaunchAgent: ~/Library/LaunchAgents/com.shaopinquan.briefing-reminder.plist
+  平日(一~五) 18:00 跳通知。
+  停用：launchctl bootout gui/$(id -u)/com.shaopinquan.briefing-reminder
+  重啟：launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.shaopinquan.briefing-reminder.plist
