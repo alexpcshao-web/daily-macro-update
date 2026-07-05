@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2026/6/29（一）游庭皓 早晨財經速解讀 Briefing</title>
+<style>
+:root { color-scheme: light; }
+* { box-sizing:border-box; }
+html,body { margin:0; padding:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang TC","Microsoft JhengHei","Noto Sans TC",sans-serif; background:#f7f8fa; color:#1a2330; line-height:1.7; }
+.wrap { max-width:1080px; margin:0 auto; padding:28px 24px 80px; }
+.nav { font-size:12.5px; color:#6c7a8c; margin-bottom:12px; }
+.hero { background:linear-gradient(135deg,#0f3a64 0%,#14528d 60%,#1a6cb1 100%); color:#fff; padding:30px 30px; border-radius:16px; box-shadow:0 6px 24px rgba(15,58,100,0.18); margin-bottom:22px; }
+.hero .kicker { font-size:11px; letter-spacing:2px; opacity:.8; text-transform:uppercase; }
+.hero h1 { margin:6px 0 8px; font-size:23px; line-height:1.4; }
+.hero .sub { opacity:.9; margin:0; font-size:13.5px; }
+/* 四大指數圖 */
+.indices { background:#fff; border-radius:12px; padding:18px 22px 20px; box-shadow:0 2px 10px rgba(0,0,0,0.05); margin-bottom:14px; }
+.indices h2 { font-size:16px; margin:0 0 14px; color:#14528d; }
+.idx-row { display:grid; grid-template-columns:130px 1fr 132px; align-items:center; gap:12px; margin:9px 0; }
+.idx-name { font-weight:700; font-size:14px; }
+.idx-name .v { display:block; font-family:monospace; font-size:12.5px; color:#6c7a8c; font-weight:500; margin-top:1px; }
+.idx-track { position:relative; height:24px; background:#f2f5f9; border-radius:6px; }
+.idx-mid { position:absolute; left:50%; top:-3px; bottom:-3px; width:1px; background:#c4cdd9; }
+.idx-bar { position:absolute; top:3px; height:18px; border-radius:4px; }
+.idx-bar.up { background:linear-gradient(90deg,#43b985,#21895a); left:50%; }
+.idx-bar.down { background:linear-gradient(270deg,#e2716b,#c0392b); right:50%; }
+.idx-bar.flat { background:#9aa6b3; left:calc(50% - 2px); width:4px !important; }
+.idx-chg { font-size:12.5px; font-weight:700; white-space:nowrap; text-align:left; }
+.idx-chg.up { color:#19794e; } .idx-chg.down { color:#b1342f; } .idx-chg.flat { color:#6c7a8c; }
+.idx-note { font-size:12.5px; color:#6c7a8c; margin:12px 0 0; }
+.summary { background:#fff; border-radius:12px; padding:20px 24px; box-shadow:0 2px 10px rgba(0,0,0,0.05); margin-bottom:14px; }
+.summary h2 { font-size:18px; margin:0 0 12px; color:#14528d; }
+.summary p { margin:10px 0; font-size:14.5px; }
+.summary b { color:#0f3a64; }
+.toc { background:#fff; border-radius:12px; padding:14px 18px; box-shadow:0 2px 10px rgba(0,0,0,0.05); margin-bottom:24px; font-size:13px; }
+.toc b { color:#14528d; }
+.toc a { color:#1a6cb1; text-decoration:none; }
+.toc a:hover { text-decoration:underline; }
+.chapter { background:#fff; border-radius:14px; box-shadow:0 2px 12px rgba(0,0,0,0.06); margin-bottom:18px; overflow:hidden; }
+.chapter > .head { display:flex; align-items:center; gap:12px; padding:14px 20px; background:linear-gradient(90deg,#eef4fa,#fff); border-left:6px solid #1a6cb1; }
+.chapter > .head .time { font-family:monospace; font-size:13px; color:#fff; background:#14528d; padding:3px 9px; border-radius:6px; }
+.chapter > .head .num { font-size:13px; color:#9aa6b3; font-weight:700; }
+.chapter > .head h3 { margin:0; font-size:17px; color:#14528d; }
+.chapter .body { padding:6px 20px 18px; }
+.layer { display:grid; grid-template-columns:128px 1fr; gap:14px; padding:13px 0; border-top:1px dashed #e6ebf2; }
+.layer:first-child { border-top:none; }
+.layer .tag { font-size:12.5px; font-weight:700; padding-top:2px; }
+.layer .tag .ico { display:block; font-size:18px; margin-bottom:2px; }
+.layer.fact .tag { color:#2a6aa6; }
+.layer.market .tag { color:#b86a30; }
+.layer.take .tag { color:#1f7a52; }
+.layer .content { font-size:14.5px; }
+.layer .content p { margin:0 0 8px; } .layer .content p:last-child { margin-bottom:0; }
+.layer .content b { color:#0f3a64; }
+.layer.take { background:#f5fbf8; border-radius:8px; margin:6px -10px 0; padding:13px 12px; border-top:none; }
+.stance { display:inline-block; font-size:12px; font-weight:700; padding:2px 10px; border-radius:20px; margin-bottom:6px; }
+.stance.agree { background:#e2f5ec; color:#19794e; border:1px solid #9ed9bb; }
+.stance.disagree { background:#fde8e8; color:#b1342f; border:1px solid #f0a9a6; }
+.stance.partial { background:#fdefd8; color:#a86a1c; border:1px solid #f0c585; }
+.stance.neutral { background:#eef1f6; color:#51607a; border:1px solid #cfd7e3; }
+.stance.core { background:#e7eefc; color:#2f51b0; border:1px solid #adc1f0; }
+.bigquote { background:#14528d; color:#fff; padding:16px 22px; border-radius:10px; margin:8px 0 0; font-size:14.5px; font-style:italic; }
+.endnote { background:linear-gradient(135deg,#fffdf5,#fff7e0); border-left:4px solid #e6a23c; padding:14px 18px; border-radius:0 10px 10px 0; margin:18px 0 0; font-size:14px; }
+.endnote b { color:#b86a30; }
+footer { text-align:center; color:#9aa6b3; font-size:12px; margin-top:36px; line-height:1.8; }
+@media (max-width:680px){ .layer{ grid-template-columns:1fr; gap:4px; } .layer .tag .ico{ display:inline; margin-right:4px; } .idx-row{ grid-template-columns:84px 1fr 92px; gap:8px; } .idx-name{ font-size:13px; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="nav">游庭皓《早晨財經速解讀》每日 Briefing</div>
+<div class="hero">
+  <div class="kicker">早晨財經速解讀 · 開盤前 30 分鐘</div>
+  <h1>價格才是答案：油價已回到戰前水準，中東風險其實在市場層面已經結束；七巨頭不再齊漲齊跌，代表的不是AI行情結束，而是AI選股時代開始</h1>
+  <p class="sub">2026/6/29（一） · 影片標題：七巨頭行情結束？AI進入選股時代 美伊再互轟 急跌是買點？</p>
+</div>
+<div class="indices"><h2>📊 當日四大指數收盤</h2><div class="idx-row"><div class="idx-name">道瓊<span class="v">51,876</span></div><div class="idx-track"><div class="idx-mid"></div><div class="idx-bar down" style="width:0.7%"></div></div><div class="idx-chg down">-44 / -0.09%</div></div><div class="idx-row"><div class="idx-name">標普<span class="v">7,354</span></div><div class="idx-track"><div class="idx-mid"></div><div class="idx-bar down" style="width:0.4%"></div></div><div class="idx-chg down">-3 / -0.05%</div></div><div class="idx-row"><div class="idx-name">納指<span class="v">25,297</span></div><div class="idx-track"><div class="idx-mid"></div><div class="idx-bar down" style="width:2.0%"></div></div><div class="idx-chg down">-60 / -0.24%</div></div><div class="idx-row"><div class="idx-name">費半<span class="v">13,203</span></div><div class="idx-track"><div class="idx-mid"></div><div class="idx-bar down" style="width:44.0%"></div></div><div class="idx-chg down">-737 / -5.29%</div></div><div class="idx-row"><div class="idx-name">台股<span class="v">45,038</span></div><div class="idx-track"><div class="idx-mid"></div><div class="idx-bar up" style="width:8.7%"></div></div><div class="idx-chg up">+466 / +1.05%</div></div><p class="idx-note">美股四大指數為上週五（6/26）收盤；費半單日跌幅逐字稿講5.29%，惟737點/13,203點換算約5.58%，兩者方向一致、以逐字稿口述數字為準，供參考。費半雖重挫、仍在月線附近。台股為當日（6/29週一）收盤，續創反彈：上週五曾暴跌1,683點收44,571（史上第三大單日跌點），外資單週賣超3,312億（史上第二大）；AMD -2.06%、美光-6.69%、輝達-1.64%。</p></div>
+<div class="summary"><h2>📌 一句話 Briefing</h2><p><b>1. 原油價格已回到戰前水準，中東風險在市場層面其實已經結束。</b> 布蘭特跌破72美元、超級油輪運價4天大跌44%；新聞還在吵談判會不會破局，但價格已經給出答案：荷姆茲海峽仍暢通、伊朗石油制裁大幅鬆綁，市場早就不緊張了。</p><p><b>2. 七巨頭不再齊漲齊跌，是AI選股時代的開始，不是AI行情結束。</b> 微軟從高點跌逾30%、亞馬遜跌破多年低檔防線，但輝達仍守住多頭結構；市場開始檢驗每家公司能否把資本支出轉化成真獲利，資金正在分化、不是撤出。</p><p><b>3. 只要算力仍稀缺，泡沫就不會破滅，只是本益比在修正。</b> 蘋果、記憶體都在漲價，缺貨情況沒有緩解；美銀認為這波是重新定價與槓桿回檔，不是系統性泡沫破滅——年底12萬點目標打8折看8萬點就好。</p></div>
+<div class="toc"><b>章節導覽：</b><a href="#c1">00:00 市場總覽</a> · <a href="#c2">02:35 美伊互轟</a> · <a href="#c3">05:00 原油回到戰前</a> · <a href="#c4">08:00 現貨回跌</a> · <a href="#c5">10:00 美股追蹤</a> · <a href="#c6">14:00 巨頭行情</a> · <a href="#c7">19:00 巨頭質疑點</a> · <a href="#c8">24:30 槓桿行情</a> · <a href="#c9">28:40 漲價潮</a> · <a href="#c10">31:50 科技通膨</a> · <a href="#c11">33:00 總結</a></div>
+<div class="chapter" id="c1"><div class="head"><span class="time">00:00</span><span class="num">01</span><h3>市場總覽</h3></div><div class="body"><div class="layer fact"><div class="tag"><span class="ico">📊</span>市場資訊</div><div class="content"><p>美股週五震盪收低，市場持續消化AI題材降溫：道瓊仍收漲0.5%，但標普單週跌近2%、納指單週跌4.5%。台股上週創48,218點歷史新高後連4天下跌，單週大跌1,894點、失守月線，外資單週賣超3,312億。</p></div></div><div class="layer take"><div class="tag"><span class="ico">🧠</span>他的解讀</div><div class="content"><span class="stance core">核心提問 · 定調</span><p>他把當天要回答的問題立起來：這波重挫到底是<b>巨頭層面開始鬆動</b>，還是<b>整體指數層面的系統性回檔</b>？並點出過去每次這種單日單週大跌、外資鉅額賣超之後通常都是V轉，<b>這一次急跌還會不會是買點</b>，是整集要驗證的核心命題。</p></div></div></div></div><div class="chapter" id="c2"><div class="head"><span class="time">02:35</span><span class="num">02</span><h3>美伊互轟</h3></div><div class="body"><div class="layer fact"><div class="tag"><span class="ico">📊</span>市場資訊</div><div class="content"><p>美伊在6/17簽署荷姆茲海峽停火協議後，上週互轟消息再度佔據新聞版面，但幾小時前雙方已有進一步和談跡象。超級油輪運價4天內大跌44%（日租金從51.4萬美元跌到28.7萬美元）；原油出口量已恢復到戰前75%水準、船舶通過數量恢復約80-90%。美國財政部也已宣布對伊朗石油給予60天制裁豁免，允許伊朗石油生產銷售、美國煉油商可直接以美元購買伊朗原油——這是40年來美國對伊朗制裁最大幅度的放寬。</p></div></div><div class="layer market"><div class="tag"><span class="ico">💬</span>市場觀點</div><div class="content"><p>新聞焦點仍在「雙方談判是否又要破局」，情緒又開始堆疊。</p></div></div><div class="layer take"><div class="tag"><span class="ico">🧠</span>他的解讀</div><div class="content"><span class="stance disagree">反對 · 新聞創造情緒，價格才是答案</span><p>他不跟著新聞情緒走，直接用資產價格反駁：超級油輪運價暴跌、原油出口量恢復到75-90%，<b>這些具體數字說明荷姆茲海峽目前完全暢通</b>，跟新聞渲染的緊張感不符。美方鬆綁伊朗石油制裁的用意也很清楚——延續核談判、壓低油價、削弱中國取得廉價伊朗原油的優勢、避免伊朗封鎖海峽。</p></div></div></div></div><div class="chapter" id="c3"><div class="head"><span class="time">05:00</span><span class="num">03</span><h3>原油回到戰前</h3></div><div class="body"><div class="layer fact"><div class="tag"><span class="ico">📊</span>市場資訊</div><div class="content"><p>布蘭特原油一度跌破72美元，回到本輪美伊衝突開始時的起始點（72.48美元）；上週五布蘭特重挫3.27美元（-4.34%）收71.9美元，WTI跌2.69美元（-3.74%）收69美元，雙雙見到6字頭，等於完全回吐衝突爆發後的漲幅。</p></div></div><div class="layer take"><div class="tag"><span class="ico">🧠</span>他的解讀</div><div class="content"><span class="stance core">核心觀點 · 價格才是真正的答案</span><p><b>「新聞是可以創造情緒的，但價格才是真正的答案」</b>。市場不會直接告訴你風險，而是從看似無關的小變化（油價、運價）透露答案。中東戰局不管談判雙方是否還會拖延，從價格層面來看幾乎已經全面走向尾聲——投資人真正相信的不是戰爭升級，而是全球原油供給正在恢復。（老公老婆吵架段子：老婆問車子跟我誰重要，老公才說溜嘴「你撞到哪裡了」——很多時候答案早就藏在反應裡。）</p><div class="bigquote">新聞它是可以創造情緒的，但價格才是真正的答案。</div></div></div></div></div><div class="chapter" id="c4"><div class="head"><span class="time">08:00</span><span class="num">04</span><h3>現貨回跌</h3></div><div class="body"><div class="layer fact"><div class="tag"><span class="ico">📊</span>市場資訊</div><div class="content"><p>原油價格已回到戰前水準，但美國汽油價格仍比戰前高出約30%，運輸、航空、食品成本還要數月才能消化掉這波僵固性通膨。美國平均汽油價格每加侖3.9美元，各州落差大（加州5.49、堪薩斯州約3美元），差異來自燃油稅、運輸成本、煉油能力。美國雖是石油淨出口國，仍每天進口數百萬桶原油供煉油使用，因此國際油價仍會傳導到國內油價。</p></div></div><div class="layer take"><div class="tag"><span class="ico">🧠</span>他的解讀</div><div class="content"><span class="stance neutral">觀察 · 通膨有滯後與僵固性</span><p>他把「油價已回跌」跟「通膨已結束」拆開來看：<b>通膨有時間滯後與僵固性</b>——就像薪資漲了很難再跌回去，運輸成本漲了也很難跌回去，油價的漲幅已經部分轉嫁到終端商品的黏固性上。這是他對「原油回跌＝通膨立刻退燒」說法的修正，不是反駁油價本身的方向。</p></div></div></div></div><div class="chapter" id="c5"><div class="head"><span class="time">10:00</span><span class="num">05</span><h3>美股追蹤</h3></div><div class="body"><div class="layer fact"><div class="tag"><span class="ico">📊</span>市場資訊</div><div class="content"><p>四大指數：道瓊-44點/-0.09%收51,876；標普-3點/-0.05%收7,354；納指-60點/-0.24%收25,297（已跌破季線）；費半-737點/-5.29%收13,203（仍在月線左右）。費半成分股禮拜五最哀鴻遍野：AMD -2.06%、美光-6.69%、輝達-1.64%。台股上週五暴跌1,683點（史上第三大單日跌點）收44,571，外資單日賣超1,413億（史上第二大）、單週賣超3,312億，融資餘額單日大減200億到5,900億左右。</p></div></div><div class="layer take"><div class="tag"><span class="ico">🧠</span>他的解讀</div><div class="content"><span class="stance neutral">觀察 · 波幅放大、不是趨勢破壞</span><p>雖然單日跌點很重，但他強調<b>這只是波幅放大的結果</b>：台股看點位還在4萬4以上、費半仍在月線左右，都還沒有跌破真正的多空關鏈。今年資產績效統計顯示大多數資產仍是正報酬（小型股+22.3%最猛），只有黃金（-5.7%）和比特幣（-31%）收跌，比特幣連兩年下跌打破過去「三牛一熊」慣性，這說明<b>市場流動性沒有想像中氾濫，風險情緒偏高、資金開始挑股票</b>，這正好鋪陳到七巨頭的分化。</p></div></div></div></div><div class="chapter" id="c6"><div class="head"><span class="time">14:00</span><span class="num">06</span><h3>巨頭行情</h3></div><div class="body"><div class="layer fact"><div class="tag"><span class="ico">📊</span>市場資訊</div><div class="content"><p>納指5月來受制於整理區間，29,000點是多空分水嶺。七巨頭（Google、Amazon、Microsoft、Oracle等雲端巨頭）自5月底平均累計下跌16.4%、逼近熊市。年初至今報酬：標普+7.23%、Alphabet+6.14%（七巨頭中最亮麗）、蘋果+4.7%、亞馬遜+2.73%、輝達+1.95%、特斯拉-13%，微軟最慘-21%（從高點跌約32%）。七巨頭獲利並沒有惡化，本益比下滑純粹是資金挪移。</p></div></div><div class="layer take"><div class="tag"><span class="ico">🧠</span>他的解讀</div><div class="content"><span class="stance core">核心觀點 · 賺錢也不夠，錢收不收得回來才是重點</span><p>他點出關鍵：七巨頭獲利沒惡化，本益比卻快速下滑，<b>說明市場擔心的不是「賺不賺錢」，而是「你花這麼多錢，錢收不收得回來」</b>。逐一檢視技術面：蘋果逼近270美元關鍵支撐、逢低買盤仍強；亞馬遜首次跌破多年低檔防線（「超級大頭部」）、是隱憂最大的一檔；Meta困在區間、跌破年線；Google拉回但仍在年線之上；輝達被市場戲稱「dead money」但周線多頭結構未破、是七巨頭穩盤的關鍵；特斯拉已經沒人管、市場焦點轉向SpaceX。</p></div></div></div></div><div class="chapter" id="c7"><div class="head"><span class="time">19:00</span><span class="num">07</span><h3>巨頭質疑點</h3></div><div class="body"><div class="layer fact"><div class="tag"><span class="ico">📊</span>市場資訊</div><div class="content"><p>標普企業整體營業利潤率仍維持約16%高檔，代表大盤基本面仍偏多。五大雲端業者未來12個月自由現金流預估近兩年大幅下滑（因資本支出暴增），與股價脫鉤——過去現金流越多股價漲越凶，現在現金流下滑，投資人的恐慌可以理解。今年Alphabet宣布850億美元股票募資、SpaceX完成750億美元IPO，OpenAI、Anthropic、Meta也有進一步籌資計畫。</p></div></div><div class="layer market"><div class="tag"><span class="ico">💬</span>市場觀點</div><div class="content"><p>市場擔心AI基礎建設投資會遠超預期，後續回收將形成進一步承壓；股價層面只願意信賴「賣產值」（賣鏟子）的公司，不再信賴「買產值」（砸錢挖礦）的公司。</p></div></div><div class="layer take"><div class="tag"><span class="ico">🧠</span>他的解讀</div><div class="content"><span class="stance partial">部分同意 · 重新定義成信仰題</span><p>他同意市場的擔憂邏輯，但把問題重新定義成一個二選一的信仰題：<b>要嘛七巨頭有一天玩不下去、破產拖累台廠；要嘛七巨頭最終成功回收資本支出、付錢給台廠、台廠變最大贏家</b>——最後結果完全取決於你是不是「科技樂觀論者」。如果你仍是樂觀論者，現在本益比顯著鬆動的巨頭反而是「遍地是鑽石」的買點。七巨頭不再齊漲齊跌，不代表AI行情結束，而是<b>市場開始檢驗每家公司能否把AI投資轉化成獲利與現金流，代表AI選股時代開始</b>，他認為這反而是好事情。</p></div></div></div></div><div class="chapter" id="c8"><div class="head"><span class="time">24:30</span><span class="num">08</span><h3>槓桿行情</h3></div><div class="body"><div class="layer fact"><div class="tag"><span class="ico">📊</span>市場資訊</div><div class="content"><p>美國ETF今年累積淨流入已破1兆美元，全年估上看2兆、年增33%。槓桿型ETF（如2倍做多DRAM、2倍做多標普500、SOXL）成交火熱，總資產已破2,000億美元、透過衍生性商品放大槓桿更高達5,000億美元。6月美國單月新掛牌ETF達185檔創歷史新高（過去月均20-80檔）。五大雲端資本支出今年近7,000億美元，市場甚至開始出現GPU算力期貨（芝商所、ICE籌備中）。</p></div></div><div class="layer market"><div class="tag"><span class="ico">💬</span>市場觀點（美銀、高盛，看空/保守）</div><div class="content"><p>美銀認為這波不是系統性風險泡沫破滅，而是AI重新定價、個股分化、槓桿回檔；高盛與美銀都認為要等散戶槓桿情緒降溫、成交量下滑，市場才能重新整理。</p></div></div><div class="layer take"><div class="tag"><span class="ico">🧠</span>他的解讀</div><div class="content"><span class="stance agree">同意 · 槓桿過熱需要清理</span><p>他同意美銀「不是泡沫破滅、是重新定價與槓桿回檔」的框架，並補充機構觀察：<b>散戶情緒被槓桿ETF推得很高，但機構資金對大型權值股反而轉趨保守</b>。年初喊「每月漲1萬點、年底12萬點」的樂觀預期，他自己在此打8折修正為<b>目標8萬點</b>，市場正重新回到理性框架。</p></div></div></div></div><div class="chapter" id="c9"><div class="head"><span class="time">28:40</span><span class="num">09</span><h3>漲價潮</h3></div><div class="body"><div class="layer fact"><div class="tag"><span class="ico">📊</span>市場資訊</div><div class="content"><p>Google上週傳出限制Meta使用Gemini模型，原因是Meta所需算力已超過Google能提供的資源量。蘋果Mac漲價15-20%、iPad漲15-25%，入門MacBook Air調漲200美元、Pro調漲近300美元。金融時報報導蘋果正遊說川普政府，希望能獲准向中國長江存儲採購較低價記憶體以降低成本。長江存儲NAND市占率已從去年約8%上行到13%，直逼全球前四強。</p></div></div><div class="layer take"><div class="tag"><span class="ico">🧠</span>他的解讀</div><div class="content"><span class="stance core">核心觀點 · 只要算力稀缺，泡沫就不會破滅</span><p><b>「鬱金香泡沫破滅一定要有足夠多的鬱金香」</b>——只要市場供給還是稀缺的，就不會形成泡沫破滅。他用一連串漲價證據支撐：Google限制Meta用量、蘋果終端產品持續漲價、蘋果要繞道買中國記憶體降成本，都說明<b>當前AI資料中心的算力需求完全沒有緩解</b>，缺貨還在惡化，這就是「非泡沫破滅」的基礎，現階段只是估值回檔，不是需求消失。</p></div></div></div></div><div class="chapter" id="c10"><div class="head"><span class="time">31:50</span><span class="num">10</span><h3>科技通膨</h3></div><div class="body"><div class="layer fact"><div class="tag"><span class="ico">📊</span>市場資訊</div><div class="content"><p>過去認為AI提升生產力等於通縮，但目前看AI資料中心支出到2030年前停不下來，反而形成一波「科技通膨」，且時間線會拉得很長，對利率會造成壓力。中國大語言模型API定價遠低於美國：DeepSeek V4每百萬token輸入成本約1元人民幣（美國約10-20美元），字節跳動豆包也維持極低定價，智譜、Kimi、阿里千問略貴（約8-10元人民幣）但仍遠低於美國市場。</p></div></div><div class="layer take"><div class="tag"><span class="ico">🧠</span>他的解讀</div><div class="content"><span class="stance partial">部分同意 · 提出解方而非單純警示</span><p>他把「科技通膨」問題往前推一步找解方：<b>如果大語言模型能把每個token的成本壓低，就能在不擴張資本支出的情況下讓算力穩定成長，等於另類的生產力提升</b>。中國低價模型的破壞力（Deepseek為代表）反而可能是讓全球AI通膨降溫的關鍵，而不只是單純的競爭威脅。</p></div></div></div></div><div class="chapter" id="c11"><div class="head"><span class="time">33:00</span><span class="num">11</span><h3>總結</h3></div><div class="body"><div class="layer fact"><div class="tag"><span class="ico">📊</span>市場資訊</div><div class="content"><p>台股當日（6/29）上漲466點，收在45,038點。</p></div></div><div class="layer take"><div class="tag"><span class="ico">🧠</span>他的解讀</div><div class="content"><span class="stance core">結論</span><p>今天談的範圍很廣：石油通膨的問題雖然新聞還在吵，其實已經接近尾聲；科技通膨則成為市場新主流。在科技通膨上升的過程中，花錢的人（七巨頭）越來越受到市場質疑，股價層面已經透露答案。<b>但如果你是科技樂觀論者，他們終究得成功，不然賣產值的企業（台廠）遲早也會泡沫破滅——我們已經在這條船上了，只能硬著頭皮走下去，看看有沒有彎腰撿鑽石的空間。</b></p><div class="bigquote">我們已經在這條船上了，你只能硬著頭皮走下去，看看有沒有彎腰撿鑽石的空間。</div></div></div></div></div>
+<div class="endnote">💡 <b>讀法提示</b>：每段三層——📊 市場資訊是他攤開的事實、💬 市場觀點是別人/市場怎麼看（不一定有）、🧠 他的解讀是他的立場與理由。本集主軸是「價格才是答案」：從原油價格回到戰前水準判斷中東風險已結束，到七巨頭本益比鬆動判斷AI進入選股（不是行情結束）時代，都是用價格反推市場心理。核心信仰題：你若仍是科技樂觀論者，現在的回檔就是撿鑽石的機會。</div>
+<footer>
+本 Briefing 依當日直播逐字稿（含 YouTube 章節時間軸）整理摘要，僅供個人閱讀參考、非投資建議。<br>
+標準收尾：「祝各位投資朋友看盤順利、操盤愉快。」
+</footer>
+</div>
+</body>
+</html>
