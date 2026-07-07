@@ -18,7 +18,7 @@ os.makedirs(DATA_DIR, exist_ok=True)
 
 
 def fetch():
-    cmd = ["yt-dlp", "--skip-download", "--write-auto-subs",
+    cmd = ["yt-dlp", "--skip-download", "--write-subs", "--write-auto-subs",
            "--sub-langs", "zh-Hant,zh-TW,zh,en",
            "--output", "%(upload_date)s_%(title)s.%(ext)s",
            "--playlist-end", str(N), CHANNEL]
