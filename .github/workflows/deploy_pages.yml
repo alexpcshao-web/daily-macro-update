@@ -29,5 +29,18 @@ jobs:
       - uses: actions/upload-pages-artifact@v3
         with:
           path: "Daily Briefings"
+      # Pages 部署 API 偶發 "Deployment failed, try again later."（暫時性錯誤）
+      # → 第一次失敗不中止，等 45 秒自動重試一次
       - id: deployment
         uses: actions/deploy-pages@v4
+        continue-on-error: true
+      - name: Wait before retry
+        if: steps.deployment.outcome == 'failure'
+        run: sleep 45
+      - name: Retry deploy (transient failure)
+        id: deployment_retry
+        if: steps.deployment.outcome == 'failure'
+        uses: actions/deploy-pages@v4
+      - name: Fail if both attempts failed
+        if: steps.deployment.outcome == 'failure' && steps.deployment_retry.outcome != 'success'
+        run: exit 1
