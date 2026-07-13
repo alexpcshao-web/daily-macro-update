@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2026/7/13（一）游庭皓 早晨財經速解讀 Briefing</title>
+<style>
+:root { color-scheme: light; }
+* { box-sizing:border-box; }
+html,body { margin:0; padding:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang TC","Microsoft JhengHei","Noto Sans TC",sans-serif; background:#f7f8fa; color:#1a2330; line-height:1.7; }
+.wrap { max-width:1080px; margin:0 auto; padding:28px 24px 80px; }
+.nav { font-size:12.5px; color:#6c7a8c; margin-bottom:12px; }
+.hero { background:linear-gradient(135deg,#0f3a64 0%,#14528d 60%,#1a6cb1 100%); color:#fff; padding:30px 30px; border-radius:16px; box-shadow:0 6px 24px rgba(15,58,100,0.18); margin-bottom:22px; }
+.hero .kicker { font-size:11px; letter-spacing:2px; opacity:.8; text-transform:uppercase; }
+.hero h1 { margin:6px 0 8px; font-size:23px; line-height:1.4; }
+.hero .sub { opacity:.9; margin:0; font-size:13.5px; }
+/* 四大指數圖 */
+.indices { background:#fff; border-radius:12px; padding:18px 22px 20px; box-shadow:0 2px 10px rgba(0,0,0,0.05); margin-bottom:14px; }
+.indices h2 { font-size:16px; margin:0 0 14px; color:#14528d; }
+.idx-row { display:grid; grid-template-columns:130px 1fr 132px; align-items:center; gap:12px; margin:9px 0; }
+.idx-name { font-weight:700; font-size:14px; }
+.idx-name .v { display:block; font-family:monospace; font-size:12.5px; color:#6c7a8c; font-weight:500; margin-top:1px; }
+.idx-track { position:relative; height:24px; background:#f2f5f9; border-radius:6px; }
+.idx-mid { position:absolute; left:50%; top:-3px; bottom:-3px; width:1px; background:#c4cdd9; }
+.idx-bar { position:absolute; top:3px; height:18px; border-radius:4px; }
+.idx-bar.up { background:linear-gradient(90deg,#43b985,#21895a); left:50%; }
+.idx-bar.down { background:linear-gradient(270deg,#e2716b,#c0392b); right:50%; }
+.idx-bar.flat { background:#9aa6b3; left:calc(50% - 2px); width:4px !important; }
+.idx-chg { font-size:12.5px; font-weight:700; white-space:nowrap; text-align:left; }
+.idx-chg.up { color:#19794e; } .idx-chg.down { color:#b1342f; } .idx-chg.flat { color:#6c7a8c; }
+.idx-note { font-size:12.5px; color:#6c7a8c; margin:12px 0 0; }
+.summary { background:#fff; border-radius:12px; padding:20px 24px; box-shadow:0 2px 10px rgba(0,0,0,0.05); margin-bottom:14px; }
+.summary h2 { font-size:18px; margin:0 0 12px; color:#14528d; }
+.summary p { margin:10px 0; font-size:14.5px; }
+.summary b { color:#0f3a64; }
+.toc { background:#fff; border-radius:12px; padding:14px 18px; box-shadow:0 2px 10px rgba(0,0,0,0.05); margin-bottom:24px; font-size:13px; }
+.toc b { color:#14528d; }
+.toc a { color:#1a6cb1; text-decoration:none; }
+.toc a:hover { text-decoration:underline; }
+.chapter { background:#fff; border-radius:14px; box-shadow:0 2px 12px rgba(0,0,0,0.06); margin-bottom:18px; overflow:hidden; }
+.chapter > .head { display:flex; align-items:center; gap:12px; padding:14px 20px; background:linear-gradient(90deg,#eef4fa,#fff); border-left:6px solid #1a6cb1; }
+.chapter > .head .time { font-family:monospace; font-size:13px; color:#fff; background:#14528d; padding:3px 9px; border-radius:6px; }
+.chapter > .head .num { font-size:13px; color:#9aa6b3; font-weight:700; }
+.chapter > .head h3 { margin:0; font-size:17px; color:#14528d; }
+.chapter .body { padding:6px 20px 18px; }
+.layer { display:grid; grid-template-columns:128px 1fr; gap:14px; padding:13px 0; border-top:1px dashed #e6ebf2; }
+.layer:first-child { border-top:none; }
+.layer .tag { font-size:12.5px; font-weight:700; padding-top:2px; }
+.layer .tag .ico { display:block; font-size:18px; margin-bottom:2px; }
+.layer.fact .tag { color:#2a6aa6; }
+.layer.market .tag { color:#b86a30; }
+.layer.take .tag { color:#1f7a52; }
+.layer .content { font-size:14.5px; }
+.layer .content p { margin:0 0 8px; } .layer .content p:last-child { margin-bottom:0; }
+.layer .content b { color:#0f3a64; }
+.layer.take { background:#f5fbf8; border-radius:8px; margin:6px -10px 0; padding:13px 12px; border-top:none; }
+.stance { display:inline-block; font-size:12px; font-weight:700; padding:2px 10px; border-radius:20px; margin-bottom:6px; }
+.stance.agree { background:#e2f5ec; color:#19794e; border:1px solid #9ed9bb; }
+.stance.disagree { background:#fde8e8; color:#b1342f; border:1px solid #f0a9a6; }
+.stance.partial { background:#fdefd8; color:#a86a1c; border:1px solid #f0c585; }
+.stance.neutral { background:#eef1f6; color:#51607a; border:1px solid #cfd7e3; }
+.stance.core { background:#e7eefc; color:#2f51b0; border:1px solid #adc1f0; }
+.bigquote { background:#14528d; color:#fff; padding:16px 22px; border-radius:10px; margin:8px 0 0; font-size:14.5px; font-style:italic; }
+.endnote { background:linear-gradient(135deg,#fffdf5,#fff7e0); border-left:4px solid #e6a23c; padding:14px 18px; border-radius:0 10px 10px 0; margin:18px 0 0; font-size:14px; }
+.endnote b { color:#b86a30; }
+footer { text-align:center; color:#9aa6b3; font-size:12px; margin-top:36px; line-height:1.8; }
+@media (max-width:680px){ .layer{ grid-template-columns:1fr; gap:4px; } .layer .tag .ico{ display:inline; margin-right:4px; } .idx-row{ grid-template-columns:84px 1fr 92px; gap:8px; } .idx-name{ font-size:13px; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="nav">游庭皓《早晨財經速解讀》每日 Briefing</div>
+<div class="hero">
+  <div class="kicker">早晨財經速解讀 · 開盤前 30 分鐘</div>
+  <h1>華爾街不看空的四大共識——而估值回檔的根本理由不是泡沫，是「沒有電」</h1>
+  <p class="sub">2026/7/13（一） · 影片標題：油價再升溫 海力士掛牌大漲!華爾街為何 幾乎沒有人看空？</p>
+</div>
+<div class="indices"><h2>📊 當日四大指數收盤</h2><div class="idx-row"><div class="idx-name">道瓊<span class="v">52,637</span></div><div class="idx-track"><div class="idx-mid"></div><div class="idx-bar up" style="width:7.9%"></div></div><div class="idx-chg up">+149 / +0.29%</div></div><div class="idx-row"><div class="idx-name">標普<span class="v">7,575</span></div><div class="idx-track"><div class="idx-mid"></div><div class="idx-bar up" style="width:11.4%"></div></div><div class="idx-chg up">+31 / +0.42%</div></div><div class="idx-row"><div class="idx-name">納指<span class="v">26,281</span></div><div class="idx-track"><div class="idx-mid"></div><div class="idx-bar up" style="width:7.9%"></div></div><div class="idx-chg up">+74 / +0.29%</div></div><div class="idx-row"><div class="idx-name">費半<span class="v">12,967</span></div><div class="idx-track"><div class="idx-mid"></div><div class="idx-bar up" style="width:1.4%"></div></div><div class="idx-chg up">+7 / +0.05%</div></div><div class="idx-row"><div class="idx-name">台股<span class="v">46,093</span></div><div class="idx-track"><div class="idx-mid"></div><div class="idx-bar up" style="width:44.0%"></div></div><div class="idx-chg up">+735 / +1.62%</div></div><p class="idx-note">美股為上週五收盤（台股颱風假休 3 天、今日補漲 +735）。標普距歷史高點咫尺之遙、費半月線上仍有賣壓。SK 海力士美國 ADR 首日大漲 13%（募資 265 億美元、市值全球第 12）。上週五伊朗宣布荷姆茲海峽無限期關閉、美方稱全面開放，油價回升到 73–74。</p></div>
+<div class="summary"><h2>📌 一句話 Briefing</h2><p><b>1. 華爾街幾乎沒人看空——因為四大共識。</b> ① 經濟不著陸（IMF 看重新加速）；② Fed 中選前不升息；③ CSP 資本支出明年仍創高（8,000 億→破兆）；④ 中選後不確定性消除。連最保守的哈奈特都在找估值回檔的買點。下半年最大的機會＝這四項共識被打破。</p><p><b>2. 槓桿洗乾淨了、海力士掛牌成功。</b> 高盛：槓桿型半導體 ETF 曝險從 1,570 億砍到 1,040 億（去槓桿 1/3）、籌碼乾淨、戰術性偏多。海力士 ADR 首日 +13%——但「夢想成真」之後，市場改用更刁鑽的眼光看你。</p><p><b>3. 估值回檔的根本理由：不是泡沫、是「沒有電」。</b> 電網與發電擴建速度跟不上 GPU 生產速度，資本支出遲早被迫放緩——放緩不是不看好 AI，是能力有限。Google 明年資本支出 3,500 億＝十年前全球半導體整年銷售額。台股 +735 收 46,093。</p></div>
+<div class="toc"><b>章節導覽：</b><a href="#c1">00:00 市場總覽</a> · <a href="#c2">03:00 華爾街看法</a> · <a href="#c3">07:00 槓桿清洗</a> · <a href="#c4">10:00 記憶體擴廠</a> · <a href="#c5">13:00 AI vs. 庫存循環</a> · <a href="#c6">17:00 漲價潮</a> · <a href="#c7">18:45 資產追蹤</a> · <a href="#c8">24:00 ETF 狂潮</a> · <a href="#c9">26:00 資本支出</a> · <a href="#c10">29:10 總結</a></div>
+<div class="chapter" id="c1"><div class="head"><span class="time">00:00</span><span class="num">01</span><h3>市場總覽</h3></div><div class="body"><div class="layer fact"><div class="tag"><span class="ico">📊</span>市場資訊</div><div class="content"><p>台股放颱風假 3 天、今日看補漲行情；上週五美日韓股市平均漲約 1%、標普距歷史高點咫尺。<b>伊朗革命衛隊攻擊賽普勒斯籍貨櫃輪後宣布荷姆茲海峽無限期關閉；幾小時後川普與美軍中央司令部稱海峽全面開放</b>；美軍週末展開第三波空襲、打擊 140 多個目標，油價回升 73–74。Q2 獲利預估：標普 +20%、歐洲 +12%、亞太 +39%（日韓帶動）。</p></div></div><div class="layer take"><div class="tag"><span class="ico">🧠</span>他的解讀</div><div class="content"><span class="stance neutral">中性觀察 · 定調</span><p>定調本週雙重考驗：財報季＋油價通膨。但先鋪陳結論——市場上的謹慎者「大部分都是用估值回檔的角度看待」，<b>史詩級崩盤、系統性泡沫破滅的聲音已越來越淡</b>（連放空美光的貝瑞也同時買進 PayPal、房利美，不是全面看空）。</p></div></div></div></div><div class="chapter" id="c2"><div class="head"><span class="time">03:00</span><span class="num">02</span><h3>華爾街看法</h3></div><div class="body"><div class="layer fact"><div class="tag"><span class="ico">📊</span>市場資訊</div><div class="content"><p>哈奈特年初的「4×25%」組合（股/債/商品/現金各 25%）年化報酬 16%、已跑贏標普。全球股票基金吸金 564 億、科技股基金今年累計 <b>1,830 億（歷史新高）</b>。</p></div></div><div class="layer market"><div class="tag"><span class="ico">💬</span>市場觀點（華爾街共識）</div><div class="content"><p>四大共識支撐無人看空：① 經濟不著陸、IMF 看重新加速（衰退看不到、榮景將至）；② Fed 中選前不升息、油價回跌撐住；③ 超大型雲端業者資本支出明年頂多年增趨緩、金額仍創高（8,000 億 → 破兆）；④ 年底中選後不確定性消除、市場評價反而更高。</p></div></div><div class="layer take"><div class="tag"><span class="ico">🧠</span>他的解讀</div><div class="content"><span class="stance core">核心觀點 · 共識即風險清單</span><p>他把這四項共識反過來讀：<b>「下半年最大的投資機會，就是這四項共識的打破」</b>——例如突然丟出一個極疲弱的非農，就有布局機會；若四個前提都不破、就穩穩上漲，反而找不到太多買點。連最保守的哈奈特都在找估值回檔的機會——「人人都在找回檔，只是利潤假設不同」，這就是沒人看空的真相。</p></div></div></div></div><div class="chapter" id="c3"><div class="head"><span class="time">07:00</span><span class="num">03</span><h3>槓桿清洗</h3></div><div class="body"><div class="layer fact"><div class="tag"><span class="ico">📊</span>市場資訊</div><div class="content"><p>高盛：美國槓桿型半導體 ETF 多頭曝險從 6 月中的 1,570 億降到 1,040 億——<b>市場已消化 500 億美元的去槓桿賣壓（砍掉 1/3）</b>。SK 海力士 ADR 首日 +13%、盤中 177、市值全球第 12，可望成史上最大外國企業赴美上市案；DRAM 主題今年淨流入近 200 億美元未減。</p></div></div><div class="layer market"><div class="tag"><span class="ico">💬</span>市場觀點（高盛，偏多）</div><div class="content"><p>籌碼洗得非常乾淨、AI 基本面重新拉抬，可「戰術性偏多」、隨時報復性反彈。</p></div></div><div class="layer take"><div class="tag"><span class="ico">🧠</span>他的解讀</div><div class="content"><span class="stance agree">同意 · 洗的是槓桿不是信仰</span><p>認同籌碼乾淨的判讀：這輪上漲相對平緩，正因為「大家手上沒有這麼大的槓桿壓力了」。有趣的資金訊號：<b>韓股大盤 ETF（EWY）上市前吸金 75 億、上市後轉淨賣出</b>——資金不再壓「整個南韓」，改成直接壓 AI 記憶體龍頭（如同當年台積電 vs 非台積電），選股更精準了。</p></div></div></div></div><div class="chapter" id="c4"><div class="head"><span class="time">10:00</span><span class="num">04</span><h3>記憶體擴廠</h3></div><div class="body"><div class="layer fact"><div class="tag"><span class="ico">📊</span>市場資訊</div><div class="content"><p>三星宣布龍仁半導體園區首座晶圓廠投產<b>從 2031 提前到 2029</b>、共規劃 6 座。但估值出現怪象：<b>海力士前瞻本益比從 5 月底的 8 倍掉到 5 倍（快到 4 倍）、美光從 10.5 倍掉到 7 倍</b>——股價暴漲、本益比卻破底，因為 EPS 上升快到基期推不高。</p></div></div><div class="layer market"><div class="tag"><span class="ico">💬</span>市場觀點</div><div class="content"><p>悲觀解讀：「簽長約＋大擴產」按過往經驗就是庫存循環高點，屢試不爽。</p></div></div><div class="layer take"><div class="tag"><span class="ico">🧠</span>他的解讀</div><div class="content"><span class="stance partial">部分同意 · 關鍵在 PE 區間上移</span><p>承認過往循環確實如此，但這次的核心問題是：<b>AI 能否讓記憶體脫離景氣循環？</b>若仍是景氣循環股、現在 5 倍 PE 就是「低基期」；若是生產力突破，它們就要脫離原本的本益比區間（6–8 倍上移到 10–12 倍，像台積電從 15–20 倍上移一樣）——這是多空真正的分歧點。</p></div></div></div></div><div class="chapter" id="c5"><div class="head"><span class="time">13:00</span><span class="num">05</span><h3>AI vs. 庫存循環</h3></div><div class="body"><div class="layer fact"><div class="tag"><span class="ico">📊</span>市場資訊</div><div class="content"><p>過去 40–50 年，美國<b>住宅投資通常領先非住宅投資 6–9 個月轉弱</b>；目前住宅投資已因高利率萎縮，但 AI 驅動的企業資本支出仍在攀升——兩者罕見背離。</p></div></div><div class="layer take"><div class="tag"><span class="ico">🧠</span>他的解讀</div><div class="content"><span class="stance core">核心觀點 · 一個可證偽的檢驗</span><p>他給出一個乾淨的檢驗框架：<b>若 AI 真能改變景氣循環，這個背離就該繼續；若 AI 仍遵循舊規律，住宅降溫遲早把企業投資拉下去</b>——「最後就看企業投資什麼時候明顯放緩，只要數據還在脫鉤，就說明 AI 跟過往循環完全不一樣」。同時提醒「夢想成真後的焦慮」：海力士掛牌＝夢想實現，之後市場改用刁鑽眼光看你——以前是能不能成功的焦慮，現在是<b>能不能守住成功的焦慮</b>。</p><div class="bigquote">小男孩去動物園看老虎，想著長大要養一隻。後來夢想真的實現了——不說了，要去煮飯洗衣掃地了。</div></div></div></div></div><div class="chapter" id="c6"><div class="head"><span class="time">17:00</span><span class="num">06</span><h3>漲價潮</h3></div><div class="body"><div class="layer fact"><div class="tag"><span class="ico">📊</span>市場資訊</div><div class="content"><p>台積電 7/16 法說會前，境外機構目標價普遍調升到 3,000 以上、樂觀看 4,000。市場消息：<b>台積電已通知部分客戶，27 年 1 月起調漲「成熟製程」價格（個位數）</b>——疫情後 3 年來首次調成熟製程（以往只調先進製程）。</p></div></div><div class="layer take"><div class="tag"><span class="ico">🧠</span>他的解讀</div><div class="content"><span class="stance core">核心觀點 · 漲價最重要</span><p>法說會重點他排序：<b>漲價策略 > 毛利率（2 奈米拖累？）> 資本支出與 CoWoS 擴產</b>。連成熟製程都要漲＝缺貨從 GPU→PC 晶片→記憶體→電源管理晶片，現在輪到成熟製程——「真的連台積電都要調報價了」。達標市場不會意外，重點是端出需求暴增的新預估。</p></div></div></div></div><div class="chapter" id="c7"><div class="head"><span class="time">18:45</span><span class="num">07</span><h3>資產追蹤</h3></div><div class="body"><div class="layer fact"><div class="tag"><span class="ico">📊</span>市場資訊</div><div class="content"><p>上半年領漲全面轉變：<b>新興市場 IEMG +24.2% 居冠、小型股 IWN +22.6%</b>、中型 +17%、價值 +16%，標普只 +10.1%、大型成長股 IWF 僅 +5.1%、七巨頭平均 -2.5%。小型股此前連 5 年跑輸大型股（94–98 年來最長），今年反超 12.4 個百分點。今年收跌只有黃金 -7%、比特幣 -31%。</p></div></div><div class="layer take"><div class="tag"><span class="ico">🧠</span>他的解讀</div><div class="content"><span class="stance core">核心觀點 · 語言影響情緒</span><p>外資賣台韓不是看壞半導體、是「漲太多不得不獲利了結」。他提醒被字眼牽著走的風險：「<b>低基期跟套牢只差一個字</b>」——跌深讓人想到機會、慘很久讓人想到風險，價格相同、描述不同、情緒就變了。成熟的投資人回到估值、基本面、資金流向，用事實判斷、不用字眼決定買賣。</p><div class="bigquote">吃火鍋，說「這牛肉熟了」大家搶著撈；說「這牛肉老了」馬上被嫌棄——市場不只反映數據，它反映語言。</div></div></div></div></div><div class="chapter" id="c8"><div class="head"><span class="time">24:00</span><span class="num">08</span><h3>ETF 狂潮</h3></div><div class="body"><div class="layer fact"><div class="tag"><span class="ico">📊</span>市場資訊</div><div class="content"><p>美國 ETF 總規模突破 <b>15.6 兆美元</b>、今年已流入 1 兆（年底估破 2 兆）；6 月單月吸金 1,930 億；主動型 ETF 占流入 40%。美國有 <b>5,400 檔 ETF、比上市公司（約 4,000 家）還多</b>；日均成交 3,250 億創新高。</p></div></div><div class="layer take"><div class="tag"><span class="ico">🧠</span>他的解讀</div><div class="content"><span class="stance core">核心觀點 · 洗的都是槓桿</span><p>關鍵觀察：<b>槓桿型 ETF 大量獲利了結，現貨型 ETF 幾乎沒人賣——6 月在買、7 月還在買</b>。「洗的都是槓桿，沒有洗掉任何存股族、任何長期投資者」，這是這兩年買盤與以往最大的不同。順帶吐槽：現在挑 ETF 比挑個股還難。</p></div></div></div></div><div class="chapter" id="c9"><div class="head"><span class="time">26:00</span><span class="num">09</span><h3>資本支出</h3></div><div class="body"><div class="layer fact"><div class="tag"><span class="ico">📊</span>市場資訊</div><div class="content"><p>費半 14 個月漲 237% 媲美 2000 年、但本益比遠低於當年。美國資料中心建設支出已超越商辦、16 年來成長逾 10 倍。<b>Google 明年資本支出 3,500 億美元＝2016 年全球半導體整年銷售額（3,300 億）</b>。</p></div></div><div class="layer take"><div class="tag"><span class="ico">🧠</span>他的解讀</div><div class="content"><span class="stance core">核心觀點 ·「沒有電」才是回檔理由</span><p>本集最重要的推論：什麼能讓估值回檔？<b>資本支出被迫放緩——而放緩的原因不是不看好 AI，是「沒有電」</b>。電網與發電廠的擴建速度遠跟不上 GPU 的生產速度，「我生產了很多貨、沒有電，我要先建電廠、短期就不需要這麼多 GPU」——這才是估值回檔最可能的根本原因，而不是需求消失。</p></div></div></div></div><div class="chapter" id="c10"><div class="head"><span class="time">29:10</span><span class="num">10</span><h3>總結</h3></div><div class="body"><div class="layer fact"><div class="tag"><span class="ico">📊</span>市場資訊</div><div class="content"><p>台股 +735 收 46,093（09:01）。本週看台積電法說能否成為多頭反攻關鍵。</p></div></div><div class="layer take"><div class="tag"><span class="ico">🧠</span>他的解讀</div><div class="content"><span class="stance core">結論 · 今天的成長是明天的包袱</span><p>華爾街不看空≠風險消失，是市場相信四大共識；牛市不再七巨頭獨強、資金輪動到小型股/新興市場/國際股市——但擴散的隱含意義不一定是全面繁榮，而是<b>「所有基礎建設必須同步跟上」：只要有一個產業走太前面、後面跟不上，估值回檔就被迫發生</b>。今天的成長可能是明天的包袱。</p></div></div></div></div>
+<div class="endnote">💡 <b>讀法提示</b>：本集軸心有二：① 「共識即風險清單」——華爾街不看空建立在四大共識上，下半年最大機會就是共識被打破；② 「沒有電」——估值回檔的根本理由不是泡沫破滅、是電力瓶頸讓資本支出被迫放緩。另有一個可證偽的檢驗框架：住宅投資 vs 企業資本支出的背離，只要持續脫鉤＝AI 真的改變了景氣循環。記憶體的多空分歧收斂成一題：本益比區間會不會上移。※ 美股為上週五收盤（台股颱風假 3 天）。</div>
+<footer>
+本 Briefing 依當日直播逐字稿（含 YouTube 章節時間軸）整理摘要，僅供個人閱讀參考、非投資建議。<br>
+標準收尾：「祝各位投資朋友看盤順利、操盤愉快。」
+</footer>
+</div>
+</body>
+</html>
