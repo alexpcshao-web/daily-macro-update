@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2026/7/15（三）游庭皓 早晨財經速解讀 Briefing</title>
+<style>
+:root { color-scheme: light; }
+* { box-sizing:border-box; }
+html,body { margin:0; padding:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang TC","Microsoft JhengHei","Noto Sans TC",sans-serif; background:#f7f8fa; color:#1a2330; line-height:1.7; }
+.wrap { max-width:1080px; margin:0 auto; padding:28px 24px 80px; }
+.nav { font-size:12.5px; color:#6c7a8c; margin-bottom:12px; }
+.hero { background:linear-gradient(135deg,#0f3a64 0%,#14528d 60%,#1a6cb1 100%); color:#fff; padding:30px 30px; border-radius:16px; box-shadow:0 6px 24px rgba(15,58,100,0.18); margin-bottom:22px; }
+.hero .kicker { font-size:11px; letter-spacing:2px; opacity:.8; text-transform:uppercase; }
+.hero h1 { margin:6px 0 8px; font-size:23px; line-height:1.4; }
+.hero .sub { opacity:.9; margin:0; font-size:13.5px; }
+/* 四大指數圖 */
+.indices { background:#fff; border-radius:12px; padding:18px 22px 20px; box-shadow:0 2px 10px rgba(0,0,0,0.05); margin-bottom:14px; }
+.indices h2 { font-size:16px; margin:0 0 14px; color:#14528d; }
+.idx-row { display:grid; grid-template-columns:130px 1fr 132px; align-items:center; gap:12px; margin:9px 0; }
+.idx-name { font-weight:700; font-size:14px; }
+.idx-name .v { display:block; font-family:monospace; font-size:12.5px; color:#6c7a8c; font-weight:500; margin-top:1px; }
+.idx-track { position:relative; height:24px; background:#f2f5f9; border-radius:6px; }
+.idx-mid { position:absolute; left:50%; top:-3px; bottom:-3px; width:1px; background:#c4cdd9; }
+.idx-bar { position:absolute; top:3px; height:18px; border-radius:4px; }
+.idx-bar.up { background:linear-gradient(90deg,#43b985,#21895a); left:50%; }
+.idx-bar.down { background:linear-gradient(270deg,#e2716b,#c0392b); right:50%; }
+.idx-bar.flat { background:#9aa6b3; left:calc(50% - 2px); width:4px !important; }
+.idx-chg { font-size:12.5px; font-weight:700; white-space:nowrap; text-align:left; }
+.idx-chg.up { color:#19794e; } .idx-chg.down { color:#b1342f; } .idx-chg.flat { color:#6c7a8c; }
+.idx-note { font-size:12.5px; color:#6c7a8c; margin:12px 0 0; }
+.summary { background:#fff; border-radius:12px; padding:20px 24px; box-shadow:0 2px 10px rgba(0,0,0,0.05); margin-bottom:14px; }
+.summary h2 { font-size:18px; margin:0 0 12px; color:#14528d; }
+.summary p { margin:10px 0; font-size:14.5px; }
+.summary b { color:#0f3a64; }
+.toc { background:#fff; border-radius:12px; padding:14px 18px; box-shadow:0 2px 10px rgba(0,0,0,0.05); margin-bottom:24px; font-size:13px; }
+.toc b { color:#14528d; }
+.toc a { color:#1a6cb1; text-decoration:none; }
+.toc a:hover { text-decoration:underline; }
+.chapter { background:#fff; border-radius:14px; box-shadow:0 2px 12px rgba(0,0,0,0.06); margin-bottom:18px; overflow:hidden; }
+.chapter > .head { display:flex; align-items:center; gap:12px; padding:14px 20px; background:linear-gradient(90deg,#eef4fa,#fff); border-left:6px solid #1a6cb1; }
+.chapter > .head .time { font-family:monospace; font-size:13px; color:#fff; background:#14528d; padding:3px 9px; border-radius:6px; }
+.chapter > .head .num { font-size:13px; color:#9aa6b3; font-weight:700; }
+.chapter > .head h3 { margin:0; font-size:17px; color:#14528d; }
+.chapter .body { padding:6px 20px 18px; }
+.layer { display:grid; grid-template-columns:128px 1fr; gap:14px; padding:13px 0; border-top:1px dashed #e6ebf2; }
+.layer:first-child { border-top:none; }
+.layer .tag { font-size:12.5px; font-weight:700; padding-top:2px; }
+.layer .tag .ico { display:block; font-size:18px; margin-bottom:2px; }
+.layer.fact .tag { color:#2a6aa6; }
+.layer.market .tag { color:#b86a30; }
+.layer.take .tag { color:#1f7a52; }
+.layer .content { font-size:14.5px; }
+.layer .content p { margin:0 0 8px; } .layer .content p:last-child { margin-bottom:0; }
+.layer .content b { color:#0f3a64; }
+.layer.take { background:#f5fbf8; border-radius:8px; margin:6px -10px 0; padding:13px 12px; border-top:none; }
+.stance { display:inline-block; font-size:12px; font-weight:700; padding:2px 10px; border-radius:20px; margin-bottom:6px; }
+.stance.agree { background:#e2f5ec; color:#19794e; border:1px solid #9ed9bb; }
+.stance.disagree { background:#fde8e8; color:#b1342f; border:1px solid #f0a9a6; }
+.stance.partial { background:#fdefd8; color:#a86a1c; border:1px solid #f0c585; }
+.stance.neutral { background:#eef1f6; color:#51607a; border:1px solid #cfd7e3; }
+.stance.core { background:#e7eefc; color:#2f51b0; border:1px solid #adc1f0; }
+.bigquote { background:#14528d; color:#fff; padding:16px 22px; border-radius:10px; margin:8px 0 0; font-size:14.5px; font-style:italic; }
+.endnote { background:linear-gradient(135deg,#fffdf5,#fff7e0); border-left:4px solid #e6a23c; padding:14px 18px; border-radius:0 10px 10px 0; margin:18px 0 0; font-size:14px; }
+.endnote b { color:#b86a30; }
+footer { text-align:center; color:#9aa6b3; font-size:12px; margin-top:36px; line-height:1.8; }
+@media (max-width:680px){ .layer{ grid-template-columns:1fr; gap:4px; } .layer .tag .ico{ display:inline; margin-right:4px; } .idx-row{ grid-template-columns:84px 1fr 92px; gap:8px; } .idx-name{ font-size:13px; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="nav">游庭皓《早晨財經速解讀》每日 Briefing</div>
+<div class="hero">
+  <div class="kicker">早晨財經速解讀 · 開盤前 30 分鐘</div>
+  <h1>通膨降到 3.5%、「無碼」劇本正在實現；大怒神是新常態——悲觀的人到哪裡都悲觀</h1>
+  <p class="sub">2026/7/15（三） · 影片標題：股市大怒神？海力士狂飆 IBM大崩 通膨降溫 回調結束了？</p>
+</div>
+<div class="indices"><h2>📊 當日四大指數收盤</h2><div class="idx-row"><div class="idx-name">道瓊<span class="v">52,508</span></div><div class="idx-track"><div class="idx-mid"></div><div class="idx-bar up" style="width:0.4%"></div></div><div class="idx-chg up">+9 / +0.02%</div></div><div class="idx-row"><div class="idx-name">標普<span class="v">7,543</span></div><div class="idx-track"><div class="idx-mid"></div><div class="idx-bar up" style="width:6.7%"></div></div><div class="idx-chg up">+28 / +0.38%</div></div><div class="idx-row"><div class="idx-name">納指<span class="v">26,107</span></div><div class="idx-track"><div class="idx-mid"></div><div class="idx-bar up" style="width:15.8%"></div></div><div class="idx-chg up">+233 / +0.90%</div></div><div class="idx-row"><div class="idx-name">費半<span class="v">12,661</span></div><div class="idx-track"><div class="idx-mid"></div><div class="idx-bar up" style="width:44.0%"></div></div><div class="idx-chg up">+314 / +2.50%</div></div><div class="idx-row"><div class="idx-name">台股<span class="v">45,201</span></div><div class="idx-track"><div class="idx-mid"></div><div class="idx-bar up" style="width:18.3%"></div></div><div class="idx-chg up">+463 / +1.04%</div></div><p class="idx-note">大怒神行情：SK 海力士 ADR 單日 +27%、IBM 卻 -25%（1968 年來最大單日跌幅）。銀行股財報全面報喜（摩根大通淨利 212 億美元、+41% 歷史新高；高盛 +80%）。羅素 2000 進入牛市、今年 +20%（20 年來最佳）。</p></div>
+<div class="summary"><h2>📌 一句話 Briefing</h2><p><b>1. 通膨顯著降溫、「無碼」劇本正在實現。</b> 6 月 CPI 年增 3.5%（5 月 4.2%、預期 3.8%）、單月 -0.4% 創疫情以來最大降幅；升息預期從 10 月延到 12 月。他重申：只要油價不再走高，今年就是「無碼」——不升不降的中性狀態，讓 AI 自由發揮基本面，最好。</p><p><b>2. 大怒神是新常態：海力士 +27%、IBM -25% 同一天。</b> 波動率預期要調高——「偶爾熔斷一下也很正常」。IBM 崩跌的訊號：企業資本支出從軟體/大型主機轉向 AI 伺服器，SaaS 末日論交織。悲觀的人到哪都悲觀：投錢被罵收不回本、不投被罵被時代淘汰。</p><p><b>3. 川普全面選前衝刺：7 小時撤回海峽通行費。</b> 「他把海峽當冰箱開開關關」——20% 通行費改成波斯灣國家對美投資，標準的交易的藝術（先開天價再退讓）。壓通膨、砍藥價、裁國務院、機場改名川普——一切為 11 月。台股 +463 收 45,201。</p></div>
+<div class="toc"><b>章節導覽：</b><a href="#c1">00:00 市場總覽</a> · <a href="#c2">02:00 中東局勢</a> · <a href="#c3">05:00 6 月通膨</a> · <a href="#c4">08:30 關稅戰成果</a> · <a href="#c5">12:00 交易的藝術</a> · <a href="#c6">14:00 聯邦政府瘦身</a> · <a href="#c7">16:00 選前衝刺</a> · <a href="#c8">22:30 物價壓制</a> · <a href="#c9">25:40 美股追蹤</a> · <a href="#c10">29:00 AI 發債潮</a> · <a href="#c11">32:30 總結</a></div>
+<div class="chapter" id="c1"><div class="head"><span class="time">00:00</span><span class="num">01</span><h3>市場總覽</h3></div><div class="body"><div class="layer fact"><div class="tag"><span class="ico">📊</span>市場資訊</div><div class="content"><p>波動持續加大：<b>SK 海力士 ADR 昨日飆漲 27%、IBM 卻崩跌 25%</b>——內部輪動仍在進行。韓股這波引發實質斷頭潮。</p></div></div><div class="layer take"><div class="tag"><span class="ico">🧠</span>他的解讀</div><div class="content"><span class="stance core">核心觀點 · 波動率要重新定價</span><p>他把問題立起來：全世界資產價格波動這麼大之後，<b>「以後 5%、10% 還算是回檔嗎？還是只是單日的正常波動？熔斷真的有很意外嗎？偶爾熔斷一下也很正常嘛」</b>——市場要接受更高的波動率預期，這是新常態。</p></div></div></div></div><div class="chapter" id="c2"><div class="head"><span class="time">02:00</span><span class="num">02</span><h3>中東局勢</h3></div><div class="body"><div class="layer fact"><div class="tag"><span class="ico">📊</span>市場資訊</div><div class="content"><p><b>川普撤回前一天才提出的荷姆茲海峽 20% 通行補償費</b>，改成促使波斯灣國家對美大規模貿易與投資（金額與參與國都沒講）。若真收 20%，超大型油輪一趟成本 3,000 萬美元、美國汽油每加侖漲 37 美分——與壓通膨目標矛盾。油價回到 7 字頭、80 關卡上下徘徊。<b>杜拜宣布建新港繞過荷姆茲</b>；美國已成台灣最大石油進口國。</p></div></div><div class="layer take"><div class="tag"><span class="ico">🧠</span>他的解讀</div><div class="content"><span class="stance core">核心觀點 · 海峽當冰箱開開關關</span><p>「以前川普政策至少等 7 天再轉彎，現在 7 個小時就改口——<b>韭菜抬出去了</b>」：根據他的政策風格做交易要格外謹慎。更深一層的觀察：杜拜建新港＝<b>中東國家開始把美伊衝突視為長期常態</b>，全球能源版圖已經重排——亞洲全面轉向美國叫貨，美國頁岩油商成最大贏家。</p></div></div></div></div><div class="chapter" id="c3"><div class="head"><span class="time">05:00</span><span class="num">03</span><h3>6 月通膨</h3></div><div class="body"><div class="layer fact"><div class="tag"><span class="ico">📊</span>市場資訊</div><div class="content"><p>6 月 CPI 年增 <b>3.5%</b>（5 月 4.2%、預期 3.8%）、<b>單月 -0.4% 創 2020/4 以來最大降幅</b>（汽油 -9.7%）；核心通膨 2.9% → 2.6%，連二手車、服飾都在跌。升息預期從 10 月延到 12 月；2 年期美債殖利率降到 4.15%。華許國會作證：不容許高通膨長期存在，且他特別關注 AI——若 AI 生產力爆發，貨幣政策構想要全然改變。</p></div></div><div class="layer take"><div class="tag"><span class="ico">🧠</span>他的解讀</div><div class="content"><span class="stance agree">同意 · 無碼達成中</span><p>照他一路以來的劇本走：油價只要不再走高，<b>今年就有機會「無碼達成」——不升不降的中性狀態最好</b>（降息怕經濟不好、升息怕壓估值），讓 AI 自由發揮自己的基本面。對華許的評價很直白：<b>「他講的話跟鮑爾沒有太大區別，只是比較多改革而已——川普都不罵他的」</b>，鷹派談話是趁市場不恐慌時重振權威。</p></div></div></div></div><div class="chapter" id="c4"><div class="head"><span class="time">08:30</span><span class="num">04</span><h3>關稅戰成果</h3></div><div class="body"><div class="layer fact"><div class="tag"><span class="ico">📊</span>市場資訊</div><div class="content"><p>美國 5 月<b>貿易逆差反而擴大 42%</b>（關稅戰以來新高）；台灣對美順差又創高。IEEPA 被最高法院推翻後，約 <b>1,600 億美元關稅要退還</b>，企業三條路：申請退款（慢）、把索賠權折價賣給華爾街換現金、登記政府系統等下任政府退。中國順差也創高（繞道非美系統進美國）。蘋果砸 300 億美元採購博通晶片（6,000 億投資案的一環）。</p></div></div><div class="layer take"><div class="tag"><span class="ico">🧠</span>他的解讀</div><div class="content"><span class="stance partial">部分同意 · 半達到</span><p>「貿易戰打老半天，赤字又走高」——從貿易數字看是失敗的，<b>供應鏈並沒有全面脫鉤</b>（全球產品繞一圈還是進美國）。但硬要說也算「半達到」：美國要到了 ① 投資額走高、② 自己的國防供應鏈——代價是 ③ 買的東西更貴一點。</p></div></div></div></div><div class="chapter" id="c5"><div class="head"><span class="time">12:00</span><span class="num">05</span><h3>交易的藝術</h3></div><div class="body"><div class="layer fact"><div class="tag"><span class="ico">📊</span>市場資訊</div><div class="content"><p>川普模式重演：課 50% 關稅→變 20%＋來美投資；要格陵蘭→變增加駐軍；揚言退出北約→歐洲加軍費。這次海峽 20% 通行費→變波斯灣國家對美投資。</p></div></div><div class="layer take"><div class="tag"><span class="ico">🧠</span>他的解讀</div><div class="content"><span class="stance core">核心觀點 · 先開天價再退讓</span><p>《交易的藝術》的標準操作：<b>先開出接近不可能接受的天價、控制議題（control the narrative before the deal），再一步步退讓，最後讓對方接受原本根本不會答應的條件</b>——極端要求從來不是最終目標，只是把談判起點拉高。關稅戰的最終目的可能根本不是關稅、不是逆差，就是要投資額。</p><div class="bigquote">女生問：誠實告訴我你到底有幾公分？「嗯，30 公分吧。」回家一看怎麼才 3 公分——「我已經乘 10 了。」先開天價再慢慢退讓，這就是川普的交易藝術。</div></div></div></div></div><div class="chapter" id="c6"><div class="head"><span class="time">14:00</span><span class="num">06</span><h3>聯邦政府瘦身</h3></div><div class="body"><div class="layer fact"><div class="tag"><span class="ico">📊</span>市場資訊</div><div class="content"><p>國務院已有超過 3,000 名員工離職或遭裁撤；全美<b>過半大使職位懸缺</b>；101 位已提名大使中僅 9 位是職業外交官——打破 60 多年慣例。川普上任第一年就裁 2,800 人（十年最大減幅）、今年仍在精簡。</p></div></div><div class="layer take"><div class="tag"><span class="ico">🧠</span>他的解讀</div><div class="content"><span class="stance neutral">中性觀察 · 一舉兩得</span><p>他解讀為「一舉兩得」：外交官全換自己親信、外交政策直接反映白宮意志（促談判）；同時能省則省。聯邦部門初領失業救濟金人數也在緩步走高。</p></div></div></div></div><div class="chapter" id="c7"><div class="head"><span class="time">16:00</span><span class="num">07</span><h3>選前衝刺</h3></div><div class="body"><div class="layer fact"><div class="tag"><span class="ico">📊</span>市場資訊</div><div class="content"><p>佛州機場改名<b>「川普機場」</b>（費用 550 萬美元、美國首座以現任總統命名）＋川普總統大道；出生公民權行政命令被判無效後、改嚴管孕婦入境；<b>最高法院 6:3 判決占比升到 20%</b>（過去五任平均 11%）；簽行政命令截斷非法移民金融帳戶（房貸車貸信用卡）、把非法移民送「第三國」處理（白宮直言目的是製造恐懼）；華府將建 250 英尺凱旋門；整治 DEI（查華盛頓州女子監獄）、修改 990 稅務檔挖左派 NGO 資金網。</p></div></div><div class="layer take"><div class="tag"><span class="ico">🧠</span>他的解讀</div><div class="content"><span class="stance neutral">中性觀察 · 一切為 11 月</span><p>整串動作的公約數：<b>在中期選舉前取得可宣揚的成果＋鞏固保守派基本盤</b>。值得注意的細節：最高法院保守派不等於挺川普——IEEPA 就是被保守派用「不能亂擴充法律解釋」的立場推翻的，政治立場與法理立場是兩回事。</p></div></div></div></div><div class="chapter" id="c8"><div class="head"><span class="time">22:30</span><span class="num">08</span><h3>物價壓制</h3></div><div class="body"><div class="layer fact"><div class="tag"><span class="ico">📊</span>市場資訊</div><div class="content"><p>TrumpRX 線上藥品平台擴大到 600–900 種學名藥、直接要求降價，藥廠開始認慫；「讓美國再次健康」（MAHA）計畫：全美每年數十億份營養午餐（每份僅 4–5 美元）獲擴大補助、要求減加工食品。</p></div></div><div class="layer take"><div class="tag"><span class="ico">🧠</span>他的解讀</div><div class="content"><span class="stance core">核心觀點 · 壓通膨的決心 + 投資原則</span><p>選前壓低物價的決心非常明顯——所以<b>「不要期待通膨在年底前死灰復燃、利率預期高升」</b>。段子收在投資心法：想要更好的結果就要支應相應的成本；知識與金錢選知識——<b>本金重要，但投資原則才能讓你一年一年累積資產；只有本金沒有原則，一場波動就把你洗出去</b>。</p></div></div></div></div><div class="chapter" id="c9"><div class="head"><span class="time">25:40</span><span class="num">09</span><h3>美股追蹤</h3></div><div class="body"><div class="layer fact"><div class="tag"><span class="ico">📊</span>市場資訊</div><div class="content"><p>道瓊 +0.02%、標普 +0.38%、納指 +0.9%、費半 +2.5% 收 12,661。<b>銀行股財報全面報喜</b>：摩根大通淨利 212 億美元（+41%、歷史新高）、高盛 +80%、花旗 +45%、美銀 +27%。<b>IBM 暴跌 25%（1968 年來最大單日跌幅）</b>——Q2 不如預期＋警告企業資本支出由軟體/大型主機轉向 AI 伺服器。羅素 2000 進入牛市（今年 +20%、20 年最佳），科技七雄今年漲不到 3%；6 月後金融、醫療、小型股接棒，台股的台塑四寶也開始輪動。</p></div></div><div class="layer take"><div class="tag"><span class="ico">🧠</span>他的解讀</div><div class="content"><span class="stance core">核心觀點 · 多點開花的輪動</span><p>華爾街賺翻（台灣的銀行、證券股同理）；IBM 的崩跌是「SaaS 末日論」的延續——錢還是不夠、有排擠效果。但大格局是<b>多點開花：買巨頭反而輸大盤，「按照過去幾年的預期買、今年都可能受傷」</b>；若升息預期真的打消、重回降息之路，輪動會更廣。</p></div></div></div></div><div class="chapter" id="c10"><div class="head"><span class="time">29:00</span><span class="num">10</span><h3>AI 發債潮</h3></div><div class="body"><div class="layer fact"><div class="tag"><span class="ico">📊</span>市場資訊</div><div class="content"><p>六大巨頭（Google、Amazon、Meta、甲骨文、輝達、SpaceX）今年已發債 <b>2,440 億美元</b>（去年 1,080 億的一倍多、2024 年 17 億的 140 倍）；光這兩週輝達＋SpaceX＋亞馬遜就募了 750 億。<b>發債都成功、但債價一發就跌</b>；巨頭開始轉往歐元、加幣、瑞郎、英鎊、日圓市場發債（已占全球投等新發行近 9%）。</p></div></div><div class="layer market"><div class="tag"><span class="ico">💬</span>市場觀點</div><div class="content"><p>債市消化不良被解讀為信用風險升溫。</p></div></div><div class="layer take"><div class="tag"><span class="ico">🧠</span>他的解讀</div><div class="content"><span class="stance partial">部分反對 · 怕的不是違約</span><p>釐清因果：投資人不是怕巨頭違約，<b>是怕「AI 競賽沒有盡頭、不知道你還要發多少債」</b>——基金經理人刻意保留資金等下一波利率更高的發行。後果是股債將高度聯動：AI 行情的信仰會直接反映在這些巨頭還不還得起債。</p></div></div></div></div><div class="chapter" id="c11"><div class="head"><span class="time">32:30</span><span class="num">11</span><h3>總結</h3></div><div class="body"><div class="layer fact"><div class="tag"><span class="ico">📊</span>市場資訊</div><div class="content"><p>台股 +463 收 45,201。台韓股市細節隔天再談。</p></div></div><div class="layer take"><div class="tag"><span class="ico">🧠</span>他的解讀</div><div class="content"><span class="stance core">結論 · 樂觀還是悲觀</span><p>兩條主線收束：① 川普全面壓通膨救選情——今年不升息機率仍然很高；② 資金內部輪動分化（費半休息、巨頭 7 月回漲、小型股開花），<b>但所有類股、連債券市場，其實都在對賭同一套 AI 行情</b>。投錢被罵收不回本、不投被罵被淘汰——真正的問題不是花不花錢，是資金能否配置在創造未來價值的地方。</p><div class="bigquote">悲觀的人到哪都悲觀：配鑰匙被問「你配嗎」、買便當被問「你要飯嗎」、搭小黃被問「你清楚自己定位了沒有」——到底要不要留在這個行情上，取決於你是樂觀的人、還是悲觀的人。</div></div></div></div></div>
+<div class="endnote">💡 <b>讀法提示</b>：本集三個看點：① 通膨 3.5% 顯著降溫、「無碼」（今年不升不降）劇本正在實現，且他評華許「跟鮑爾沒太大區別」；② 大怒神是新常態——海力士 +27% 與 IBM -25% 同日發生，波動率預期要調高；③ 川普的「交易的藝術」再現：7 小時撤回海峽通行費、換波斯灣投資。立場上他對關稅戰成果打「半達到」、對 AI 發債潮釐清「怕的不是違約、是競賽沒有盡頭」，收尾回到元命題：所有資產都在對賭 AI，剩下的是你樂觀還是悲觀。</div>
+<footer>
+本 Briefing 依當日直播逐字稿（含 YouTube 章節時間軸）整理摘要，僅供個人閱讀參考、非投資建議。<br>
+標準收尾：「祝各位投資朋友看盤順利、操盤愉快。」
+</footer>
+</div>
+</body>
+</html>
