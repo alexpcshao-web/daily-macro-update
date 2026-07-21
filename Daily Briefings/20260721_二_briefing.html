@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2026/7/21（二）游庭皓 早晨財經速解讀 Briefing</title>
+<style>
+:root { color-scheme: light; }
+* { box-sizing:border-box; }
+html,body { margin:0; padding:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang TC","Microsoft JhengHei","Noto Sans TC",sans-serif; background:#f7f8fa; color:#1a2330; line-height:1.7; }
+.wrap { max-width:1080px; margin:0 auto; padding:28px 24px 80px; }
+.nav { font-size:12.5px; color:#6c7a8c; margin-bottom:12px; }
+.hero { background:linear-gradient(135deg,#0f3a64 0%,#14528d 60%,#1a6cb1 100%); color:#fff; padding:30px 30px; border-radius:16px; box-shadow:0 6px 24px rgba(15,58,100,0.18); margin-bottom:22px; }
+.hero .kicker { font-size:11px; letter-spacing:2px; opacity:.8; text-transform:uppercase; }
+.hero h1 { margin:6px 0 8px; font-size:23px; line-height:1.4; }
+.hero .sub { opacity:.9; margin:0; font-size:13.5px; }
+/* 四大指數圖 */
+.indices { background:#fff; border-radius:12px; padding:18px 22px 20px; box-shadow:0 2px 10px rgba(0,0,0,0.05); margin-bottom:14px; }
+.indices h2 { font-size:16px; margin:0 0 14px; color:#14528d; }
+.idx-row { display:grid; grid-template-columns:130px 1fr 132px; align-items:center; gap:12px; margin:9px 0; }
+.idx-name { font-weight:700; font-size:14px; }
+.idx-name .v { display:block; font-family:monospace; font-size:12.5px; color:#6c7a8c; font-weight:500; margin-top:1px; }
+.idx-track { position:relative; height:24px; background:#f2f5f9; border-radius:6px; }
+.idx-mid { position:absolute; left:50%; top:-3px; bottom:-3px; width:1px; background:#c4cdd9; }
+.idx-bar { position:absolute; top:3px; height:18px; border-radius:4px; }
+.idx-bar.up { background:linear-gradient(90deg,#43b985,#21895a); left:50%; }
+.idx-bar.down { background:linear-gradient(270deg,#e2716b,#c0392b); right:50%; }
+.idx-bar.flat { background:#9aa6b3; left:calc(50% - 2px); width:4px !important; }
+.idx-chg { font-size:12.5px; font-weight:700; white-space:nowrap; text-align:left; }
+.idx-chg.up { color:#19794e; } .idx-chg.down { color:#b1342f; } .idx-chg.flat { color:#6c7a8c; }
+.idx-note { font-size:12.5px; color:#6c7a8c; margin:12px 0 0; }
+.summary { background:#fff; border-radius:12px; padding:20px 24px; box-shadow:0 2px 10px rgba(0,0,0,0.05); margin-bottom:14px; }
+.summary h2 { font-size:18px; margin:0 0 12px; color:#14528d; }
+.summary p { margin:10px 0; font-size:14.5px; }
+.summary b { color:#0f3a64; }
+.toc { background:#fff; border-radius:12px; padding:14px 18px; box-shadow:0 2px 10px rgba(0,0,0,0.05); margin-bottom:24px; font-size:13px; }
+.toc b { color:#14528d; }
+.toc a { color:#1a6cb1; text-decoration:none; }
+.toc a:hover { text-decoration:underline; }
+.chapter { background:#fff; border-radius:14px; box-shadow:0 2px 12px rgba(0,0,0,0.06); margin-bottom:18px; overflow:hidden; }
+.chapter > .head { display:flex; align-items:center; gap:12px; padding:14px 20px; background:linear-gradient(90deg,#eef4fa,#fff); border-left:6px solid #1a6cb1; }
+.chapter > .head .time { font-family:monospace; font-size:13px; color:#fff; background:#14528d; padding:3px 9px; border-radius:6px; }
+.chapter > .head .num { font-size:13px; color:#9aa6b3; font-weight:700; }
+.chapter > .head h3 { margin:0; font-size:17px; color:#14528d; }
+.chapter .body { padding:6px 20px 18px; }
+.layer { display:grid; grid-template-columns:128px 1fr; gap:14px; padding:13px 0; border-top:1px dashed #e6ebf2; }
+.layer:first-child { border-top:none; }
+.layer .tag { font-size:12.5px; font-weight:700; padding-top:2px; }
+.layer .tag .ico { display:block; font-size:18px; margin-bottom:2px; }
+.layer.fact .tag { color:#2a6aa6; }
+.layer.market .tag { color:#b86a30; }
+.layer.take .tag { color:#1f7a52; }
+.layer .content { font-size:14.5px; }
+.layer .content p { margin:0 0 8px; } .layer .content p:last-child { margin-bottom:0; }
+.layer .content b { color:#0f3a64; }
+.layer.take { background:#f5fbf8; border-radius:8px; margin:6px -10px 0; padding:13px 12px; border-top:none; }
+.stance { display:inline-block; font-size:12px; font-weight:700; padding:2px 10px; border-radius:20px; margin-bottom:6px; }
+.stance.agree { background:#e2f5ec; color:#19794e; border:1px solid #9ed9bb; }
+.stance.disagree { background:#fde8e8; color:#b1342f; border:1px solid #f0a9a6; }
+.stance.partial { background:#fdefd8; color:#a86a1c; border:1px solid #f0c585; }
+.stance.neutral { background:#eef1f6; color:#51607a; border:1px solid #cfd7e3; }
+.stance.core { background:#e7eefc; color:#2f51b0; border:1px solid #adc1f0; }
+.bigquote { background:#14528d; color:#fff; padding:16px 22px; border-radius:10px; margin:8px 0 0; font-size:14.5px; font-style:italic; }
+.endnote { background:linear-gradient(135deg,#fffdf5,#fff7e0); border-left:4px solid #e6a23c; padding:14px 18px; border-radius:0 10px 10px 0; margin:18px 0 0; font-size:14px; }
+.endnote b { color:#b86a30; }
+footer { text-align:center; color:#9aa6b3; font-size:12px; margin-top:36px; line-height:1.8; }
+@media (max-width:680px){ .layer{ grid-template-columns:1fr; gap:4px; } .layer .tag .ico{ display:inline; margin-right:4px; } .idx-row{ grid-template-columns:84px 1fr 92px; gap:8px; } .idx-name{ font-size:13px; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="nav">游庭皓《早晨財經速解讀》每日 Briefing</div>
+<div class="hero">
+  <div class="kicker">早晨財經速解讀 · 開盤前 30 分鐘</div>
+  <h1>這波下跌兩個病因：槓桿退潮＋回本疑慮——先治槓桿、再靠財報證明回本，就很好治</h1>
+  <p class="sub">2026/7/21（二） · 影片標題：全球套牢潮 這次解套要多久？七巨頭能成 美股救星嗎？</p>
+</div>
+<div class="indices"><h2>📊 當日四大指數收盤</h2><div class="idx-row"><div class="idx-name">道瓊<span class="v">51,839</span></div><div class="idx-track"><div class="idx-mid"></div><div class="idx-bar down" style="width:17.3%"></div></div><div class="idx-chg down">-307 / -0.59%</div></div><div class="idx-row"><div class="idx-name">標普<span class="v">7,443</span></div><div class="idx-track"><div class="idx-mid"></div><div class="idx-bar down" style="width:5.6%"></div></div><div class="idx-chg down">-14 / -0.19%</div></div><div class="idx-row"><div class="idx-name">納指<span class="v">25,508</span></div><div class="idx-track"><div class="idx-mid"></div><div class="idx-bar down" style="width:1.5%"></div></div><div class="idx-chg down">-12 / -0.05%</div></div><div class="idx-row"><div class="idx-name">費半<span class="v">11,743</span></div><div class="idx-track"><div class="idx-mid"></div><div class="idx-bar up" style="width:17.6%"></div></div><div class="idx-chg up">+69 / +0.60%</div></div><div class="idx-row"><div class="idx-name">台股<span class="v">直播中 +686</span></div><div class="idx-track"><div class="idx-mid"></div><div class="idx-bar up" style="width:44.0%"></div></div><div class="idx-chg up">盤中 +686（約 +1.5%）</div></div><p class="idx-note">道瓊跌破月線；標普、納指仍在上方（標普季線有撐），距費半的熊市還有一段。費半連三天跌破季線（但美股慣用 50 日、與這裡的 60 日有誤差）。SMH 半導體 ETF 從高點 -20%+；七巨頭 ETF 7 月反彈逾 4%。※ 台股為直播中盤中數字、非收盤。</p></div>
+<div class="summary"><h2>📌 一句話 Briefing</h2><p><b>1. 全球在對「高乖離漲價潮」集體去槓桿——這是多殺多、不是基本面崩壞。</b> 台灣被動元件腰斬（國巨、華新科 -52%）、融資餘額單日縮 269 億、上櫃維持率逼近 130%；韓股今年第 20 次熔斷、海力士 2 倍 ETF 從高點 -70%。「主動被套、被動賠錢」。中國國家隊砸 90 億美元護盤。</p><p><b>2. 通膨的兩個新變數：油價破 90＋川普重啟關稅戰。</b> 美伊談判破滅、美軍連 9 天空襲，布蘭特一度破 90（7 月漲近 2 成）；川普對加拿大部分商品課 50%（改用 1930 關稅法 338 條）。但他同步技巧性豁免磷肥、擴大進口牛肉雞蛋——「我要讓大家知道關稅還在打，但對通膨有影響的就規避」。</p><p><b>3. 這波下跌的兩個病因：槓桿退潮＋回本疑慮。</b> 不是 Kimi K3、不是財報，是更深層的「槓桿主動退潮」＋「市場怕你錢賺不回來」。先把槓桿壓下來回到理性估值、再靠財報季證明回本能力——「本輪下跌其實很好治」。台股盤中 +686。</p></div>
+<div class="toc"><b>章節導覽：</b><a href="#c1">00:00 市場總覽</a> · <a href="#c2">02:00 台股槓桿降溫</a> · <a href="#c3">05:50 韓股槓桿降溫</a> · <a href="#c4">09:00 美伊局勢</a> · <a href="#c5">12:00 重啟關稅戰</a> · <a href="#c6">15:20 政策調整</a> · <a href="#c7">17:00 利益順序</a> · <a href="#c8">19:00 口號</a> · <a href="#c9">21:35 美股追蹤</a> · <a href="#c10">24:10 巨頭財報登場</a> · <a href="#c11">28:00 如何收復跌幅</a></div>
+<div class="chapter" id="c1"><div class="head"><span class="time">00:00</span><span class="num">01</span><h3>市場總覽</h3></div><div class="body"><div class="layer fact"><div class="tag"><span class="ico">📊</span>市場資訊</div><div class="content"><p>美股週一開高後失去動能、震盪，記憶體上方賣壓仍重。但上週財報不差、通膨降溫、銀行股優於預期，<b>七巨頭之前阿斯麥、台積電對半導體需求仍釋出樂觀展望</b>。資金已輪動近一個月——撤出半導體、轉向七巨頭/軟體/醫療；SMH 從高點 -20%+，但 Google、微軟、亞馬遜 7 月股價收紅。</p></div></div><div class="layer take"><div class="tag"><span class="ico">🧠</span>他的解讀</div><div class="content"><span class="stance neutral">中性觀察 · 定調</span><p>兩個問題立起來：① <b>七巨頭能否成為本輪輪動的救星</b>；② 記憶體、費半成分股的套牢期要多久、距下一次創高多遠。標普百指數仍在高檔，距費半的熊市還有一長段距離。</p></div></div></div></div><div class="chapter" id="c2"><div class="head"><span class="time">02:00</span><span class="num">02</span><h3>台股槓桿降溫</h3></div><div class="body"><div class="layer fact"><div class="tag"><span class="ico">📊</span>市場資訊</div><div class="content"><p>台股回撤半年線，高融資個股成賣壓重心：<b>融資餘額單日縮 269 億（上市 -189、上櫃 -80）、上櫃維持率逼近 130% 最低水位</b>。被動元件重災：三環 -40%+、三星電機 -47%、太陽誘電 -54%、<b>國巨腰斬、華新科 -52%</b>。重壓個股的主動型 ETF 淪為重災區。</p></div></div><div class="layer take"><div class="tag"><span class="ico">🧠</span>他的解讀</div><div class="content"><span class="stance core">核心觀點 · 多殺多、主動被套</span><p>本質是<b>去槓桿引發的多殺多</b>——融資戶被追繳、賣其他持股「挖東牆補西牆」。恐慌情緒還不明顯，但被動元件、封測已陸續出現。主動型 ETF 雖然單一持股配置多在 2–3%，核心持股一腰斬就明顯承壓——<b>「主動被套、被動賠錢」</b>。</p><div class="bigquote">國巨從 600 漲到 1,200 花了 28 天，從 1,000 跌到 600 只花兩週——「從屋頂跳下來只要 8 秒」。買入國巨、人生再聚、生涯悲劇、發票還是載具。</div></div></div></div></div><div class="chapter" id="c3"><div class="head"><span class="time">05:50</span><span class="num">03</span><h3>韓股槓桿降溫</h3></div><div class="body"><div class="layer fact"><div class="tag"><span class="ico">📊</span>市場資訊</div><div class="content"><p>韓股補跌 -4.4%、盤中觸發<b>今年第 20 次熔斷</b>、回撤半年線；追蹤海力士 2 倍槓桿的 ETF 從 6 月高點 -70%。南韓暫停新增個股槓桿 ETF、保證金從 1,000 萬→3,000 萬韓元、教育時數 2→3 小時（規模已達 10 兆韓元、無法下市）。<b>中國國家隊（國新 500 億、誠通 100 億人民幣）進場護盤</b>。</p></div></div><div class="layer take"><div class="tag"><span class="ico">🧠</span>他的解讀</div><div class="content"><span class="stance core">核心觀點 · 韓國是政策把泡沫搞大</span><p>「這波不可能把投資 0050 的人洗掉，但對賭指數的槓桿 ETF 客就會被洗掉」——關鍵差別在槓桿。他點出韓國的特殊性：<b>一般是產業搞大泡沫、政策收尾；韓國是「政策自己把泡沫搞大」</b>（挑這個時間點放行 2 倍個股 ETF）。「以前覺得最大詐騙集團在柬埔寨，現在發現在首爾」。</p></div></div></div></div><div class="chapter" id="c4"><div class="head"><span class="time">09:00</span><span class="num">04</span><h3>美伊局勢</h3></div><div class="body"><div class="layer fact"><div class="tag"><span class="ico">📊</span>市場資訊</div><div class="content"><p>美軍<b>連續第 9 天空襲伊朗、談判完全破滅</b>。布蘭特一度破 90、現約 88–89（7 月漲近 2 成）。荷姆茲通行量每天剩 3–4 艘（2 月是 150 艘、6 月解禁曾回 50 艘），伊拉克改走敘利亞出口——長期封鎖已成常態。美國汽油回漲到每加侖 3.86、恐再挑戰 4 美元。</p></div></div><div class="layer take"><div class="tag"><span class="ico">🧠</span>他的解讀</div><div class="content"><span class="stance core">核心觀點 · 僵固通膨要回頭</span><p>原本以為 7、8、9 月通膨會反映 6 月油價下彎，<b>現在油價回升、通膨壓力恐重回上行</b>。而且期貨當時的下跌還沒完全反映到現貨（汽油、便當一樣）——「颱風天過了、菜價肉價開始回跌，但我已經漲上去了，沒那麼容易調回來」，這就是僵固通膨。</p></div></div></div></div><div class="chapter" id="c5"><div class="head"><span class="time">12:00</span><span class="num">05</span><h3>重啟關稅戰</h3></div><div class="body"><div class="layer fact"><div class="tag"><span class="ico">📊</span>市場資訊</div><div class="content"><p>川普宣布對加拿大部分商品（牛奶、鮮奶油、水泥等）課 <b>50% 關稅</b>，改用 1930 關稅法第 338 條（IEEPA 已被最高法院推翻）；連美墨加協定商品也不倖免。但能源、鉀肥、汽車鋼鐵原料等關鍵供應鏈留白不課。</p></div></div><div class="layer take"><div class="tag"><span class="ico">🧠</span>他的解讀</div><div class="content"><span class="stance core">核心觀點 · 欲加之罪何患無辭</span><p>「這是<b>針對加拿大調高談判壓力</b>、不是單純調個別關稅」——川普很多政策的根本目的是<b>加速談判、在中期選舉前收攏能宣揚的戰果</b>：如果通膨壓不下去，至少要能說關稅戰取得了成果。對關鍵物資留白，正是「通膨壓力很大但還要逼加拿大讓步」的技巧。</p></div></div></div></div><div class="chapter" id="c6"><div class="head"><span class="time">15:20</span><span class="num">06</span><h3>政策調整</h3></div><div class="body"><div class="layer fact"><div class="tag"><span class="ico">📊</span>市場資訊</div><div class="content"><p>貝森特的「333 目標」（財政赤字降到 GDP 3%、經濟成長 3%、每日原油增產 300 萬桶）一年多來<b>只達成了原油那一項</b>（因美伊戰事被迫拉抬）——財政赤字仍高速成長（國防支出創新高）、GDP 破 3% 難（AI 進口暴增拉低淨出口）。技巧性動作：暫停摩洛哥磷肥關稅（磷肥價 -22%、省農民 18 億）、擴大進口阿根廷牛肉、進口雞蛋、AI 硬體關稅豁免。</p></div></div><div class="layer take"><div class="tag"><span class="ico">🧠</span>他的解讀</div><div class="content"><span class="stance core">核心觀點 · 選前技巧性豁免</span><p>「我要讓大家知道關稅還在打，<b>但對通膨有影響的就稍微規避</b>、技巧性拉抬」——一手加關稅逼談判、一手對會推升物價的品項豁免，全都是為了中期選舉前同時顧到「戰果」與「物價」。</p></div></div></div></div><div class="chapter" id="c7"><div class="head"><span class="time">17:00</span><span class="num">07</span><h3>利益順序</h3></div><div class="body"><div class="layer fact"><div class="tag"><span class="ico">📊</span>市場資訊</div><div class="content"><p>川普的政策看似矛盾：空襲伊朗又暫停部分關稅、要製造業回流又擴大進口。表面理由是正義、安全、國家自主。</p></div></div><div class="layer take"><div class="tag"><span class="ico">🧠</span>他的解讀</div><div class="content"><span class="stance core">核心觀點 · 矛盾只是利益排序變了</span><p><b>「政策看起來很矛盾，其實只是他的利益順序排序發生了變化」</b>——今天可以用國家安全限制貿易、明天用穩定物價重開市場。所以現在的通膨確實要怪他（2、3 月的伊朗戰事把我們帶到這個位階），而他現在採取更多措施穩物價，不是轉性、是<b>利益順序改成先顧中期選舉</b>。</p></div></div></div></div><div class="chapter" id="c8"><div class="head"><span class="time">19:00</span><span class="num">08</span><h3>口號</h3></div><div class="body"><div class="layer fact"><div class="tag"><span class="ico">📊</span>市場資訊</div><div class="content"><p>借諾蘭《奧德賽》海倫選角爭議延伸：海倫「世界第一美女」的頭銜，其實是愛神為了贏得比美、把她當獎品送給帕里斯——她從頭到尾沒有選擇權。</p></div></div><div class="layer take"><div class="tag"><span class="ico">🧠</span>他的解讀</div><div class="content"><span class="stance core">核心觀點 · 口號背後是利益</span><p>元觀點：<b>「世界第一美女不是客觀存在，是掌握權力的人定義的符號」</b>；特洛伊戰爭真的是為了海倫，還是海倫只是發動戰爭的藉口？政治也一樣——MAGA、航行自由、結束戰爭、供應鏈自主每句都有立場，但真正決定政府下一步的，是<b>油價能不能壓住、能不能換到更多選票</b>。</p><div class="bigquote">安史之亂真是因為唐玄宗太愛楊貴妃？賜死她只是要有人承擔責任、平息眾怒。反清復明只是口號、跟阿彌陀佛一樣——每個人喊同一句，背後的算盤都不一樣。</div></div></div></div></div><div class="chapter" id="c9"><div class="head"><span class="time">21:35</span><span class="num">09</span><h3>美股追蹤</h3></div><div class="body"><div class="layer fact"><div class="tag"><span class="ico">📊</span>市場資訊</div><div class="content"><p>道瓊 -0.59% 收 51,839（跌破月線）、標普 -0.19%（季線有撐）、納指 -0.05%、費半 +0.6% 收 11,743（連三天跌破季線）。今年多數資產仍正報酬（大宗 +29%、小型股 +19%、價值股 +18%），唯二收跌是黃金 -7%、比特幣 -27%。</p></div></div><div class="layer take"><div class="tag"><span class="ico">🧠</span>他的解讀</div><div class="content"><span class="stance core">核心觀點 · AI 合理化的兩條路</span><p>他給出 AI 投資要「合理化」的兩種結果：① <b>生產力大幅提升（錢賺回來了）</b>，② 賺不回來就靠<b>貧富差距擴大（把員工的錢放進公司、撐住市值）</b>。兩者都有代價（前者推升實質利率壓折現、後者有再分配壓力）。但現在只是波動率放大、估值沒到極端離譜——七巨頭本益比還在滑落，是「資本支出太高、怕收不回來」，不是獲利崩壞。</p></div></div></div></div><div class="chapter" id="c10"><div class="head"><span class="time">24:10</span><span class="num">10</span><h3>巨頭財報登場</h3></div><div class="body"><div class="layer fact"><div class="tag"><span class="ico">📊</span>市場資訊</div><div class="content"><p>七巨頭 ETF 7 月反彈逾 4%：蘋果 +10.9%、Meta +5.3%（→月內近 14%）、微軟 +4%、亞馬遜 +3.4%、輝達 +2.8%、Google -1%；<b>馬斯克帝國最慘（SpaceX -8.1%、特斯拉 -13%）</b>。SpaceX 連 7 跌、累計 -21%、從全球第 6 大跌到第 8 大，且 IPO 後發的 250 億債信用利差擴到近次級債。</p></div></div><div class="layer market"><div class="tag"><span class="ico">💬</span>市場觀點</div><div class="content"><p>市場擔心地緣政治、油價改變風險偏好，且對巨頭「資本支出夠不夠高、回報夠不夠高」標準很高。</p></div></div><div class="layer take"><div class="tag"><span class="ico">🧠</span>他的解讀</div><div class="content"><span class="stance core">核心觀點 · 沒有真實的貪婪泡沫</span><p>反過來想：<b>市場對巨頭這麼嚴格、費半撐這麼高，正是因為「怕你錢賺不回來」——一個害怕的市場，哪來真實的貪婪泡沫？</b>大家是「對高估值的保持高估值、但不願追加，只願買馬上把錢賺回來的（賣鏟子的）」。Meta 7 月 +14% 是因為「告訴市場我很精準在花錢」；SpaceX 崩是因為透支太遠、營收回饋有限，加上債券發成次級債回頭壓股價。</p></div></div></div></div><div class="chapter" id="c11"><div class="head"><span class="time">28:00</span><span class="num">11</span><h3>如何收復跌幅</h3></div><div class="body"><div class="layer fact"><div class="tag"><span class="ico">📊</span>市場資訊</div><div class="content"><p>台股盤中 +686。市場評估 AI 週期是否轉向的三點：① 雲端巨頭現金流何時吃緊、被迫要求更精準；② 記憶體太貴拖累成本（100 億裡 80 億是記憶體怎麼蓋）；③ 原物料外溢讓央行轉鷹、融資計畫延後。</p></div></div><div class="layer take"><div class="tag"><span class="ico">🧠</span>他的解讀</div><div class="content"><span class="stance core">結論 · 先治槓桿、再證明回本</span><p>這波回檔第一時間會怪 Kimi K3 或財報，但他認為是兩個更深層的病因：<b>① 槓桿退潮（韓國 ETF 斷頭、美國選擇權 gamma 保護消失、融資追繳的多殺多）——是市場主動降風險、不是基本面惡化；② 市場真正關注「AI 投資何時賺得回來」</b>。解法有先後：<b>先把槓桿壓下來回到理性估值、再靠財報季證明回本能力</b>——「只要能解決回本問題，這輪下跌其實很好治」。</p><div class="bigquote">女生看醫生「我一直放屁但不臭沒聲音」，一週後回來大罵「怎麼變超臭」，醫生說：「你鼻塞治好了，接下來治重聽。」——先治鼻塞（槓桿）、再治重聽（回本），一步一步來。</div></div></div></div></div>
+<div class="endnote">💡 <b>讀法提示</b>：本集把「全球套牢潮」拆成一條清晰的因果：這波不是 AI 牛市結束、不是 Kimi K3，而是「槓桿退潮 × 回本疑慮」兩個病因——治法有先後（先壓槓桿、再靠財報證明回本）。中間穿插一大段「口號背後是利益順序」的歷史類比（海倫、楊貴妃、陳圓圓、反清復明），對應川普政策「看似矛盾、其實是利益排序改變」。立場上他反覆強調：市場怕的是「賺不回來」——一個害怕的市場沒有真實的貪婪泡沫，所以仍是估值回檔、不是泡沫破滅。※ 台股與部分數字為盤中/直播中。</div>
+<footer>
+本 Briefing 依當日直播逐字稿（含 YouTube 章節時間軸）整理摘要，僅供個人閱讀參考、非投資建議。<br>
+標準收尾：「祝各位投資朋友看盤順利、操盤愉快。」
+</footer>
+</div>
+</body>
+</html>
