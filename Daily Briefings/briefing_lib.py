@@ -213,7 +213,7 @@ html, body {{ margin:0; padding:0;
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang TC","Microsoft JhengHei","Noto Sans TC",sans-serif;
   background:#f7f8fa; color:#1a2330; line-height:1.65; }}
 .wrap {{ max-width:1000px; margin:0 auto; padding:28px 24px 80px; }}
-.topbar {{ display:flex; justify-content:flex-end; margin-bottom:10px; }}
+.topbar {{ display:flex; justify-content:flex-end; gap:8px; flex-wrap:wrap; margin-bottom:10px; }}
 .topbar a {{ display:inline-flex; align-items:center; gap:6px; background:#fff; color:#14528d;
   border:1px solid #cdd9e6; border-radius:20px; padding:7px 14px; font-size:13px; font-weight:700;
   text-decoration:none; box-shadow:0 2px 8px rgba(0,0,0,0.05); transition:transform .15s, box-shadow .15s; }}
@@ -237,7 +237,7 @@ footer {{ text-align:center; color:#9aa6b3; font-size:12px; margin-top:36px; }}
 </head>
 <body>
 <div class="wrap">
-<div class="topbar"><a href="https://alex-macro-dashboard.netlify.app/" target="_blank" rel="noopener">📊 總經儀表板 Macro Dashboard ↗</a></div>
+<div class="topbar"><a href="https://alex-macro-dashboard.netlify.app/" target="_blank" rel="noopener">📊 總經儀表板 Macro Dashboard ↗</a><a href="./radar/">🛰️ 質化雷達 Qual Radar</a></div>
 <div class="hero">
   <h1>游庭皓《早晨財經速解讀》每日 Briefing</h1>
   <p>共 {len(days)} 個平日 · {rng} · 每日直播重點，閱讀就懂</p>

@@ -1,11 +1,15 @@
 name: Deploy Briefings to GitHub Pages
 
-# 每次 push 更新到 Daily Briefings/ 就把該資料夾部署成網站根目錄
+# 兩個來源資料夾，內容不混：
+#   Daily Briefings/ → 站台根目錄      https://alexpcshao-web.github.io/daily-macro-update/
+#   radar/           → /radar/ 子目錄  https://alexpcshao-web.github.io/daily-macro-update/radar/
+# 只在部署當下於 CI 的 _site/ 暫存目錄合成，repo 內兩者各自獨立。
 on:
   push:
     branches: [main]
     paths:
       - "Daily Briefings/**"
+      - "radar/**"
   workflow_dispatch:
 
 permissions:
@@ -26,9 +30,19 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/configure-pages@v5
+      - name: Assemble site
+        run: |
+          mkdir -p _site
+          cp -r "Daily Briefings/." _site/
+          if [ -d radar ]; then
+            mkdir -p _site/radar
+            cp -r radar/. _site/radar/
+          fi
+          echo "--- _site 根目錄 ---"; ls _site | head -5
+          echo "--- _site/radar ---"; ls _site/radar 2>/dev/null || echo "(無 radar)"
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: "Daily Briefings"
+          path: "_site"
       # Pages 部署 API 偶發 "Deployment failed, try again later."（暫時性錯誤）
       # → 第一次失敗不中止，等 45 秒自動重試一次
       - id: deployment
