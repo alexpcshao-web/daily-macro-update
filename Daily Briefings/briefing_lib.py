@@ -237,7 +237,7 @@ footer {{ text-align:center; color:#9aa6b3; font-size:12px; margin-top:36px; }}
 </head>
 <body>
 <div class="wrap">
-<div class="topbar"><a href="https://alex-macro-dashboard.netlify.app/" target="_blank" rel="noopener">📊 總經儀表板 Macro Dashboard ↗</a><a href="./radar/">🛰️ 質化雷達 Qual Radar</a></div>
+<div class="topbar"><a href="https://alex-macro-dashboard.netlify.app/" target="_blank" rel="noopener">📊 總經儀表板 Macro Dashboard ↗</a><a href="./radar/" target="_blank" rel="noopener">🛰️ 質化雷達 Qual Radar ↗</a></div>
 <div class="hero">
   <h1>游庭皓《早晨財經速解讀》每日 Briefing</h1>
   <p>共 {len(days)} 個平日 · {rng} · 每日直播重點，閱讀就懂</p>
