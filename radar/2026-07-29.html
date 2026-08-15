@@ -36,6 +36,24 @@ tr:hover td{background:#fafcfe;}
 .p-flat{background:#f0f2f5;color:#6c7a8c;}
 .empty{background:#fff;border-radius:12px;padding:20px;color:#6c7a8c;font-size:14px;
  box-shadow:0 2px 10px rgba(0,0,0,.05);}
+.attr{background:#fff;border-radius:12px;padding:18px 20px;margin-bottom:12px;
+ box-shadow:0 2px 10px rgba(0,0,0,.05);border-left:5px solid #1a6cb1;}
+.attr.none{border-left-color:#b0b8c1;}
+.attr h3{margin:0 0 4px;font-size:16px;color:#14528d;}
+.attr h3 .mv{font-size:14px;font-weight:400;color:#6c7a8c;margin-left:8px;}
+.cat{display:inline-block;font-size:11px;font-weight:700;padding:2px 8px;border-radius:10px;
+ background:#e8f0f8;color:#14528d;margin-left:6px;vertical-align:2px;}
+.cat.none{background:#f0f2f5;color:#6c7a8c;}
+.attr .lead{font-size:14.5px;margin:8px 0 10px;}
+.src{margin:10px 0 0;padding:10px 12px;background:#f7f9fb;border-radius:8px;font-size:12.5px;}
+.src .lbl{font-weight:700;color:#14528d;font-size:11.5px;letter-spacing:.03em;
+ text-transform:uppercase;margin-bottom:5px;}
+.src ul{margin:0;padding-left:16px;} .src li{margin:3px 0;color:#4a5868;}
+.src a{color:#1a6cb1;}
+.hi{background:#fdecea;color:#c0392b;font-weight:700;padding:0 4px;border-radius:3px;}
+.xlink{background:#eef5fc;border:1px solid #cdd9e6;border-radius:12px;padding:16px 18px;
+ margin-bottom:12px;font-size:14px;}
+.xlink b{color:#14528d;}
 .banner{background:#fff8e6;border:1px solid #f0d9a0;border-radius:12px;padding:14px 16px;
  font-size:13.5px;color:#7a5c15;margin-bottom:20px;}
 footer{text-align:center;color:#9aa6b3;font-size:12px;margin-top:36px;}
@@ -51,8 +69,9 @@ a.card p{margin:6px 0 0;font-size:13.5px;color:#4a5868;}
   <p>交易日 2026-07-29 · 美東 10:00（開盤後 30 分）· SPY gap -0.12%
      / drift30 -0.33%</p>
 </div>
-<div class="banner"><b>v0：價格側</b>　目前只做「哪些標的的波動不正常」。
-消息面歸因與地緣政治事件簿尚未接上，之後會補在這一頁。</div>
+<div class="banner"><b>此日未收集消息面素材</b>
+價格側完整，個股歸因待補（yfinance 新聞端點只給當天，歷史日期補不回媒體面，
+但 EDGAR 申報可以）。</div>
 <div class="stats">
   <div class="stat"><div class="k">掃描標的</div><div class="v">81</div></div>
   <div class="stat"><div class="k">觸發</div><div class="v">1</div></div>
@@ -65,6 +84,8 @@ a.card p{margin:6px 0 0;font-size:13.5px;color:#4a5868;}
 <p class="note">超額波動（已扣 beta × SPY）超過該標的門檻 <code>clip(2σ₂₀, 5%, 12%)</code>。
 標「深度」者進當日前 5 名深度歸因。</p>
 <div class="tblwrap"><table><tr><th>標的</th><th>gap</th><th>超額 gap</th><th>drift30</th><th>超額合計</th><th>門檻</th><th>帳戶衝擊</th><th>型態</th></tr><tr><td><span class="sym">SOFI</span><span class="tag t-deep">深度</span><span class="tag t-mat">實質部位</span></td><td><span class="dn">-7.41%</span></td><td><span class="dn">-7.16%</span></td><td><span class="dn">-2.07%</span></td><td><span class="dn">-8.56%</span></td><td>5.45%</td><td>$43</td><td><span class="pat p-flat">持平</span></td></tr></table></div>
+
+<h2>個股歸因</h2><div class="empty">尚未收集素材。執行 <code>python3 collect.py --date 2026-07-29</code> 後重新渲染。</div>
 
 <h2>關注｜破 5% 但未過波動門檻</h2>
 <p class="note">絕對波動夠大，但對這檔標的而言仍屬日常區間，只列不歸因。</p>
@@ -80,4 +101,4 @@ a.card p{margin:6px 0 0;font-size:13.5px;color:#4a5868;}
 <span class="pat p-flat">持平</span> 開盤後沒方向。<br>
 <b>帳戶衝擊</b>＝超額波動 × 你的部位金額。純資訊，不影響排序。<br>
 <b>限制</b>：10:00 ET 只看得到跳空與開盤半小時，盤中才發動的行情這一版看不到。
-</div><footer>macro-qual-radar · 產生於 2026-08-02 01:04</footer></div></body></html>
+</div><footer>macro-qual-radar · 產生於 2026-08-15 12:10</footer></div></body></html>
