@@ -1,0 +1,102 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>質化雷達 2026-08-14</title><style>
+html,body{margin:0;padding:0;background:#f7f8fa;color:#1a2330;line-height:1.65;
+ font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang TC","Microsoft JhengHei","Noto Sans TC",sans-serif;}
+.wrap{max-width:1000px;margin:0 auto;padding:28px 20px 80px;}
+.topbar{display:flex;justify-content:flex-end;gap:8px;flex-wrap:wrap;margin-bottom:10px;}
+.topbar a{display:inline-flex;align-items:center;gap:6px;background:#fff;color:#14528d;
+ border:1px solid #cdd9e6;border-radius:20px;padding:7px 14px;font-size:13px;font-weight:700;
+ text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.05);transition:transform .15s,box-shadow .15s;}
+.topbar a:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(0,0,0,.1);}
+.hero{background:linear-gradient(135deg,#0f3a64 0%,#14528d 60%,#1a6cb1 100%);color:#fff;
+ padding:30px 26px;border-radius:16px;box-shadow:0 6px 24px rgba(15,58,100,.18);margin-bottom:22px;}
+.hero h1{margin:0 0 8px;font-size:23px;}
+.hero p{margin:0;opacity:.9;font-size:14px;}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:22px;}
+@media(max-width:680px){.stats{grid-template-columns:repeat(2,1fr);}}
+.stat{background:#fff;border-radius:12px;padding:14px 16px;box-shadow:0 2px 10px rgba(0,0,0,.05);}
+.stat .k{font-size:12px;color:#6c7a8c;margin-bottom:4px;}
+.stat .v{font-size:20px;font-weight:700;color:#14528d;}
+h2{font-size:17px;color:#14528d;margin:26px 0 6px;padding-left:10px;border-left:5px solid #1a6cb1;}
+.note{font-size:13px;color:#6c7a8c;margin:0 0 12px;}
+.tblwrap{overflow-x:auto;background:#fff;border-radius:12px;box-shadow:0 2px 10px rgba(0,0,0,.05);}
+table{border-collapse:collapse;width:100%;font-size:13.5px;min-width:640px;}
+th{background:#eef3f8;color:#14528d;text-align:right;padding:10px 12px;font-weight:700;white-space:nowrap;}
+th:first-child,td:first-child{text-align:left;}
+td{padding:10px 12px;text-align:right;border-top:1px solid #edf1f5;white-space:nowrap;
+ font-variant-numeric:tabular-nums;}
+tr:hover td{background:#fafcfe;}
+.sym{font-weight:700;color:#14528d;}
+.up{color:#c0392b;} .dn{color:#1e8449;}
+.tag{display:inline-block;font-size:10.5px;padding:1px 6px;border-radius:4px;margin-left:5px;
+ vertical-align:1px;font-weight:700;}
+.t-deep{background:#14528d;color:#fff;} .t-mat{background:#e8f0f8;color:#14528d;}
+.t-hold{background:#f0f2f5;color:#6c7a8c;}
+.pat{font-size:12px;padding:2px 8px;border-radius:10px;}
+.p-fade{background:#fdecea;color:#c0392b;} .p-cont{background:#e8f6ee;color:#1e8449;}
+.p-flat{background:#f0f2f5;color:#6c7a8c;}
+.empty{background:#fff;border-radius:12px;padding:20px;color:#6c7a8c;font-size:14px;
+ box-shadow:0 2px 10px rgba(0,0,0,.05);}
+.attr{background:#fff;border-radius:12px;padding:18px 20px;margin-bottom:12px;
+ box-shadow:0 2px 10px rgba(0,0,0,.05);border-left:5px solid #1a6cb1;}
+.attr.none{border-left-color:#b0b8c1;}
+.attr h3{margin:0 0 4px;font-size:16px;color:#14528d;}
+.attr h3 .mv{font-size:14px;font-weight:400;color:#6c7a8c;margin-left:8px;}
+.cat{display:inline-block;font-size:11px;font-weight:700;padding:2px 8px;border-radius:10px;
+ background:#e8f0f8;color:#14528d;margin-left:6px;vertical-align:2px;}
+.cat.none{background:#f0f2f5;color:#6c7a8c;}
+.attr .lead{font-size:14.5px;margin:8px 0 10px;}
+.src{margin:10px 0 0;padding:10px 12px;background:#f7f9fb;border-radius:8px;font-size:12.5px;}
+.src .lbl{font-weight:700;color:#14528d;font-size:11.5px;letter-spacing:.03em;
+ text-transform:uppercase;margin-bottom:5px;}
+.src ul{margin:0;padding-left:16px;} .src li{margin:3px 0;color:#4a5868;}
+.src a{color:#1a6cb1;}
+.hi{background:#fdecea;color:#c0392b;font-weight:700;padding:0 4px;border-radius:3px;}
+.xlink{background:#eef5fc;border:1px solid #cdd9e6;border-radius:12px;padding:16px 18px;
+ margin-bottom:12px;font-size:14px;}
+.xlink b{color:#14528d;}
+.banner{background:#fff8e6;border:1px solid #f0d9a0;border-radius:12px;padding:14px 16px;
+ font-size:13.5px;color:#7a5c15;margin-bottom:20px;}
+footer{text-align:center;color:#9aa6b3;font-size:12px;margin-top:36px;}
+a.card{display:block;text-decoration:none;color:inherit;background:#fff;border-radius:12px;
+ padding:16px 18px;box-shadow:0 2px 10px rgba(0,0,0,.05);border-left:5px solid #1a6cb1;
+ margin-bottom:10px;transition:transform .15s,box-shadow .15s;}
+a.card:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(0,0,0,.1);}
+a.card .d{font-family:monospace;color:#6c7a8c;font-size:13px;}
+a.card p{margin:6px 0 0;font-size:13.5px;color:#4a5868;}
+</style></head><body><div class="wrap"><div class="topbar"><a href="./">← 回列表</a><a href="https://alexpcshao-web.github.io/daily-macro-update/" target="_blank" rel="noopener">📰 每日 Briefing ↗</a><a href="https://alex-macro-dashboard.netlify.app/" target="_blank" rel="noopener">📊 總經儀表板 ↗</a></div>
+<div class="hero">
+  <h1>質化雷達 · 波動掃描</h1>
+  <p>交易日 2026-08-14 · 美東 10:00（開盤後 30 分）· SPY gap +0.08%
+     / drift30 -0.02%</p>
+</div>
+
+<div class="stats">
+  <div class="stat"><div class="k">掃描標的</div><div class="v">81</div></div>
+  <div class="stat"><div class="k">觸發</div><div class="v">0</div></div>
+  <div class="stat"><div class="k">關注</div><div class="v">2</div></div>
+  <div class="stat"><div class="k">帳戶衝擊</div>
+    <div class="v">$136</div></div>
+</div>
+
+<h2>觸發｜需歸因</h2>
+<p class="note">超額波動（已扣 beta × SPY）超過該標的門檻 <code>clip(2σ₂₀, 5%, 12%)</code>。
+標「深度」者進當日前 5 名深度歸因。</p>
+<div class="empty">今日無標的落入此區間。</div>
+
+<h2>個股歸因</h2><p class="note">時間窗 2026-08-13 16:00 → 2026-08-14 10:00 ET（前一交易日收盤到掃描時點）。<b>EDGAR＝公司申報的事實</b>；<b>新聞＝媒體解讀，需自行判斷</b>。</p><div class="attr"><h3>SNDK<span class="mv">超額 +6.16%</span><span class="cat">財報/財測</span></h3><p class="lead"><b>投資人日給出 2028–2030 長期財測，賣方全面轉多</b></p><p>Sandisk 在投資人日提出 <b>2028–2030 年營收年增中高個位數到十幾趴（mid-to-high teens）、non-GAAP 毛利率約 80%</b> 的長期目標，賣方普遍買單。此前一個交易日已先漲約 13%，當日盤中一度再漲 16%。</p><p>另一條線是與 Kioxia 合作的<b>第九代高效能快閃技術</b>，主打 AI 基礎設施需求。JPMorgan 給予 Overweight，分析師 Harlan Sur 認為 Sandisk 在「AI 推論帶動的 NAND 需求結構性轉折」中位置獨特。</p><p><b>判讀</b>：驅動的不是這一季的數字，是<b>2028 年以後的獲利模型被重新定價</b>——尤其毛利率 80% 這個數字，隱含的是定價權而不是出貨量。跳空 +7.44% 後 30 分鐘僅微幅回吐 1.37%（型態：持平），市場沒有急著獲利了結。</p><p>注意本檔的門檻是 12%（sigma₂₀ 高達 10.5%，已觸及上限），所以這次 +6.16% 的超額波動<b>沒有觸發</b>，只進關注名單。對 SNDK 而言，這種幅度是日常。</p><div class="src"><div class="lbl">媒體 · 解讀</div><ul><li>2026-08-14 09:15 ET　Sandisk stock surges as Wall Street cheers flash memory maker's bullish outlook　<i>Yahoo Finance</i> <a href="https://finance.yahoo.com/markets/stocks/article/sandisk-stock-surges-as-wall-street-cheers-flash-memory-makers-bullish-outlook-131502540.html" target="_blank" rel="noopener">↗</a></li><li>2026-08-14 09:44 ET　Stocks subdued as earnings season begins to wind down: AlphaCheck　<i>Yahoo Finance</i> <a href="https://finance.yahoo.com/markets/article/stocks-subdued-as-earnings-season-begins-to-wind-down-alphacheck-134418155.html" target="_blank" rel="noopener">↗</a></li></ul></div><div class="src"><div class="lbl">歸因引用來源</div><ul><li><a href="https://finance.yahoo.com/markets/stocks/article/sandisk-stock-surges-as-wall-street-cheers-flash-memory-makers-bullish-outlook-131502540.html" target="_blank" rel="noopener">Yahoo Finance — Sandisk 股價因長期財測大漲 ↗</a></li><li><a href="https://www.schaeffersresearch.com/content/news/2026/08/14/favorite-memory-stock-lands-another-bull-note" target="_blank" rel="noopener">Schaeffer's — 記憶體愛股再獲一份看多報告 ↗</a></li></ul></div></div><div class="attr"><h3>ONDS<span class="mv">超額 +3.51%</span><span class="cat">法規</span></h3><p class="lead"><b>川普對進口無人機課最高 100% 關稅，同時 Q2 財報調升展望</b></p><p><b>兩個催化劑在同一個晚上發生，無法乾淨分離</b>，但整群無人機股（UMAC、RCAT、AVAV、KTOS）隔夜同步走高，指向關稅是群體驅動因素：</p><p><b>① 關稅（8/13）</b>：白宮對進口無人機及零組件課徵關稅——具熱像等敏感功能的大型機 <b>100%</b>，較不敏感的小型機與零件 25%；歐盟、日本、列支敦斯登、南韓、瑞士、台灣 15%，英國 10%。<b>21 天後生效</b>。官方理由是扶植本土製造、降低對中國供應鏈的依賴。</p><p><b>② 財報（8/13 盤後）</b>：Q2 法說會報出創紀錄營收，並調升展望與獲利時程。</p><p><b>判讀</b>：關稅對 ONDS 這類美國本土業者是保護性利多，但<b>跳空 +5.50% 後 30 分鐘回吐 2.07%（型態：回補）</b>——市場開盤價把消息一次計入，之後沒跟上。政策利多的常見型態：宣布日衝高，實際受益要等 21 天生效後的訂單才驗證得了。</p><div class="src"><div class="lbl">SEC EDGAR · 事實</div><ul><li>2026-08-13 16:27 ET　<b>10-Q</b>　　<a href="https://www.sec.gov/Archives/edgar/data/1646188/000119312526349288/onds-20260630.htm" target="_blank" rel="noopener">原文 ↗</a></li></ul></div><div class="src"><div class="lbl">媒體 · 解讀</div><ul><li>2026-08-14 10:00 ET　Ondas Q2 Earnings Call Lifts Outlook and Profitability Timeline　<i>Zacks</i> <a href="https://finance.yahoo.com/markets/stocks/articles/ondas-q2-earnings-call-lifts-140000342.html" target="_blank" rel="noopener">↗</a></li><li>2026-08-14 09:55 ET　Will Ondas' New Orders Accelerate Revenue Growth in the Second Half?　<i>Zacks</i> <a href="https://finance.yahoo.com/markets/stocks/articles/ondas-orders-accelerate-revenue-growth-135500396.html" target="_blank" rel="noopener">↗</a></li><li>2026-08-14 06:33 ET　Social Buzz: Wallstreetbets Stocks Mostly Higher Premarket Friday; Reddit, Sandisk to Advance　<i>MT Newswires</i> <a href="https://finance.yahoo.com/markets/stocks/articles/social-buzz-wallstreetbets-stocks-mostly-103343466.html" target="_blank" rel="noopener">↗</a></li><li>2026-08-13 21:27 ET　UMAC, RCAT, ONDS, AVAV, KTOS Stocks Rise Overnight: Trump Takes Aim At Foreign Drones With New Tariffs　<i>Stocktwits</i> <a href="https://stocktwits.com/news-articles/markets/equity/umac-rcat-onds-avav-ktos-stocks-rise-overnight-trump-takes-aim-at-foreign-drones-with-new-tariffs/cZotbPSRJib" target="_blank" rel="noopener">↗</a></li><li>2026-08-13 19:07 ET　Ondas Inc (ONDS) (Q2 2026) Earnings Call Highlights: Record Revenue and Strategic Expansion ...　<i>GuruFocus.com</i> <a href="https://finance.yahoo.com/markets/stocks/articles/ondas-inc-onds-q2-2026-230723918.html" target="_blank" rel="noopener">↗</a></li><li>2026-08-13 16:24 ET　Sandisk, Cisco, Micron, Ondas, Coherent, Cerebras, and More Stocks That Explain Today’s Market　<i>Barrons.com</i> <a href="https://www.barrons.com/articles/stock-movers-270ebfe7?siteid=yhoof2&yptr=yahoo" target="_blank" rel="noopener">↗</a></li></ul></div><div class="src"><div class="lbl">歸因引用來源</div><ul><li><a href="https://www.whitehouse.gov/fact-sheets/2026/08/fact-sheet-president-donald-j-trump-bolsters-national-security-and-strengthens-u-s-supply-chains-by-imposing-tariffs-on-drones-and-their-parts-and-components/" target="_blank" rel="noopener">白宮 Fact Sheet — 對無人機及零組件課徵關稅 ↗</a></li><li><a href="https://www.france24.com/en/americas/20260814-donald-trump-imposes-tariffs-of-up-to-100-on-imported-drones" target="_blank" rel="noopener">France 24 — 川普對進口無人機課最高 100% 關稅 ↗</a></li><li><a href="https://www.tomshardware.com/tech-industry/drones/us-imposes-up-to-100-percent-tariffs-on-foreign-made-drones-and-components-china-remains-primary-target-as-washington-moves-to-reduce-reliance-on-overseas-suppliers" target="_blank" rel="noopener">Tom's Hardware — 中國仍是主要對象 ↗</a></li></ul></div></div><div class="xlink"><b>跨標的連結：記憶體超級循環（延續，非新事件）</b>（SNDK、AAPL、MU、WDC）<p>這是 7/31 那條「記憶體超級循環」的<b>延續，不是新事件</b>。當時 AAPL 因記憶體缺料下修財測而重挫；兩週後 SNDK 在投資人日把同一個結構性短缺寫進 2028–2030 的長期財測與 80% 毛利率目標。</p><p>同一個底層事實（NAND 供不應求）、兩端相反的價格反應：上游取得定價權，下游承受成本。<b>SNDK 在 7 月的 22 個交易日裡上榜 11 次，是全 watchlist 之冠</b>——這不是十一則獨立新聞，是一個持續發酵的事件。</p></div><div class="xlink"><b>跨標的連結：無人機關稅（新事件，政策類）</b>（ONDS、RKLB、BA、BAH）<p>這是第一次由個股歸因管線捞出來的<b>政策類事件</b>——原本該由地緣政治掃描負責的類型，因為它打到 watchlist 裡的持倉而先被抓到。</p><p>傳導鏈：<b>進口無人機關稅（最高 100%，21 天後生效）→ 本土製造成本相對優勢 → 美國無人機／國防航太業者</b>。整群同步反應（UMAC、RCAT、AVAV、KTOS、ONDS），是群體事件而非個股事件。台灣被列在 15% 那一級。</p><p>後續要追的是<b>生效日（約 9/3）與實際訂單</b>，而不是宣布當天的漲幅——當天已經回補了近四成。</p></div>
+
+<h2>關注｜破 5% 但未過波動門檻</h2>
+<p class="note">絕對波動夠大，但對這檔標的而言仍屬日常區間，只列不歸因。</p>
+<div class="tblwrap"><table><tr><th>標的</th><th>gap</th><th>超額 gap</th><th>drift30</th><th>超額合計</th><th>門檻</th><th>帳戶衝擊</th><th>型態</th></tr><tr><td><span class="sym">SNDK</span></td><td><span class="up">+7.78%</span></td><td><span class="up">+7.44%</span></td><td><span class="dn">-1.37%</span></td><td><span class="up">+6.16%</span></td><td>12.00%</td><td><span style="color:#b0b8c1">—</span></td><td><span class="pat p-flat">持平</span></td></tr><tr><td><span class="sym">ONDS</span><span class="tag t-hold">觀察倉</span></td><td><span class="up">+5.84%</span></td><td><span class="up">+5.50%</span></td><td><span class="dn">-2.07%</span></td><td><span class="up">+3.51%</span></td><td>12.00%</td><td>$0</td><td><span class="pat p-fade">回補</span></td></tr></table></div>
+
+<h2>怎麼讀</h2>
+<div class="empty">
+<b>gap</b>＝今開 ÷ 昨收 −1，反映隔夜消息面重定價。<br>
+<b>drift30</b>＝開盤後 30 分 ÷ 今開 −1，反映市場認不認同這個重定價。<br>
+<b>超額</b>＝扣掉 beta × SPY 同期變動後，屬於這檔標的自己的部分。<br>
+<b>型態</b>：<span class="pat p-fade">回補</span> 跳空後被反向吃掉（流動性事件居多）·
+<span class="pat p-cont">延續</span> 跳空後續走（重定價）·
+<span class="pat p-flat">持平</span> 開盤後沒方向。<br>
+<b>帳戶衝擊</b>＝超額波動 × 你的部位金額。純資訊，不影響排序。<br>
+<b>限制</b>：10:00 ET 只看得到跳空與開盤半小時，盤中才發動的行情這一版看不到。
+</div><footer>macro-qual-radar · 產生於 2026-08-15 12:23</footer></div></body></html>
