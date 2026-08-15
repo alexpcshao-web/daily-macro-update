@@ -34,6 +34,8 @@ tr:hover td{background:#fafcfe;}
 .pat{font-size:12px;padding:2px 8px;border-radius:10px;}
 .p-fade{background:#fdecea;color:#c0392b;} .p-cont{background:#e8f6ee;color:#1e8449;}
 .p-flat{background:#f0f2f5;color:#6c7a8c;}
+.v-up{background:#eef5fc;color:#14528d;} .v-dn{background:#f5f0f7;color:#7a5c95;}
+.v-mid{background:#f0f2f5;color:#6c7a8c;}
 .empty{background:#fff;border-radius:12px;padding:20px;color:#6c7a8c;font-size:14px;
  box-shadow:0 2px 10px rgba(0,0,0,.05);}
 .attr{background:#fff;border-radius:12px;padding:18px 20px;margin-bottom:12px;
@@ -83,13 +85,13 @@ a.card p{margin:6px 0 0;font-size:13.5px;color:#4a5868;}
 <h2>觸發｜需歸因</h2>
 <p class="note">超額波動（已扣 beta × SPY）超過該標的門檻 <code>clip(2σ₂₀, 5%, 12%)</code>。
 標「深度」者進當日前 5 名深度歸因。</p>
-<div class="tblwrap"><table><tr><th>標的</th><th>gap</th><th>超額 gap</th><th>drift30</th><th>超額合計</th><th>門檻</th><th>帳戶衝擊</th><th>型態</th></tr><tr><td><span class="sym">UNH</span><span class="tag t-deep">深度</span></td><td><span class="up">+7.38%</span></td><td><span class="up">+7.30%</span></td><td><span class="up">+0.72%</span></td><td><span class="up">+8.01%</span></td><td>5.00%</td><td><span style="color:#b0b8c1">—</span></td><td><span class="pat p-flat">持平</span></td></tr></table></div>
+<div class="tblwrap"><table><tr><th>標的</th><th>gap</th><th>超額 gap</th><th>drift30</th><th>超額合計</th><th>門檻</th><th>開盤30分量能</th><th>帳戶衝擊</th><th>型態 / 量價</th></tr><tr><td><span class="sym">UNH</span><span class="tag t-deep">深度</span></td><td><span class="up">+7.38%</span></td><td><span class="up">+7.30%</span></td><td><span class="up">+0.72%</span></td><td><span class="up">+8.01%</span></td><td>5.00%</td><td><span style="color:#b0b8c1">n/a</span></td><td><span style="color:#b0b8c1">—</span></td><td><span class="pat p-flat">持平</span></td></tr></table></div>
 
 <h2>個股歸因</h2><div class="empty">尚未收集素材。執行 <code>python3 collect.py --date 2026-07-16</code> 後重新渲染。</div>
 
 <h2>關注｜破 5% 但未過波動門檻</h2>
 <p class="note">絕對波動夠大，但對這檔標的而言仍屬日常區間，只列不歸因。</p>
-<div class="tblwrap"><table><tr><th>標的</th><th>gap</th><th>超額 gap</th><th>drift30</th><th>超額合計</th><th>門檻</th><th>帳戶衝擊</th><th>型態</th></tr><tr><td><span class="sym">OKLO</span><span class="tag t-mat">實質部位</span></td><td><span class="dn">-3.04%</span></td><td><span class="dn">-1.96%</span></td><td><span class="dn">-3.54%</span></td><td><span class="dn">-5.33%</span></td><td>7.34%</td><td>$31</td><td><span class="pat p-cont">延續</span></td></tr></table></div>
+<div class="tblwrap"><table><tr><th>標的</th><th>gap</th><th>超額 gap</th><th>drift30</th><th>超額合計</th><th>門檻</th><th>開盤30分量能</th><th>帳戶衝擊</th><th>型態 / 量價</th></tr><tr><td><span class="sym">OKLO</span><span class="tag t-mat">實質部位</span></td><td><span class="dn">-3.04%</span></td><td><span class="dn">-1.96%</span></td><td><span class="dn">-3.54%</span></td><td><span class="dn">-5.33%</span></td><td>7.34%</td><td><span style="color:#b0b8c1">n/a</span></td><td>$31</td><td><span class="pat p-cont">延續</span></td></tr></table></div>
 
 <h2>怎麼讀</h2>
 <div class="empty">
@@ -101,4 +103,4 @@ a.card p{margin:6px 0 0;font-size:13.5px;color:#4a5868;}
 <span class="pat p-flat">持平</span> 開盤後沒方向。<br>
 <b>帳戶衝擊</b>＝超額波動 × 你的部位金額。純資訊，不影響排序。<br>
 <b>限制</b>：10:00 ET 只看得到跳空與開盤半小時，盤中才發動的行情這一版看不到。
-</div><footer>macro-qual-radar · 產生於 2026-08-15 12:23</footer></div></body></html>
+</div><footer>macro-qual-radar · 產生於 2026-08-15 21:36</footer></div></body></html>
