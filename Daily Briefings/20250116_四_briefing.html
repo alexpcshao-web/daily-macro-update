@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2025/1/16（四）游庭皓 早晨財經速解讀 Briefing</title>
+<style>
+:root { color-scheme: light; }
+* { box-sizing:border-box; }
+html,body { margin:0; padding:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang TC","Microsoft JhengHei","Noto Sans TC",sans-serif; background:#f7f8fa; color:#1a2330; line-height:1.7; }
+.wrap { max-width:1080px; margin:0 auto; padding:28px 24px 80px; }
+.nav { font-size:12.5px; color:#6c7a8c; margin-bottom:12px; }
+.hero { background:linear-gradient(135deg,#0f3a64 0%,#14528d 60%,#1a6cb1 100%); color:#fff; padding:30px 30px; border-radius:16px; box-shadow:0 6px 24px rgba(15,58,100,0.18); margin-bottom:22px; }
+.hero .kicker { font-size:11px; letter-spacing:2px; opacity:.8; text-transform:uppercase; }
+.hero h1 { margin:6px 0 8px; font-size:23px; line-height:1.4; }
+.hero .sub { opacity:.9; margin:0; font-size:13.5px; }
+/* 四大指數圖 */
+.indices { background:#fff; border-radius:12px; padding:18px 22px 20px; box-shadow:0 2px 10px rgba(0,0,0,0.05); margin-bottom:14px; }
+.indices h2 { font-size:16px; margin:0 0 14px; color:#14528d; }
+.idx-row { display:grid; grid-template-columns:130px 1fr 132px; align-items:center; gap:12px; margin:9px 0; }
+.idx-name { font-weight:700; font-size:14px; }
+.idx-name .v { display:block; font-family:monospace; font-size:12.5px; color:#6c7a8c; font-weight:500; margin-top:1px; }
+.idx-track { position:relative; height:24px; background:#f2f5f9; border-radius:6px; }
+.idx-mid { position:absolute; left:50%; top:-3px; bottom:-3px; width:1px; background:#c4cdd9; }
+.idx-bar { position:absolute; top:3px; height:18px; border-radius:4px; }
+.idx-bar.up { background:linear-gradient(90deg,#43b985,#21895a); left:50%; }
+.idx-bar.down { background:linear-gradient(270deg,#e2716b,#c0392b); right:50%; }
+.idx-bar.flat { background:#9aa6b3; left:calc(50% - 2px); width:4px !important; }
+.idx-chg { font-size:12.5px; font-weight:700; white-space:nowrap; text-align:left; }
+.idx-chg.up { color:#19794e; } .idx-chg.down { color:#b1342f; } .idx-chg.flat { color:#6c7a8c; }
+.idx-note { font-size:12.5px; color:#6c7a8c; margin:12px 0 0; }
+.summary { background:#fff; border-radius:12px; padding:20px 24px; box-shadow:0 2px 10px rgba(0,0,0,0.05); margin-bottom:14px; }
+.summary h2 { font-size:18px; margin:0 0 12px; color:#14528d; }
+.summary p { margin:10px 0; font-size:14.5px; }
+.summary b { color:#0f3a64; }
+.toc { background:#fff; border-radius:12px; padding:14px 18px; box-shadow:0 2px 10px rgba(0,0,0,0.05); margin-bottom:24px; font-size:13px; }
+.toc b { color:#14528d; }
+.toc a { color:#1a6cb1; text-decoration:none; }
+.toc a:hover { text-decoration:underline; }
+.chapter { background:#fff; border-radius:14px; box-shadow:0 2px 12px rgba(0,0,0,0.06); margin-bottom:18px; overflow:hidden; }
+.chapter > .head { display:flex; align-items:center; gap:12px; padding:14px 20px; background:linear-gradient(90deg,#eef4fa,#fff); border-left:6px solid #1a6cb1; }
+.chapter > .head .time { font-family:monospace; font-size:13px; color:#fff; background:#14528d; padding:3px 9px; border-radius:6px; }
+.chapter > .head .num { font-size:13px; color:#9aa6b3; font-weight:700; }
+.chapter > .head h3 { margin:0; font-size:17px; color:#14528d; }
+.chapter .body { padding:6px 20px 18px; }
+.layer { display:grid; grid-template-columns:128px 1fr; gap:14px; padding:13px 0; border-top:1px dashed #e6ebf2; }
+.layer:first-child { border-top:none; }
+.layer .tag { font-size:12.5px; font-weight:700; padding-top:2px; }
+.layer .tag .ico { display:block; font-size:18px; margin-bottom:2px; }
+.layer.fact .tag { color:#2a6aa6; }
+.layer.market .tag { color:#b86a30; }
+.layer.take .tag { color:#1f7a52; }
+.layer .content { font-size:14.5px; }
+.layer .content p { margin:0 0 8px; } .layer .content p:last-child { margin-bottom:0; }
+.layer .content b { color:#0f3a64; }
+.layer.take { background:#f5fbf8; border-radius:8px; margin:6px -10px 0; padding:13px 12px; border-top:none; }
+.stance { display:inline-block; font-size:12px; font-weight:700; padding:2px 10px; border-radius:20px; margin-bottom:6px; }
+.stance.agree { background:#e2f5ec; color:#19794e; border:1px solid #9ed9bb; }
+.stance.disagree { background:#fde8e8; color:#b1342f; border:1px solid #f0a9a6; }
+.stance.partial { background:#fdefd8; color:#a86a1c; border:1px solid #f0c585; }
+.stance.neutral { background:#eef1f6; color:#51607a; border:1px solid #cfd7e3; }
+.stance.core { background:#e7eefc; color:#2f51b0; border:1px solid #adc1f0; }
+.bigquote { background:#14528d; color:#fff; padding:16px 22px; border-radius:10px; margin:8px 0 0; font-size:14.5px; font-style:italic; }
+.endnote { background:linear-gradient(135deg,#fffdf5,#fff7e0); border-left:4px solid #e6a23c; padding:14px 18px; border-radius:0 10px 10px 0; margin:18px 0 0; font-size:14px; }
+.endnote b { color:#b86a30; }
+footer { text-align:center; color:#9aa6b3; font-size:12px; margin-top:36px; line-height:1.8; }
+@media (max-width:680px){ .layer{ grid-template-columns:1fr; gap:4px; } .layer .tag .ico{ display:inline; margin-right:4px; } .idx-row{ grid-template-columns:84px 1fr 92px; gap:8px; } .idx-name{ font-size:13px; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="nav">游庭皓《早晨財經速解讀》每日 Briefing</div>
+<div class="hero">
+  <div class="kicker">早晨財經速解讀 · 開盤前 30 分鐘</div>
+  <h1>美國通膨只剩薪資/服務在撐、商品早已通縮；台灣 2025 不是真缺電，是「電價調升淘汰傳產」的選擇——而再生能源推不動的真因，是地方黑道『綠電蟑螂』</h1>
+  <p class="sub">2025/1/16（四） · 影片標題：通膨達標 美債有救了？水電續漲？2025台灣會缺電嗎？</p>
+</div>
+<div class="indices"><h2>📊 當日四大指數收盤</h2><div class="idx-row"><div class="idx-name">道瓊<span class="v">43,221</span></div><div class="idx-track"><div class="idx-mid"></div><div class="idx-bar up" style="width:29.6%"></div></div><div class="idx-chg up">+703 / +1.65%</div></div><div class="idx-row"><div class="idx-name">標普<span class="v">5,949</span></div><div class="idx-track"><div class="idx-mid"></div><div class="idx-bar up" style="width:32.9%"></div></div><div class="idx-chg up">+107 / +1.83%</div></div><div class="idx-row"><div class="idx-name">納指<span class="v">19,511</span></div><div class="idx-track"><div class="idx-mid"></div><div class="idx-bar up" style="width:44.0%"></div></div><div class="idx-chg up">+466 / +2.45%</div></div><div class="idx-row"><div class="idx-name">費半<span class="v">5,153</span></div><div class="idx-track"><div class="idx-mid"></div><div class="idx-bar up" style="width:38.3%"></div></div><div class="idx-chg up">+107 / +2.13%</div></div><div class="idx-row"><div class="idx-name">台股<span class="v">22,957</span></div><div class="idx-track"><div class="idx-mid"></div><div class="idx-bar up" style="width:35.4%"></div></div><div class="idx-chg up">+443 / +1.97%</div></div><p class="idx-note">美國 12 月 CPI 符合預期、核心月增僅 0.2%（半年來首降）＋銀行股財報全優，帶動道瓊飆 703 點、標普 +1.83%（11 月來最佳單日），10 年期公債殖利率回落到 4.6%。台積電 ADR +2.66% 收 206；當日下午 2:30 台積電第四季法說會。※ 本集為 2025/1/16，早於本站 briefing 產線（6/4 起），為補建之單集。</p></div>
+<div class="summary"><h2>📌 一句話 Briefing</h2><p><b>1. 美國通膨只剩薪資／服務在撐，商品早已通縮——聯準會不急著轉鴿。</b> 核心 CPI 月增僅 0.2%（半年首降）；僵固通膨集中在汽車保險（+11%）、機票、房租；玩具、電子、二手車則明顯通縮。數據只是「符合預期」，聯準會會把不確定性留給未來，維持現狀越久越好。</p><p><b>2. 台灣 2025 不是真缺電，是「用電價淘汰傳產」的政策選擇。</b> 財劃法恐砍台電補貼 1,000–2,000 億→電價勢必再漲（工業用電占 55%）；水價也可能漲 4–5 成。缺電只要把電價調上去、需求就下來了——真正的問題是電力『結構』，不是總量。</p><p><b>3. 再生能源推不動的真因：地方黑道『綠電蟑螂』。</b> 核三今年除役→非核家園達成、卻變成『燃氣家園』（燃煤 42%＋燃氣 39%，再生能源僅 9.5%、達不到原訂 20%）。絕對執政卻推行龜速，是被地方黑道白手套卡住——這就是你要找的那一段。台股收 22,957（+443）。</p></div>
+<div class="toc"><b>章節導覽：</b><a href="#c1">§1 市場總覽</a> · <a href="#c2">§2 通膨細項：服務僵固、商品通縮</a> · <a href="#c3">§3 利潤通膨：CPI vs PPI</a> · <a href="#c4">§4 聯準會態度</a> · <a href="#c5">§5 美股追蹤與銀行財報</a> · <a href="#c6">§6 台積電法說前瞻</a> · <a href="#c7">§7 台灣會缺電嗎？電價、水價</a> · <a href="#c8">§8 能源結構：非核家園變燃氣家園</a> · <a href="#c9">§9 再生能源為何推不動？綠電蟑螂與黑道</a> · <a href="#c10">§10 空汙與健康後果</a> · <a href="#c11">§11 投資 vs 投機</a> · <a href="#c12">§12 選書導讀《輝達之道》</a></div>
+<div class="chapter" id="c1"><div class="head"><span class="time">§1</span><span class="num">01</span><h3>市場總覽</h3></div><div class="body"><div class="layer fact"><div class="tag"><span class="ico">📊</span>市場資訊</div><div class="content"><p>美國 12 月 CPI 符合預期、年增 2.9%（前值 2.7、緩步放大），但<b>核心 CPI 月增僅 0.2%、低於預期，是半年來首次下滑</b>——最擔心的薪資/服務僵固通膨看起來有點鬆動。10 年期公債殖利率回落到 4.6%。加上銀行股財報全數優於預期，<b>道瓊飆漲 703 點、標普 +1.83%（11 月來最佳單日）</b>。以色列與哈馬斯達成加薩停火與人質協議（1/19 生效）。</p></div></div><div class="layer take"><div class="tag"><span class="ico">🧠</span>他的解讀</div><div class="content"><span class="stance neutral">中性觀察 · 定調</span><p>他定調：<b>美股至少有基本面驅動（銀行財報＋沒有系統性風險），全球通膨預期稍微減弱，關鍵只剩薪資通膨。</b>通膨達標對美債是好是壞很難講——美債同時反映景氣預期、長債標售與通膨，不能一概而論。</p></div></div></div></div><div class="chapter" id="c2"><div class="head"><span class="time">§2</span><span class="num">02</span><h3>通膨細項：服務僵固、商品通縮</h3></div><div class="body"><div class="layer fact"><div class="tag"><span class="ico">📊</span>市場資訊</div><div class="content"><p>拆 12 月 CPI：漲最多的是<b>汽車保險 +11%</b>（年初調費的年增效果）、機票 +7.9%、房租 +4.3%、教育 +4%、餐廳 +3.6%（人力成本）。反向的商品端明顯通縮：<b>玩具 -3.8%、電子產品 -3.6%、家電 -3.5%、二手車 -3.3%、傢俱 -1.5%</b>。</p></div></div><div class="layer take"><div class="tag"><span class="ico">🧠</span>他的解讀</div><div class="content"><span class="stance core">核心觀點 · 通膨不是原物料失控、是薪資</span><p>他的判斷：<b>通膨壓力集中在服務業（保險、旅遊、住房）與必需品；通縮則發生在非必需品（玩具、電子、耐用品）。</b>只要引領僵固性最高的核心通膨能下來就沒大問題——而它下不來，不是原物料失控，<b>是你的薪資在漲</b>。對難以短期 AI 化的企業（餐飲、服務）是最大挑戰（美國速食早已點餐機台化）。</p></div></div></div></div><div class="chapter" id="c3"><div class="head"><span class="time">§3</span><span class="num">03</span><h3>利潤通膨：CPI vs PPI</h3></div><div class="body"><div class="layer fact"><div class="tag"><span class="ico">📊</span>市場資訊</div><div class="content"><p>他用一張 CPI 減 PPI 的圖說明「消費者通膨 vs 生產者通膨」的差距：綠色區塊（消費通膨＞生產通膨）＝企業主佔優勢、獲利可放大；紅色區塊則相反。2023 年以來消費通膨遠大於生產通膨（餐廳便當漲上去、原物料跌了也不調回來），<b>但現在 PPI（生產者成本）又開始要高過 CPI 了。</b></p></div></div><div class="layer take"><div class="tag"><span class="ico">🧠</span>他的解讀</div><div class="content"><span class="stance core">核心觀點 · 留意利潤通膨的轉折</span><p>他提醒一個容易被忽略的訊號：<b>生產者物價重新高過消費者物價，代表企業的『利潤通膨』紅利可能要反轉、獲利空間開始被壓縮</b>——這會不會形成未來的利潤預期變化，值得多留意。</p></div></div></div></div><div class="chapter" id="c4"><div class="head"><span class="time">§4</span><span class="num">04</span><h3>聯準會態度</h3></div><div class="body"><div class="layer fact"><div class="tag"><span class="ico">📊</span>市場資訊</div><div class="content"><p>這次數據只是「符合預期」，沒有低到能讓聯準會釋放鴿派訊號。</p></div></div><div class="layer take"><div class="tag"><span class="ico">🧠</span>他的解讀</div><div class="content"><span class="stance partial">部分同意 · 把不確定性留給未來</span><p>他解讀聯準會的算計：<b>話說太死、一旦數據變化就會失去公信力，所以最好的做法是把不確定性留給未來——通膨沒失控、經濟也不錯，就維持現狀越久越好</b>，直到有人受不了高利率、或通膨真達標、或關稅通膨預期再起，才釋放新訊號。「聯準會無法改變景氣週期，只能稍微縮短或拉長、降低波動。」</p></div></div></div></div><div class="chapter" id="c5"><div class="head"><span class="time">§5</span><span class="num">05</span><h3>美股追蹤與銀行財報</h3></div><div class="body"><div class="layer fact"><div class="tag"><span class="ico">📊</span>市場資訊</div><div class="content"><p>道瓊 +1.65% 收 43,221、標普 +1.83% 收 5,949、納指 +2.45% 收 19,511、費半 +2.13% 收 5,153；台積電 ADR +2.66% 收 206。<b>金融股財報全數優於預期</b>：摩根大通 2024 全年獲利營收創高（單季獲利年增 5 成）、高盛 Q4 獲利成長逾一倍（+6%）、花旗信用卡與服務創高（+6.49%），富國、紐約銀行亦然。</p></div></div><div class="layer take"><div class="tag"><span class="ico">🧠</span>他的解讀</div><div class="content"><span class="stance core">核心觀點 · 重點是財政（放貸量）、不是財報</span><p>他把定錨點講清楚：<b>財報季本來就先蹲後跳，這些都是短線消息；真正該看的是這四大銀行對 2025 年『放貸量』仍保持高度——重點是財政、是基本面，不是單季財報。</b>2025 全年觀察基本面何時出現拐點，其他都是浮雲。</p></div></div></div></div><div class="chapter" id="c6"><div class="head"><span class="time">§6</span><span class="num">06</span><h3>台積電法說前瞻</h3></div><div class="body"><div class="layer fact"><div class="tag"><span class="ico">📊</span>市場資訊</div><div class="content"><p>當日下午 2:30 台積電第四季法說會。市場關注兩點：① 美國 AI 晶片三級管制對台積電的影響（他認為應該不會有）；② 近期盛傳「輝達下修 CoWoS 需求、台積電恐遭砍單」，雖無人證實但傳言四起，台積電可能需要回應。</p></div></div><div class="layer take"><div class="tag"><span class="ico">🧠</span>他的解讀</div><div class="content"><span class="stance neutral">中性觀察 · 法說看點</span><p>他預期<b>財測一定是達高標</b>，重點在對 2025 展望與對 CoWoS 砍單傳言的回應。</p></div></div></div></div><div class="chapter" id="c7"><div class="head"><span class="time">§7</span><span class="num">07</span><h3>台灣會缺電嗎？電價、水價</h3></div><div class="body"><div class="layer fact"><div class="tag"><span class="ico">📊</span>市場資訊</div><div class="content"><p>台灣通膨最大變數是水電。財劃法修法恐讓原本行政院每年撥給台電的約 2,000 億預算大砍——藍白 9 案中有 5 案要全砍台電補貼（約 1,000 億），台電恐少 1,000–2,000 億預算，勢必再調電價。<b>工業用電占台灣用電 55%</b>（住宅僅 18%），2022–24 電價已漲 4 次（台積電台灣廠成本上行全球最快）。水價也可能從 4 級擴到 7 級、漲幅近 4–5 成。</p></div></div><div class="layer take"><div class="tag"><span class="ico">🧠</span>他的解讀</div><div class="content"><span class="stance core">核心觀點 · 缺電是假議題，電價才是真解方</span><p>他的犀利判斷：<b>「缺電不是爭議題——你只要把電價調升就不缺了。」</b>缺電是經濟需求對比不上電力供應；把電價調上去、需求就下來、傳產就移出或倒閉。所以不可能真的全民長時間停電，真正會發生的是<b>『用漲電價來淘汰高耗電傳產』</b>。今年（2025）以當年度供應看應是勉強夠用，但備轉容量率是十年最低，稍微尖峰就可能跳電。</p></div></div></div></div><div class="chapter" id="c8"><div class="head"><span class="time">§8</span><span class="num">08</span><h3>能源結構：非核家園變燃氣家園</h3></div><div class="body"><div class="layer fact"><div class="tag"><span class="ico">📊</span>市場資訊</div><div class="content"><p>台灣總發電：<b>燃煤 42%、燃氣 39%、核能剩 6.3%、再生能源僅 9.5%</b>。核一、核二已除役，核三今年（2025/5）除役後核能將歸零、正式非核家園；核四不蓋、要重啟也是十幾年後的事。再生能源原訂 2025 要達 20%，如今看來達不到。</p></div></div><div class="layer take"><div class="tag"><span class="ico">🧠</span>他的解讀</div><div class="content"><span class="stance core">核心觀點 · 達成非核，卻變成『燃氣家園』</span><p>他的評論：<b>能源轉型某種程度達成了非核家園，但實際是把燃煤換成燃氣、變成『燃氣家園』——再生能源提升有限。</b>天然氣撐半數發電有兩個風險：仍有空汙、且台灣幾乎不產天然氣，<b>地緣政治一緊張，能源脆弱性立刻暴露</b>；最終台灣每度電碳排放量遠高於中日韓美德。</p></div></div></div></div><div class="chapter" id="c9"><div class="head"><span class="time">§9</span><span class="num">09</span><h3>再生能源為何推不動？綠電蟑螂與黑道</h3></div><div class="body"><div class="layer fact"><div class="tag"><span class="ico">📊</span>市場資訊</div><div class="content"><p>絕對執政、政府推行態度也很明顯，但再生能源速度卻很慢——他點名這是<b>『內政問題』，不是政策態度問題</b>：中南部<b>『綠電蟑螂』太多，增辦綠能的犯罪案過去三年爆發 132 件</b>，牽涉從中央公務員、縣府局處長、鄉鎮長、業者、民代到<b>黑道白手套</b>；目前已起訴 100 多人、查扣不法所得約 1 億。案例從 2016 文資局水下科案、2018 彰化大城鄉案、2019 苗栗通霄案，遍及雲林、台西各地。</p></div></div><div class="layer take"><div class="tag"><span class="ico">🧠</span>他的解讀</div><div class="content"><span class="stance core">核心觀點 · 卡住綠能的是地方 8+9</span><p>這正是你要找的段落。他的解讀：<b>推行一個需要龐大土地的產業，最後就變成當地黑道（8+9）來卡——外商引進太陽能、風力技術後，遇到土地就被地方勢力刁難，覺得政府沒保障，最後只好離開。</b>這就是為什麼「絕對執政、態度明確，推行速度卻這麼慢」。他認為<b>最快的解方就是掃黑、打擊 8+9</b>。</p><div class="bigquote">黑道常常就是放一個牌子在那邊——你要用這塊地，就得先跟我打個招呼；你不打招呼，我就去破壞你的太陽能板。搞得很多海外移進來的太陽能、風力外商處處被刁難，這就是南部的真實情況。</div></div></div></div></div><div class="chapter" id="c10"><div class="head"><span class="time">§10</span><span class="num">10</span><h3>空汙與健康後果</h3></div><div class="body"><div class="layer fact"><div class="tag"><span class="ico">📊</span>市場資訊</div><div class="content"><p>燃煤燃氣為主的結構帶來空汙代價：2023 年肺癌death 仍持續衝高、達 5.3 萬人、為台灣主要死因；肺癌發生率最高是澎湖（PM2.5），其次雲林、台南、嘉義、彰化、新竹，台中排第九（風向南吹＋空汙＋較少下雨）。</p></div></div><div class="layer take"><div class="tag"><span class="ico">🧠</span>他的解讀</div><div class="content"><span class="stance partial">部分同意 · 是選擇的代價，但別因此看空台股</span><p>他務實看待：<b>這是能源選擇的代價，但別因此看空台灣股市長期表現。</b>隨科技進步總能找到更低耗能、更高發電的方式；工業用電才是重點、要處理的是工業部門的用電分配，再生能源就算慢、這幾年也在提升。只要有共識、給政府施壓，總會有辦法，不必太悲觀。</p></div></div></div></div><div class="chapter" id="c11"><div class="head"><span class="time">§11</span><span class="num">11</span><h3>投資 vs 投機</h3></div><div class="body"><div class="layer fact"><div class="tag"><span class="ico">📊</span>市場資訊</div><div class="content"><p>他對「這種反彈能持續多久」的回應：這些都是短線消息，長期要看基本面能否驅動。現在市場沒創高也沒跌破，最好的做法就是持續等待。</p></div></div><div class="layer take"><div class="tag"><span class="ico">🧠</span>他的解讀</div><div class="content"><span class="stance core">核心心法 · 投資是藝術、投機是技術</span><p>他區分兩者：<b>投資是一種藝術，需要耐心與策略、大部分時間其實沒什麼好做的；投機是一門技術，依賴敏銳的市場操作與短期波動掌握。</b>你要清楚自己的能力在哪裡——對散戶而言，這兩者的難度與方向差非常多。</p><div class="bigquote">網友問：色情片跟情色片有什麼區別？情色片偏重藝術，色情片偏重技術。投資在長期的河流圖裡是一種藝術——需要耐心與策略慢慢培養；投機則更偏一門技術。</div></div></div></div></div><div class="chapter" id="c12"><div class="head"><span class="time">§12</span><span class="num">12</span><h3>選書導讀《輝達之道》</h3></div><div class="body"><div class="layer fact"><div class="tag"><span class="ico">📊</span>市場資訊</div><div class="content"><p>導讀《輝達之道》（作者金泰，前巴倫週刊資深撰稿人、輝達首度授權採訪筆記）：黃仁勳把設計團隊分成「新架構研發」與「快速改良」兩組反覆迭代，每 6 個月推新品、遠快於 Intel 與 AMD；表面做硬體、背後靠軟體（統一驅動讓新舊產品相容）。組織文化：高效率、超高共識、超高回饋、高壓、難以模仿。</p></div></div><div class="layer take"><div class="tag"><span class="ico">🧠</span>他的解讀</div><div class="content"><span class="stance neutral">選書分享 · 工程師的行銷大全</span><p>他從書中提煉一個共識：<b>真正成功的企業家（賈伯斯、張忠謀、黃仁勳）都是『銷售/行銷能力極強＋有技術背景』的工程師。</b>而銷售正是台灣人的弱勢——文化上較不擅長溝通、small talk 與自我行銷；要打造口條好的領導人有難度。</p></div></div></div></div>
+<div class="endnote">💡 <b>讀法提示</b>：★ 這是你在找的那一集：關於「台灣再生能源為什麼不成功、是因為黑道」的段落在 §9（綠電蟑螂與黑道）——132 件綠能犯罪、黑道白手套放牌子卡地、破壞太陽能板、外商被刁難、掃黑才是最快解方。此集另在 2026/3/11 有簡短回顧。｜本集為 2025/1/16，早於本站 briefing 產線（原始產線自 2026/6/4 起），屬事後補建；因無 YouTube 章節時間戳，章節以 §1…§12 編輯分段標示（非直播時間軸）。※ 非投資建議。</div>
+<footer>
+本 Briefing 依當日直播逐字稿（含 YouTube 章節時間軸）整理摘要，僅供個人閱讀參考、非投資建議。<br>
+標準收尾：「祝各位投資朋友看盤順利、操盤愉快。」
+</footer>
+</div>
+</body>
+</html>
